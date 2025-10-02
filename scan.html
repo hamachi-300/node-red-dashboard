@@ -120,6 +120,9 @@ export default {
       ping_delay: 0,
       ping_reqest: false, // filter msg ping
       scan_reqest: false, // filter msg scan
+      pair_reqest: false, // filter msg pair
+      pair_status: false,
+      pair_response: {},
     };
   },
   mounted() {
@@ -177,6 +180,13 @@ export default {
           }
           this.ping_reqest = false; 
         }
+
+        // pair handler
+        if (newMsg && newMsg.pair && this.pair_reqest) {
+          this.pair_status = true;
+          this.pair_response = newMsg.payload
+          this.pair_request = false;
+        }
       },
       deep: true
     }
@@ -208,26 +218,63 @@ export default {
     addSlave(node) {
       // Close the dialog
       node.active = false;
+      let paired = false;
 
-      const sendObj = {
-        collection: "nodes",
-        payload: { 
-          description: this.description, 
-          display_name: node.display_name,
-          mac_address: node.mac_address
-        },
-        operation: "insertOne",
-        toMongo: true
-      };
-      this.send(sendObj);
+      // send pairing request
+      const sendPair = {
+        payload : node.mac_address
+      }
+      this.pair_reqest = true;
+      this.send(sendPair);
 
-      // Set mesh_slave = true so it no longer appears in scan section
-      const targetNode = this.nodes_detected.find(
-        n => n.ip_address === node.ip_address && n.name === node.name
-      );
-      if (targetNode) {
-        targetNode.mesh_slave = true;
-        localStorage.setItem("nodes_detected", JSON.stringify(this.nodes_detected));
+      // check pair status
+      if (this.pair_status) {
+        if (pair_response.info == "pairing to new node.") {
+          console.log("pairing...");
+        } else if (pair_response.info == "failed to connect to node.") {
+          console.log("error this node not found!!");
+        } else {
+          console.log("some error occured!!");
+        }
+      }
+
+      // wait for paired from esp32
+      console.log("waiting...")
+      this.pair_reqest = true;
+      const is_responsed = false;
+
+      while (!is_responsed) {
+        if (this.pair_reqest == false && this.pair_response.info == "pair sucessed.") {
+          is_responsed = true;
+          paired = true;
+        }
+      }
+
+      // if paired successfully and master node is online 
+      if (paired && master_status == "online") {
+
+        const sendObj = {
+          collection: "nodes",
+          payload: { 
+            description: this.description, 
+            display_name: node.display_name,
+            mac_address: node.mac_address
+          },
+          operation: "insertOne",
+          toMongo: true
+        };
+
+        this.pair_reqest = true;
+        this.send(sendObj);
+
+        // Set mesh_slave = true so it no longer appears in scan section
+        const targetNode = this.nodes_detected.find(
+          n => n.ip_address === node.ip_address && n.name === node.name
+        );
+        if (targetNode) {
+          targetNode.mesh_slave = true;
+          localStorage.setItem("nodes_detected", JSON.stringify(this.nodes_detected));
+        }
       }
     },
     checkStatus() {
@@ -279,4 +326,3 @@ export default {
   display: inline-block;
 }
 </style>
-
