@@ -84,17 +84,23 @@
 
             <v-card-actions class="justify-space-between">
               <v-btn
-                @click="addSlave(node)"
-                style="background-color: #a2af9b; color: black"
-              >
-                Create
-              </v-btn>
+                  style="background-color: #a2af9b; color: black"
+                  :loading="isLoading"
+                  :disabled="isLoading"
+                  @click="addSlave(node)"
+                >
+                  <template v-slot:loader>
+                    <v-progress-circular indeterminate color="white" size="20"></v-progress-circular>
+                  </template>
+                  <span v-if="!isLoading">Create</span>
+                  <span v-else>Loading...</span>
+                </v-btn>
 
               <v-btn
-                @click="node.active = false"
+                @click="cancelAddSlave(node)"
                 style="background-color: #90a4ae; color: black"
               >
-                Close
+                Cancel
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -102,6 +108,20 @@
       </div>
     </div>
   </div>
+  <!-- Top notification -->
+    <v-snackbar
+      v-model="snackbar"
+      top
+      absolute
+      :timeout="notify_timeout"
+      :color="notify_color"
+      elevation="5"
+    >
+      {{ message }}
+      <template v-slot:actions>
+        <v-btn text @click="snackbar = false">Close</v-btn>
+      </template>
+    </v-snackbar>
 </template>
 
 <script>
@@ -123,6 +143,11 @@ export default {
       ping_request: false, // filter msg ping
       scan_request: false, // filter msg scan
       pair_request: false, // filter msg pair
+      isLoading: false,
+      snackbar: false, // control notify visibility
+      message: '', // message of notify
+      notify_color: "teal",
+      notify_timeout: 0
     };
   },
   mounted() {
@@ -182,21 +207,24 @@ export default {
         }
 
         // pair handler and if have pair successed it will auto allow
-        if (newMsg && newMsg.pair && (this.pair_request || newMsg.payload.info == "pair success!")) {
+        if (newMsg && newMsg.pair && (this.pair_request || newMsg.payload.mac_address == this.pair_mac_addr)) {
           this.pair_request = false;
 
           // check pair status
           switch (newMsg.payload.info) {
             case "pairing to new node.":
-              console.log("wait for pairing..");
+              console.log("Info : Wait for pairing..");
+              this.showNotification("Info : Wait for pairing..", "blue");
               
               // wait for paired from esp32
               break;
             case "failed to connect to node.":
-              console.log("failed to connect to node!!");
+              console.log("Error : Failed to connect to node!!");
+              this.showNotification("Error : Failed to connect to node!!", "red");
               break;
             case "pair success!":
-              console.log("pair succeed!!");
+              console.log("Info : Pair succeed!!");
+              this.showNotification("Info : Pair succeed!!", "green");
 
               // save to mongoDB database
               const sendObj = {
@@ -220,9 +248,11 @@ export default {
                 targetNode.mesh_slave = true;
                 localStorage.setItem("nodes_detected", JSON.stringify(this.nodes_detected));
               }
+              this.isLoading = false;
               break;
             default:
-              console.log("some error occurred");
+              console.log("Some error occurred!!");
+              this.showNotification("Error : Some error occurred!!", "red");
           }
         }
       },
@@ -230,6 +260,14 @@ export default {
     }
   },
   methods: {
+    showNotification(msg = 'Notification shown at the top!', color = "teal") {
+      this.notify_timeout += 3000;
+      this.message = msg;
+      this.notify_color = color;
+      this.snackbar = true;
+      // Optional: send message to Node-RED backend
+      this.$emit('send', { payload: 'top_notification_shown' });
+    },
     redirectLogin() {
       const base = window.location.origin;
       window.location.href = `${base}/dashboard/login`;
@@ -254,8 +292,6 @@ export default {
       }
     },
     addSlave(node) {
-      // Close the dialog
-      node.active = false;
       this.pair_display_name = node.display_name;
       this.pair_mac_addr = node.mac_address;
 
@@ -268,10 +304,17 @@ export default {
       
       // handle master offline
       if (this.master_status == "offline") {
-        console.log("error : master is offline!!");
+        console.log("Error : Master is offline!!");
+        this.showNotification("Error : Master is offline!!", "red");
         return;
       }
       this.send(sendObj);
+
+      // change to loading state
+      this.isLoading = true;
+
+      // Send message to Node-RED backend
+      this.$emit('send', { payload: 'button_clicked' });
     },
     checkStatus() {
       // send ping payload to master node
@@ -296,6 +339,16 @@ export default {
       };
       this.scan_request = true; 
       this.send(sendObj);
+    },
+    cancelAddSlave(node) {
+      // reset pairing node info
+      this.description = "";
+      this.pair_display_name = "";
+      this.pair_mac_addr = "";
+
+      this.isLoading = false;
+      // close dialog pop up
+      node.active = false;
     }
   },
 };
@@ -320,5 +373,9 @@ export default {
 
 .node-item {
   display: inline-block;
+}
+
+.v-btn {
+  min-width: 150px;
 }
 </style>

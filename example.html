@@ -1,21 +1,50 @@
 <template>
-  <div>
-    <v-sheet class="d-flex mb-6 bg-surface-variant">
-      <v-sheet class="ma-2 pa-2">Flex item</v-sheet>
-      <v-sheet class="ma-2 pa-2">Flex item</v-sheet>
-      <v-sheet class="ma-2 pa-2">Flex item</v-sheet>
-    </v-sheet>
+  <v-container class="pa-4 text-center">
+    <!-- Button to trigger notification -->
+    <v-btn color="primary" @click="showNotification">
+      Show Top Notification
+    </v-btn>
 
-    <v-sheet class="d-flex mb-6 bg-surface-variant">
-      <v-sheet class="ma-2 pa-2 me-auto">Flex item</v-sheet>
-      <v-sheet class="ma-2 pa-2">Flex item</v-sheet>
-      <v-sheet class="ma-2 pa-2">Flex item</v-sheet>
-    </v-sheet>
-
-    <v-sheet class="d-flex mb-6 bg-surface-variant">
-      <v-sheet class="ma-2 pa-2">Flex item</v-sheet>
-      <v-sheet class="ma-2 pa-2">Flex item</v-sheet>
-      <v-sheet class="ma-2 pa-2">Flex item</v-sheet>
-    </v-sheet>
-  </div>
+    <!-- Top notification -->
+    <v-snackbar
+      v-model="snackbar"
+      top
+      absolute
+      timeout="3000"
+      color="teal"
+      elevation="5"
+    >
+      {{ message }}
+      <template v-slot:actions>
+        <v-btn text @click="snackbar = false">Close</v-btn>
+      </template>
+    </v-snackbar>
+  </v-container>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      snackbar: false, // controls visibility
+      message: '',     // notification text
+    };
+  },
+  methods: {
+    showNotification() {
+      this.message = 'Notification shown at the top!';
+      this.snackbar = true;
+
+      // Optional: send message to Node-RED backend
+      this.$emit('send', { payload: 'top_notification_shown' });
+    },
+  },
+};
+</script>
+
+<style scoped>
+/* Ensure snackbar is above other content */
+.v-snackbar {
+  top: 0 !important;
+}
+</style>
