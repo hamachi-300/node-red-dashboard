@@ -92,7 +92,7 @@
                   <template v-slot:loader>
                     <v-progress-circular indeterminate color="white" size="20"></v-progress-circular>
                   </template>
-                  <span v-if="!isLoading">Create</span>
+                  <span v-if="!isLoading">Pair</span>
                   <span v-else>Loading...</span>
                 </v-btn>
 
@@ -375,7 +375,4 @@ export default {
   display: inline-block;
 }
 
-.v-btn {
-  min-width: 150px;
-}
 </style>
