@@ -1,0 +1,46 @@
+<template>
+</template>
+<script>
+export default {
+  mounted() {
+    if (localStorage.getItem("loggedIn") === "false") {
+        this.redirectLogin();
+    }
+  },
+  data() {
+    return {
+
+    };
+  },
+  watch: {
+    msg(newMsg) {
+
+    }
+  },
+  methods: {
+    redirectLogin() {
+      const base = window.location.origin;
+      window.location.href = `${base}/dashboard/login`;
+    },
+    getNodesMongoDB() {
+      const sendObj = {
+        collection: "users",
+        payload: { username: this.username },
+        operation: "findOne"
+      };
+    }
+  }
+};
+</script>
+
+<!-- 
+
+- pull data slave nodes from mongoDB show on screen
+- master status label
+- sync button for sync slave database with mesh slave
+- get active node and match to node in database to tell which node is online [ master online condition ] on open webpage
+- refresh button to get active node again
+- naming system and update to database
+- config relay slave 
+- config type of sensor (button, toggle, relay)
+-->

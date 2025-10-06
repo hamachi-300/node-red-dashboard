@@ -24,7 +24,7 @@ export default {
     };
   },
   mounted() {
-    if (localStorage.getItem("loggedIn") === "true") {
+    if (localStorage.getItem("loggedIn")) {
       this.redirectScan();
     }
   },

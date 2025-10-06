@@ -171,6 +171,30 @@ export default {
     if (localStorage.getItem("loggedIn") === "false") {
       this.redirectLogin();
     }
+
+    // Load data from localStorage
+
+    const description = localStorage.getItem("description");
+    const pair_display_name = localStorage.getItem("pair_display_name");
+    const pair_mac_addr = localStorage.getItem("pair_mac_addr");
+    const isLoading = localStorage.getItem("isLoading");
+
+    if (description && description != "") {
+        this.description = description;
+    }
+
+    if (pair_display_name && pair_display_name != "") {
+      this.pair_display_name = pair_display_name;
+    }
+
+    if (pair_mac_addr && pair_mac_addr != "") {
+      this.pair_mac_addr = pair_mac_addr;
+    }
+    if (isLoading == "true") {
+      this.isLoading = true;
+    } else {
+      this.isLoading = false;
+    }
   },
   watch: {
     msg: {
@@ -213,6 +237,15 @@ export default {
           // check pair status
           switch (newMsg.payload.info) {
             case "pairing to new node.":
+              // change to loading state
+              this.isLoading = true;
+
+              // Save to localStorage
+              localStorage.setItem("description", this.description);
+              localStorage.setItem("pair_display_name", this.pair_display_name);
+              localStorage.setItem("pair_mac_addr", this.pair_mac_addr);
+              localStorage.setItem("isLoading", this.isLoading);
+
               console.log("Info : Wait for pairing..");
               this.showNotification("Info : Wait for pairing..", "blue");
               
@@ -230,9 +263,10 @@ export default {
               const sendObj = {
                 collection: "nodes",
                 payload: { 
-                  description: this.description, 
-                  display_name: this.pair_display_name,
-                  mac_address: this.pair_mac_addr
+                  mac_address: newMsg.payload.mac_address,
+                  node_id: newMsg.payload.node_id,
+                  node_type: newMsg.payload.node_type,
+                  description: this.description
                 },
                 operation: "insertOne",
                 toMongo: true
@@ -249,6 +283,16 @@ export default {
                 localStorage.setItem("nodes_detected", JSON.stringify(this.nodes_detected));
               }
               this.isLoading = false;
+              // reset pairing node info
+              this.description = "";
+              this.pair_display_name = "";
+              this.pair_mac_addr = "";
+
+              // Save to localStorage
+              localStorage.setItem("description", this.description);
+              localStorage.setItem("pair_display_name", this.pair_display_name);
+              localStorage.setItem("pair_mac_addr", this.pair_mac_addr);
+              localStorage.setItem("isLoading", this.isLoading);
               break;
             default:
               console.log("Some error occurred!!");
@@ -308,10 +352,14 @@ export default {
         this.showNotification("Error : Master is offline!!", "red");
         return;
       }
-      this.send(sendObj);
 
-      // change to loading state
-      this.isLoading = true;
+      if (this.isLoading) {
+        console.log("Warning : Cannot pair node while pairing!!");
+        this.showNotification("Warning : Cannot pair node while pairing!!", "yellow");
+        return;
+      }
+
+      this.send(sendObj);
 
       // Send message to Node-RED backend
       this.$emit('send', { payload: 'button_clicked' });
@@ -341,14 +389,26 @@ export default {
       this.send(sendObj);
     },
     cancelAddSlave(node) {
-      // reset pairing node info
-      this.description = "";
-      this.pair_display_name = "";
-      this.pair_mac_addr = "";
+      if (this.isLoading == false) {
+        // close dialog pop up
+        node.active = false;
+      } else {
+        if (confirm("Do you want to cancel ?\n[ cancel after pairing you have to sync mesh ]")) {
+          this.isLoading = false;
+          this.pair_display_name = "";
+          this.pair_mac_addr = "";
+          this.description = "";
 
-      this.isLoading = false;
-      // close dialog pop up
-      node.active = false;
+          // Save to localStorage
+          localStorage.setItem("description", this.description);
+          localStorage.setItem("pair_display_name", this.pair_display_name);
+          localStorage.setItem("pair_mac_addr", this.pair_mac_addr);
+          localStorage.setItem("isLoading", this.isLoading);
+
+          // close dialog pop up
+          node.active = false;
+        }
+      }
     }
   },
 };
