@@ -365,20 +365,23 @@ export default {
       this.$emit('send', { payload: 'button_clicked' });
     },
     checkStatus() {
-      // send ping payload to master node
-      setInterval(() => {
       const sendObj = {
         payload: "ping"
       };
-      this.ping_request = true; 
-      // online & offline logic
-      if (this.ping_delay == 0) {
-        this.master_status = "offline";
-      } else {
-        this.master_status = "online";
-        this.ping_delay -= 1;
-      }
+      this.ping_request = true;
       this.send(sendObj);
+
+      // send ping payload to master node 5 sec interval
+      setInterval(() => {
+        this.ping_request = true; 
+        // online & offline logic
+        if (this.ping_delay == 0) {
+          this.master_status = "offline";
+        } else {
+          this.master_status = "online";
+          this.ping_delay -= 1;
+        }
+        this.send(sendObj);
       }, 5000); // 1000 ms = 1 second
     },
     scanNodes() {

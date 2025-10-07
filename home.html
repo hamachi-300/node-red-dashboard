@@ -1,4 +1,16 @@
 <template>
+  <div
+      v-for="(node, index) in slave_nodes"
+      :key="index"
+  >
+    <div>
+        <p>Node ID : {{ node.node_id }}</p>
+        <p>MAC Addr : {{ node.mac_address }}</p>
+        <p>Node Type : {{ node.node_type }}</p>
+        <p>Description : {{ node.description }}</p>
+    </div>
+  </div>
+
 </template>
 <script>
 export default {
@@ -6,15 +18,25 @@ export default {
     if (localStorage.getItem("loggedIn") === "false") {
         this.redirectLogin();
     }
+    
+    // get data from mongoDB at first
+    this.getNodesMongoDB();
   },
   data() {
     return {
-
+      slave_nodes: [],
+      getNode_request: false, 
     };
   },
   watch: {
     msg(newMsg) {
+      // handle MongoDB
 
+      // handle getNodes
+      if (newMsg.type == "MONGO_DB" && this.getNode_request) {
+        this.slave_nodes = newMsg.payload;
+        this.getNode_request = false;
+      }
     }
   },
   methods: {
@@ -24,10 +46,12 @@ export default {
     },
     getNodesMongoDB() {
       const sendObj = {
-        collection: "users",
-        payload: { username: this.username },
-        operation: "findOne"
+        collection: "nodes",
+        operation: "find.toArray",
+        type: "MONGO_DB"
       };
+      this.getNode_request = true, 
+      this.send(sendObj);
     }
   }
 };
