@@ -1,16 +1,55 @@
 <template>
-  <div
-      v-for="(node, index) in slave_nodes"
-      :key="index"
-  >
+<!-- top section -->
+<div style="display: flex; flex-direction: column;" class="ma-3">
+  <div class="top-buttons d-lg-flex d-sm-block justify-space-between align-center">
+    <!-- master status -->
+    <strong class="text-h6 font-weight-bold text-uppercase text-blue-grey-darken-4">
+        status : 
+        <span :class="master_status === 'online' ? 'text-teal' : 'text-red-darken-2'">
+          {{ master_status }}
+        </span>
+    </strong>
     <div>
+      <!-- refresh button -->
+      <v-btn
+        outlined
+        @click=""
+        style="background-color: #a2af9b; color: black"
+        class="font-weight-bold text-subtitle-1 text-blue-grey-darken-4 mr-4"
+      >
+        REFRESH
+      </v-btn>
+      <!-- sync button -->
+      <v-btn
+        outlined
+        @click=""
+        style="background-color: #a2af9b; color: black"
+        class="font-weight-bold text-subtitle-1 text-blue-grey-darken-4"
+      >
+        SYNC
+      </v-btn>
+    </div>
+</div>
+<!-- dashboard slave configs -->
+<v-row class="mt-5 pa-4 rounded-lg" style="background-color: #a2af9b; color: black">
+  <v-col
+    v-for="(node, index) in slave_nodes"
+    :key="index"
+    cols="12"
+    sm="6"
+    md="6"
+    color="primary"
+  >
+    <v-sheet class="pa-3 text-subtitle-1 text-blue-grey-darken-4 rounded-lg"  color="primary" elevation="1">
+      <v-sheet color="primary">
         <p>Node ID : {{ node.node_id }}</p>
         <p>MAC Addr : {{ node.mac_address }}</p>
         <p>Node Type : {{ node.node_type }}</p>
         <p>Description : {{ node.description }}</p>
-    </div>
-  </div>
-
+      </v-sheet>
+    </v-sheet>
+  </v-col>
+</v-row>
 </template>
 <script>
 export default {
@@ -21,22 +60,43 @@ export default {
     
     // get data from mongoDB at first
     this.getNodesMongoDB();
+    // ping at initial
+    this.checkStatus();
   },
   data() {
     return {
       slave_nodes: [],
-      getNode_request: false, 
+      getNode_request: false,
+      ping_request: false,
+      allNode_request: false,
+      master_status: "offline",
     };
   },
   watch: {
     msg(newMsg) {
-      // handle MongoDB
+      // MongoDB handle 
 
-      // handle getNodes
+      // getNodes handle
       if (newMsg.type == "MONGO_DB" && this.getNode_request) {
         this.slave_nodes = newMsg.payload;
         this.getNode_request = false;
+        console.log(this.slave_nodes);
       }
+
+      // pong handler
+      if (newMsg.type == "PONG" && this.ping_request) {
+        this.master_status = "online"
+        if (this.ping_delay < 2) {
+          this.ping_delay += 2;
+        }
+        this.ping_request = false; 
+      }
+
+      // get all node handler
+      if (newMsg.type == "ALL_NODE" && this.allNode_request) {
+        this.allNode_request = false;
+      }
+
     }
   },
   methods: {
@@ -52,6 +112,35 @@ export default {
       };
       this.getNode_request = true, 
       this.send(sendObj);
+    },
+    checkStatus() {
+      const sendObj = {
+        payload: "ping",
+        type: "PING"
+      };
+      this.ping_request = true;
+      this.send(sendObj);
+
+      // send ping payload to master node 5 sec interval
+      setInterval(() => {
+        this.ping_request = true; 
+        // online & offline logic
+        if (this.ping_delay == 0) {
+          this.master_status = "offline";
+        } else {
+          this.master_status = "online";
+          this.ping_delay -= 1;
+        }
+        this.send(sendObj);
+      }, 5000); // 1000 ms = 1 second
+    },
+    syncSlave() {
+      this.allNode_request = true;
+      const sendObj = {
+        payload: "getAllNode",
+        type: "ALL_NODE"
+      }
+      this.send(sendObj);
     }
   }
 };
@@ -59,8 +148,6 @@ export default {
 
 <!-- 
 
-- pull data slave nodes from mongoDB show on screen
-- master status label
 - sync button for sync slave database with mesh slave
 - get active node and match to node in database to tell which node is online [ master online condition ] on open webpage
 - refresh button to get active node again
