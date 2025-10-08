@@ -138,8 +138,8 @@
         "y": 2340,
         "wires": [
             [
-                "f7f4e351ed6248e3",
-                "c14b30fed8c2b15d"
+                "ae7c5b3d7e4a5795",
+                "2350652fbadaae99"
             ]
         ]
     },
@@ -159,8 +159,8 @@
         "id": "34af37b65b55eacf",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 320,
-        "y": 2600,
+        "x": 380,
+        "y": 2700,
         "wires": [
             [
                 "859b3bd66bc892ae"
@@ -171,8 +171,8 @@
         "id": "c02fc4796c3e4414",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 1140,
-        "y": 2600,
+        "x": 1080,
+        "y": 2700,
         "wires": [
             [
                 "b9bb8e0b80aefb9d"
@@ -183,8 +183,8 @@
         "id": "df7a3faee1583cba",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 320,
-        "y": 1960,
+        "x": 420,
+        "y": 1920,
         "wires": [
             [
                 "fdce47c8830e0420"
@@ -195,20 +195,18 @@
         "id": "dc3ea815b143fda4",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 1160,
-        "y": 1960,
+        "x": 880,
+        "y": 280,
         "wires": [
-            [
-                "fd7426e6c315f693"
-            ]
+            []
         ]
     },
     {
         "id": "f7f4e351ed6248e3",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 240,
-        "y": 2100,
+        "x": 320,
+        "y": 2060,
         "wires": [
             [
                 "df7a3faee1583cba",
@@ -220,8 +218,8 @@
         "id": "c14b30fed8c2b15d",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 240,
-        "y": 2460,
+        "x": 320,
+        "y": 2560,
         "wires": [
             [
                 "34af37b65b55eacf",
@@ -234,7 +232,7 @@
         "type": "junction",
         "z": "2c682173eb064de0",
         "x": 1220,
-        "y": 2100,
+        "y": 2060,
         "wires": [
             [
                 "f4a13cbca9ec8ca7"
@@ -245,8 +243,58 @@
         "id": "b9bb8e0b80aefb9d",
         "type": "junction",
         "z": "2c682173eb064de0",
+        "x": 1140,
+        "y": 2560,
+        "wires": [
+            [
+                "9a1992c72110a3a2"
+            ]
+        ]
+    },
+    {
+        "id": "12e519c8df58a2c6",
+        "type": "junction",
+        "z": "2c682173eb064de0",
+        "x": 1120,
+        "y": 1920,
+        "wires": [
+            [
+                "fd7426e6c315f693"
+            ]
+        ]
+    },
+    {
+        "id": "ae7c5b3d7e4a5795",
+        "type": "junction",
+        "z": "2c682173eb064de0",
+        "x": 240,
+        "y": 2180,
+        "wires": [
+            [
+                "f7f4e351ed6248e3",
+                "d2410c09cb80c845"
+            ]
+        ]
+    },
+    {
+        "id": "2350652fbadaae99",
+        "type": "junction",
+        "z": "2c682173eb064de0",
+        "x": 240,
+        "y": 2420,
+        "wires": [
+            [
+                "c14b30fed8c2b15d",
+                "139f4630319af6dc"
+            ]
+        ]
+    },
+    {
+        "id": "9a1992c72110a3a2",
+        "type": "junction",
+        "z": "2c682173eb064de0",
         "x": 1220,
-        "y": 2460,
+        "y": 2420,
         "wires": [
             [
                 "f4a13cbca9ec8ca7"
@@ -571,7 +619,7 @@
         "width": 0,
         "height": 14,
         "head": "",
-        "format": "<template>\n<!-- top section -->\n<div style=\"display: flex; flex-direction: column;\" class=\"ma-3\">\n  <div class=\"top-buttons d-lg-flex d-sm-block justify-space-between align-center\">\n    <!-- master status -->\n    <strong class=\"text-h6 font-weight-bold text-uppercase text-blue-grey-darken-4\">\n        status : \n        <span :class=\"master_status === 'online' ? 'text-teal' : 'text-red-darken-2'\">\n          {{ master_status }}\n        </span>\n    </strong>\n    <div>\n      <!-- refresh button -->\n      <v-btn\n        outlined\n        @click=\"\"\n        style=\"background-color: #a2af9b; color: black\"\n        class=\"font-weight-bold text-subtitle-1 text-blue-grey-darken-4 mr-4\"\n      >\n        REFRESH\n      </v-btn>\n      <!-- sync button -->\n      <v-btn\n        outlined\n        style=\"background-color: #a2af9b; color: black\"\n        class=\"font-weight-bold text-subtitle-1 text-blue-grey-darken-4\"\n        :loading=\"isLoading\"\n        :disabled=\"isLoading\"\n        @click=\"syncSlave\"\n      >\n        <template v-slot:loader>\n          <v-progress-circular indeterminate color=\"white\" size=\"20\"></v-progress-circular>\n        </template>\n        <span v-if=\"!isLoading\">SYNC</span>\n        <span v-else>Loading...</span>\n      </v-btn>\n    </div>\n</div>\n<!-- dashboard slave configs -->\n<v-row class=\"mt-5 pa-4 rounded-lg\" style=\"background-color: #a2af9b; color: black\">\n  <v-col\n    v-for=\"(node, index) in slave_nodes\"\n    :key=\"index\"\n    cols=\"12\"\n    sm=\"6\"\n    md=\"6\"\n    color=\"primary\"\n  >\n    <v-sheet class=\"pa-3 text-subtitle-1 text-blue-grey-darken-4 rounded-lg\"  color=\"primary\" elevation=\"1\">\n      <v-sheet color=\"primary\">\n        <p>Node Status : {{ node.node_status }}</p>\n        <p>Node ID : {{ node.node_id }}</p>\n        <p>MAC Addr : {{ node.mac_address }}</p>\n        <p>Node Type : {{ node.node_type }}</p>\n        <p>Description : {{ node.description }}</p>\n      </v-sheet>\n    </v-sheet>\n  </v-col>\n</v-row>\n</template>\n<script>\nexport default {\n  mounted() {\n    if (localStorage.getItem(\"loggedIn\") === \"false\") {\n        this.redirectLogin();\n    }\n    // get data from mongoDB at first\n    this.getNodesMongoDB();\n    // ping at initial\n    this.checkMasterStatus();\n    // get slave node status\n    this.checkNodeStatus();\n  },\n  data() {\n    return {\n      slave_nodes: [],\n      getNode_request: false,\n      ping_request: false,\n      allNode_request: false,\n      activeNode_request: false,\n      isLoading: false,\n      master_status: \"offline\",\n    };\n  },\n  watch: {\n    msg(newMsg) {\n      // MongoDB handle \n\n      // getNodes handle\n      if (newMsg.type == \"MONGO_DB\" && this.getNode_request) {\n        this.isLoading = false;\n\n        // add node_status key to slave nodes\n        this.slave_nodes = Object.values(newMsg.payload).map(node => ({\n          ...node,\n          node_status: \"offline\"\n        }));\n\n        this.getNode_request = false;\n      }\n\n      // pong handler\n      if (newMsg.type == \"PONG\" && this.ping_request) {\n        this.master_status = \"online\"\n        if (this.ping_delay < 2) {\n          this.ping_delay += 2;\n        }\n        this.ping_request = false; \n      }\n\n      // get active node handler\n      if (newMsg.type == \"ACTIVE_NODE\" && this.activeNode_request) {\n        this.activeNode_request = false;\n\n        // Merge state from payload into slave_nodes\n        this.slave_nodes = this.slave_nodes.map(node => {\n          const key = node.mac_address;\n          if (newMsg.payload[key] && newMsg.payload[key].state) {\n            return {\n              ...node,\n              state: newMsg.payload[key]?.state || {},  // merge state\n              node_status: \"online\"\n            };\n          } else {\n            return {\n              ...node,\n              node_status: \"offline\"\n            };\n          }\n        });\n      }\n\n      // get all node handler\n      if (newMsg.type == \"ALL_NODE\" && this.allNode_request) {\n        this.allNode_request = false;\n        \n        // delete old slave nodes in DB\n        const dropObj = {\n          collection: \"nodes\",\n          payload: {},\n          operation: \"deleteMany\",\n          type: \"MONGO_DB\"\n        };\n        this.send(dropObj);\n\n        // upload new slave nodes to DB after 1.5 sec\n        setTimeout(() => {\n          const insertObj = {\n            collection: \"nodes\",\n            payload: [Object.values(newMsg.payload)],\n            operation: \"insertMany\",\n            type: \"MONGO_DB\"\n          };\n          this.send(insertObj);\n          this.getNodesMongoDB();\n        }, 1500);\n      }\n    }\n  },\n  methods: {\n    // prevent unlogin user\n    redirectLogin() {\n      const base = window.location.origin;\n      window.location.href = `${base}/dashboard/login`;\n    },\n    // send request to mongoDB to get slave nodes\n    getNodesMongoDB() {\n      const sendObj = {\n        collection: \"nodes\",\n        operation: \"find.toArray\",\n        type: \"MONGO_DB\"\n      };\n      this.getNode_request = true, \n      this.send(sendObj);\n    },\n    // check master node status every 5 sec\n    checkMasterStatus() {\n      const sendObj = {\n        payload: \"ping\",\n        type: \"PING\"\n      };\n      this.ping_request = true;\n      this.send(sendObj);\n\n      // send ping payload to master node 5 sec interval\n      setInterval(() => {\n        this.ping_request = true; \n        // online & offline logic\n        if (this.ping_delay == 0) {\n          this.master_status = \"offline\";\n        } else {\n          this.master_status = \"online\";\n          this.ping_delay -= 1;\n        }\n        this.send(sendObj);\n      }, 5000); // 5000 ms = 5 second\n    },\n    // check slave node status every 1 sec\n    checkNodeStatus() {\n      const sendObj = {\n        payload: \"active\",\n        type: \"ACTIVE_NODE\"\n      };\n      this.ping_request = true;\n      this.send(sendObj);\n\n      // send check payload to master node 1 sec interval\n      setInterval(() => {\n        this.activeNode_request = true; \n        this.send(sendObj);\n      }, 1000); // 1000 ms = 1 second\n    },\n    // get entire slave node to replace to mongoDB nodes collection\n    syncSlave() {\n      this.allNode_request = true;\n      const sendObj = {\n        payload: \"getAllNode\",\n        type: \"ALL_NODE\"\n      }\n      this.send(sendObj);\n      this.isLoading = true;\n    }\n  }\n};\n</script>\n\n<!-- \n\n- get active node and match to node in database to tell which node is online [ master online condition ] on open webpage\n- refresh button to get active node again\n- naming system and update to database\n- config relay slave \n- config type of sensor (button, toggle, relay)\n-->\n",
+        "format": "<template>\n  <div class=\"mesh-detail\">\n    <!-- Top action buttons: one left, one right -->\n    <div class=\"top-buttons d-lg-flex d-sm-block justify-space-between align-center\">\n      <strong class=\"text-h6 font-weight-bold text-uppercase text-blue-grey-darken-4\">\n          status : \n          <span :class=\"master_status === 'online' ? 'text-teal' : 'text-red-darken-2'\">\n            {{ master_status }}\n          </span>\n        </strong>\n      <div>\n        <v-btn outlined @click=\"scanNodes\" style=\"background-color: #a2af9b; color: black\"\n          class=\"font-weight-bold text-subtitle-1 text-blue-grey-darken-4 mr-4\">\n          SCAN\n        </v-btn>\n\n        <v-btn color=\"red-darken-1\" outlined @click=\"deleteAllNodes\" class=\"font-weight-bold text-subtitle-1\">\n          RESET !\n        </v-btn>\n      </div>\n    </div>\n\n    <!-- Nodes displayed inline (only mesh_slave: false) -->\n    <div class=\"nodes-container pa-4 rounded-lg\" style=\"background-color: #a2af9b;\">\n      <div v-for=\"(node, index) in nodes_detected.filter(n => !n.mesh_slave)\" :key=\"index\" class=\"node-item\">\n        <!-- Dialog wrapping node button -->\n        <v-dialog v-model=\"node.active\" transition=\"dialog-bottom-transition\" class=\"w-auto\" style=\"max-width: 400px;\">\n          <template v-slot:activator=\"{ props: activatorProps }\">\n            <v-btn v-bind=\"activatorProps\" class=\"pt-2 pb-2\" color=\"primary\" outlined>\n              <div class=\"d-lg-flex d-xs-block\">\n                <div class=\"mr-lg-4\">\n                  Node Name: {{ node.display_name }}\n                  <br /><br />\n                MAC Addr: {{ node.mac_address }}\n                </div>\n                <!-- Delete button stays on card -->\n                <v-btn color=\"red-darken-1\" small class=\"\" @click.stop=\"deleteNode(index)\">\n                  Delete\n                </v-btn>\n              </div>\n            </v-btn>\n          </template>\n\n          <!-- Popup content -->\n          <v-card>\n            <v-toolbar title=\"New Slave\" style=\"background-color: #a2af9b;\"></v-toolbar>\n\n            <v-card-text>\n              <p class=\"mb-2\"><strong>Node Name:</strong> {{ node.display_name }}</p>\n              <p class=\"mb-2\"><strong>MAC Address:</strong> {{ node.mac_address }}</p>\n              <p>\n                <strong>Description:</strong>\n                <v-text-field v-model=\"description\" label=\"Description\" outlined class=\"mt-2\"></v-text-field>\n              </p>\n            </v-card-text>\n\n            <v-card-actions class=\"justify-space-between\">\n              <v-btn style=\"background-color: #a2af9b; color: black\" :loading=\"isLoading\" :disabled=\"isLoading\"\n                @click=\"addSlave(node)\">\n                <template v-slot:loader>\n                  <v-progress-circular indeterminate color=\"white\" size=\"20\"></v-progress-circular>\n                </template>\n                <span v-if=\"!isLoading\">Pair</span>\n                <span v-else>Loading...</span>\n              </v-btn>\n\n              <v-btn @click=\"cancelAddSlave(node)\" style=\"background-color: #90a4ae; color: black\">\n                Cancel\n              </v-btn>\n            </v-card-actions>\n          </v-card>\n        </v-dialog>\n      </div>\n    </div>\n  </div>\n  <!-- Top notification -->\n  <v-snackbar v-model=\"snackbar\" top absolute :timeout=\"notify_timeout\" :color=\"notify_color\" elevation=\"5\">\n    {{ message }}\n    <template v-slot:actions>\n      <v-btn text @click=\"snackbar = false\">Close</v-btn>\n    </template>\n  </v-snackbar>\n</template>\n\n<script>\n  export default {\n  props: {\n    msg: {\n      type: Object,\n      required: true\n    }\n  },\n  data() {\n    return {\n      nodes_detected: [],\n      description: \"\",\n      pair_display_name: \"\",\n      pair_mac_addr: \"\",\n      master_status: \"offline\",\n      ping_delay: 0,\n      ping_request: false, // filter msg ping\n      scan_request: false, // filter msg scan\n      pair_request: false, // filter msg pair\n      isLoading: false,\n      snackbar: false, // control notify visibility\n      message: '', // message of notify\n      notify_color: \"teal\",\n      notify_timeout: 0\n    };\n  },\n  mounted() {\n    // invoke logic function\n    this.checkStatus();\n    this.scanNodes();\n\n    // Load saved nodes from localStorage\n    const savedNodes = localStorage.getItem(\"nodes_detected\");\n    if (savedNodes) {\n      try {\n        this.nodes_detected = JSON.parse(savedNodes).map(n => ({\n          ...n,\n          active: false, // ensure active property exists\n        }));\n      } catch (e) {\n        console.error(\"Failed to parse nodes_detected from localStorage\", e);\n      }\n    }\n\n    if (localStorage.getItem(\"loggedIn\") === \"false\") {\n      this.redirectLogin();\n    }\n\n    // Load data from localStorage\n\n    const description = localStorage.getItem(\"description\");\n    const pair_display_name = localStorage.getItem(\"pair_display_name\");\n    const pair_mac_addr = localStorage.getItem(\"pair_mac_addr\");\n    const isLoading = localStorage.getItem(\"isLoading\");\n\n    if (description && description != \"\") {\n        this.description = description;\n    }\n\n    if (pair_display_name && pair_display_name != \"\") {\n      this.pair_display_name = pair_display_name;\n    }\n\n    if (pair_mac_addr && pair_mac_addr != \"\") {\n      this.pair_mac_addr = pair_mac_addr;\n    }\n    if (isLoading == \"true\") {\n      this.isLoading = true;\n    } else {\n      this.isLoading = false;\n    }\n  },\n  watch: {\n    msg: {\n      handler(newMsg) {\n        // node scan res handler\n        if (newMsg && newMsg.scan && this.scan_request) {\n          const payload = { ...newMsg.payload };\n          payload.result.forEach(item => {\n            const node = { \n              ...item, \n              mesh_slave: false, \n              active: false \n            };\n\n            const exists = this.nodes_detected.some(\n              n => n.mac_address === node.mac_address && n.display_name === node.display_name\n            );\n\n            if (!exists) {\n              this.nodes_detected.push(node);\n              console.log(\"New node detected:\", node);\n            }\n          });\n          this.scan_request = false; \n        }\n\n        // pong handler\n        if (newMsg && newMsg.pong && this.ping_request) {\n          this.master_status = \"online\"\n          if (this.ping_delay < 2) {\n            this.ping_delay += 2;\n          }\n          this.ping_request = false; \n        }\n\n        // pair handler and if have pair successed it will auto allow\n        if (newMsg && newMsg.pair && (this.pair_request || newMsg.payload.mac_address == this.pair_mac_addr)) {\n          this.pair_request = false;\n\n          // check pair status\n          switch (newMsg.payload.info) {\n            case \"pairing to new node.\":\n              // change to loading state\n              this.isLoading = true;\n\n              // Save to localStorage\n              localStorage.setItem(\"description\", this.description);\n              localStorage.setItem(\"pair_display_name\", this.pair_display_name);\n              localStorage.setItem(\"pair_mac_addr\", this.pair_mac_addr);\n              localStorage.setItem(\"isLoading\", this.isLoading);\n\n              console.log(\"Info : Wait for pairing..\");\n              this.showNotification(\"Info : Wait for pairing..\", \"blue\");\n              \n              // wait for paired from esp32\n              break;\n            case \"failed to connect to node.\":\n              console.log(\"Error : Failed to connect to node!!\");\n              this.showNotification(\"Error : Failed to connect to node!!\", \"red\");\n              break;\n            case \"pair success!\":\n              console.log(\"Info : Pair succeed!!\");\n              this.showNotification(\"Info : Pair succeed!!\", \"green\");\n\n              // save to mongoDB database\n              const sendObj = {\n                collection: \"nodes\",\n                payload: { \n                  mac_address: newMsg.payload.mac_address,\n                  node_id: newMsg.payload.node_id,\n                  node_type: newMsg.payload.node_type,\n                  description: this.description\n                },\n                operation: \"insertOne\",\n                toMongo: true\n              };\n\n              this.send(sendObj);\n\n              // Set mesh_slave = true so it no longer appears in scan section\n              const targetNode = this.nodes_detected.find(\n                n => n.mac_address === this.pair_mac_addr && n.display_name === this.pair_display_name\n              );\n              if (targetNode) {\n                targetNode.mesh_slave = true;\n                localStorage.setItem(\"nodes_detected\", JSON.stringify(this.nodes_detected));\n              }\n              this.isLoading = false;\n              // reset pairing node info\n              this.description = \"\";\n              this.pair_display_name = \"\";\n              this.pair_mac_addr = \"\";\n\n              // Save to localStorage\n              localStorage.setItem(\"description\", this.description);\n              localStorage.setItem(\"pair_display_name\", this.pair_display_name);\n              localStorage.setItem(\"pair_mac_addr\", this.pair_mac_addr);\n              localStorage.setItem(\"isLoading\", this.isLoading);\n              break;\n            default:\n              console.log(\"Some error occurred!!\");\n              this.showNotification(\"Error : Some error occurred!!\", \"red\");\n          }\n        }\n      },\n      deep: true\n    }\n  },\n  methods: {\n    showNotification(msg = 'Notification shown at the top!', color = \"teal\") {\n      this.notify_timeout += 3000;\n      this.message = msg;\n      this.notify_color = color;\n      this.snackbar = true;\n      // Optional: send message to Node-RED backend\n      this.$emit('send', { payload: 'top_notification_shown' });\n    },\n    redirectLogin() {\n      const base = window.location.origin;\n      window.location.href = `${base}/dashboard/login`;\n    },\n    deleteNode(index) {\n      this.nodes_detected.splice(index, 1);\n      localStorage.setItem(\n        \"nodes_detected\",\n        JSON.stringify(this.nodes_detected)\n      );\n    },\n    deleteAllNodes() {\n      if (confirm(\"Are you sure you want to delete all nodes?\")) {\n        this.nodes_detected = [];\n        localStorage.removeItem(\"nodes_detected\");\n        const sendObj = {\n          collection: \"nodes\",\n          operation: \"drop\",\n          toMongo: true\n        };\n        this.send(sendObj);\n      }\n    },\n    addSlave(node) {\n      this.pair_display_name = node.display_name;\n      this.pair_mac_addr = node.mac_address;\n\n      // send pairing request\n      const sendObj = {\n        payload : node.mac_address,\n        pair : \"true\"\n      };\n      this.pair_request = true;\n      \n      // handle master offline\n      if (this.master_status == \"offline\") {\n        console.log(\"Error : Master is offline!!\");\n        this.showNotification(\"Error : Master is offline!!\", \"red\");\n        return;\n      }\n\n      if (this.isLoading) {\n        console.log(\"Warning : Cannot pair node while pairing!!\");\n        this.showNotification(\"Warning : Cannot pair node while pairing!!\", \"yellow\");\n        return;\n      }\n\n      this.send(sendObj);\n\n      // Send message to Node-RED backend\n      this.$emit('send', { payload: 'button_clicked' });\n    },\n    checkStatus() {\n      const sendObj = {\n        payload: \"ping\"\n      };\n      this.ping_request = true;\n      this.send(sendObj);\n\n      // send ping payload to master node 5 sec interval\n      setInterval(() => {\n        this.ping_request = true; \n        // online & offline logic\n        if (this.ping_delay == 0) {\n          this.master_status = \"offline\";\n        } else {\n          this.master_status = \"online\";\n          this.ping_delay -= 1;\n        }\n        this.send(sendObj);\n      }, 5000); // 1000 ms = 1 second\n    },\n    scanNodes() {\n      const sendObj = {\n        payload: \"scan\"\n      };\n      this.scan_request = true; \n      this.send(sendObj);\n    },\n    cancelAddSlave(node) {\n      if (this.isLoading == false) {\n        // close dialog pop up\n        node.active = false;\n      } else {\n        if (confirm(\"Do you want to cancel ?\\n[ cancel after pairing you have to sync mesh ]\")) {\n          this.isLoading = false;\n          this.pair_display_name = \"\";\n          this.pair_mac_addr = \"\";\n          this.description = \"\";\n\n          // Save to localStorage\n          localStorage.setItem(\"description\", this.description);\n          localStorage.setItem(\"pair_display_name\", this.pair_display_name);\n          localStorage.setItem(\"pair_mac_addr\", this.pair_mac_addr);\n          localStorage.setItem(\"isLoading\", this.isLoading);\n\n          // close dialog pop up\n          node.active = false;\n        }\n      }\n    }\n  },\n};\n</script>\n\n<style scoped>\n  .top-buttons {\n    margin: 10px;\n  }\n\n  .mesh-detail {\n    display: flex;\n    flex-direction: column;\n    margin: 10px;\n  }\n\n  .nodes-container {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 10px;\n  }\n\n  .node-item {\n    display: inline-block;\n  }\n</style>",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
@@ -597,7 +645,7 @@
         "width": 0,
         "height": 14,
         "head": "",
-        "format": "<template>\n<!-- top section -->\n<div style=\"display: flex; flex-direction: column;\" class=\"ma-3\">\n  <div class=\"top-buttons d-lg-flex d-sm-block justify-space-between align-center\">\n    <!-- master status -->\n    <strong class=\"text-h6 font-weight-bold text-uppercase text-blue-grey-darken-4\">\n        status : \n        <span :class=\"master_status === 'online' ? 'text-teal' : 'text-red-darken-2'\">\n          {{ master_status }}\n        </span>\n    </strong>\n    <div>\n      <!-- refresh button -->\n      <v-btn\n        outlined\n        @click=\"\"\n        style=\"background-color: #a2af9b; color: black\"\n        class=\"font-weight-bold text-subtitle-1 text-blue-grey-darken-4 mr-4\"\n      >\n        REFRESH\n      </v-btn>\n      <!-- sync button -->\n      <v-btn\n        outlined\n        style=\"background-color: #a2af9b; color: black\"\n        class=\"font-weight-bold text-subtitle-1 text-blue-grey-darken-4\"\n        :loading=\"isLoading\"\n        :disabled=\"isLoading\"\n        @click=\"syncSlave\"\n      >\n        <template v-slot:loader>\n          <v-progress-circular indeterminate color=\"white\" size=\"20\"></v-progress-circular>\n        </template>\n        <span v-if=\"!isLoading\">SYNC</span>\n        <span v-else>Loading...</span>\n      </v-btn>\n    </div>\n</div>\n<!-- dashboard slave configs -->\n<v-row class=\"mt-5 pa-4 rounded-lg\" style=\"background-color: #a2af9b; color: black\">\n  <v-col\n    v-for=\"(node, index) in slave_nodes\"\n    :key=\"index\"\n    cols=\"12\"\n    sm=\"6\"\n    md=\"6\"\n    color=\"primary\"\n  >\n    <v-sheet class=\"pa-3 text-subtitle-1 text-blue-grey-darken-4 rounded-lg\"  color=\"primary\" elevation=\"1\">\n      <v-sheet color=\"primary\">\n        <p>Node Status : {{ node.node_status }}</p>\n        <p>Node ID : {{ node.node_id }}</p>\n        <p>MAC Addr : {{ node.mac_address }}</p>\n        <p>Node Type : {{ node.node_type }}</p>\n        <p>Description : {{ node.description }}</p>\n      </v-sheet>\n    </v-sheet>\n  </v-col>\n</v-row>\n</template>\n<script>\nexport default {\n  mounted() {\n    if (localStorage.getItem(\"loggedIn\") === \"false\") {\n        this.redirectLogin();\n    }\n    // get data from mongoDB at first\n    this.getNodesMongoDB();\n    // ping at initial\n    this.checkMasterStatus();\n    // get slave node status\n    this.checkNodeStatus();\n  },\n  data() {\n    return {\n      slave_nodes: [],\n      getNode_request: false,\n      ping_request: false,\n      allNode_request: false,\n      activeNode_request: false,\n      isLoading: false,\n      master_status: \"offline\",\n    };\n  },\n  watch: {\n    msg(newMsg) {\n      // MongoDB handle \n\n      // getNodes handle\n      if (newMsg.type == \"MONGO_DB\" && this.getNode_request) {\n        this.isLoading = false;\n\n        // add node_status key to slave nodes\n        this.slave_nodes = Object.values(newMsg.payload).map(node => ({\n          ...node,\n          node_status: \"offline\"\n        }));\n\n        this.getNode_request = false;\n      }\n\n      // pong handler\n      if (newMsg.type == \"PONG\" && this.ping_request) {\n        this.master_status = \"online\"\n        if (this.ping_delay < 2) {\n          this.ping_delay += 2;\n        }\n        this.ping_request = false; \n      }\n\n      // get active node handler\n      if (newMsg.type == \"ACTIVE_NODE\" && this.activeNode_request) {\n        this.activeNode_request = false;\n\n        // Merge state from payload into slave_nodes\n        this.slave_nodes = this.slave_nodes.map(node => {\n          const key = node.mac_address;\n          if (newMsg.payload[key] && newMsg.payload[key].state) {\n            return {\n              ...node,\n              state: newMsg.payload[key]?.state || {},  // merge state\n              node_status: \"online\"\n            };\n          } else {\n            console.log(\"Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\")\n            return {\n              ...node,\n              node_status: \"offline\"\n            };\n          }\n        });\n      }\n\n      // get all node handler\n      if (newMsg.type == \"ALL_NODE\" && this.allNode_request) {\n        this.allNode_request = false;\n        \n        // delete old slave nodes in DB\n        const dropObj = {\n          collection: \"nodes\",\n          payload: {},\n          operation: \"deleteMany\",\n          type: \"MONGO_DB\"\n        };\n        this.send(dropObj);\n\n        // upload new slave nodes to DB after 1.5 sec\n        setTimeout(() => {\n          const insertObj = {\n            collection: \"nodes\",\n            payload: [Object.values(newMsg.payload)],\n            operation: \"insertMany\",\n            type: \"MONGO_DB\"\n          };\n          this.send(insertObj);\n          this.getNodesMongoDB();\n        }, 1500);\n      }\n    }\n  },\n  methods: {\n    // prevent unlogin user\n    redirectLogin() {\n      const base = window.location.origin;\n      window.location.href = `${base}/dashboard/login`;\n    },\n    // send request to mongoDB to get slave nodes\n    getNodesMongoDB() {\n      const sendObj = {\n        collection: \"nodes\",\n        operation: \"find.toArray\",\n        type: \"MONGO_DB\"\n      };\n      this.getNode_request = true, \n      this.send(sendObj);\n    },\n    // check master node status every 5 sec\n    checkMasterStatus() {\n      const sendObj = {\n        payload: \"ping\",\n        type: \"PING\"\n      };\n      this.ping_request = true;\n      this.send(sendObj);\n\n      // send ping payload to master node 5 sec interval\n      setInterval(() => {\n        this.ping_request = true; \n        // online & offline logic\n        if (this.ping_delay == 0) {\n          this.master_status = \"offline\";\n        } else {\n          this.master_status = \"online\";\n          this.ping_delay -= 1;\n        }\n        this.send(sendObj);\n      }, 5000); // 5000 ms = 5 second\n    },\n    // check slave node status every 1 sec\n    checkNodeStatus() {\n      const sendObj = {\n        payload: \"active\",\n        type: \"ACTIVE_NODE\"\n      };\n      this.activeNode_request = true;\n      this.send(sendObj);\n\n      // send check payload to master node 1 sec interval\n      setInterval(() => {\n        this.activeNode_request = true; \n        this.send(sendObj);\n      }, 1000); // 1000 ms = 1 second\n    },\n    // get entire slave node to replace to mongoDB nodes collection\n    syncSlave() {\n      this.allNode_request = true;\n      const sendObj = {\n        payload: \"getAllNode\",\n        type: \"ALL_NODE\"\n      }\n      this.send(sendObj);\n      this.isLoading = true;\n    }\n  }\n};\n</script>\n\n<!-- \n\n- get active node and match to node in database to tell which node is online [ master online condition ] on open webpage\n- refresh button to get active node again\n- naming system and update to database\n- config relay slave \n- config type of sensor (button, toggle, relay)\n-->\n",
+        "format": "<template>\n  <div style=\"display: flex; flex-direction: column;\" class=\"ma-3\">\n    <div class=\"top-buttons d-lg-flex d-sm-block justify-space-between align-center\">\n      <strong class=\"text-h6 font-weight-bold text-uppercase text-blue-grey-darken-4\">\n        status :\n        <span :class=\"master_status === 'online' ? 'text-teal' : 'text-red-darken-2'\">\n          {{ master_status }}\n        </span>\n      </strong>\n      <div>\n        <v-btn\n          outlined\n          @click=\"refreshPage\"\n          style=\"background-color: #a2af9b; color: black\"\n          class=\"font-weight-bold text-subtitle-1 text-blue-grey-darken-4 mr-4\"\n        >\n          REFRESH\n        </v-btn>\n        <v-btn\n          outlined\n          style=\"background-color: #a2af9b; color: black\"\n          class=\"font-weight-bold text-subtitle-1 text-blue-grey-darken-4\"\n          :loading=\"isLoading\"\n          :disabled=\"isLoading\"\n          @click=\"syncSlave\"\n        >\n          <template v-slot:loader>\n            <v-progress-circular indeterminate color=\"white\" size=\"20\"></v-progress-circular>\n          </template>\n          <span v-if=\"!isLoading\">SYNC</span>\n          <span v-else>Loading...</span>\n        </v-btn>\n      </div>\n    </div>\n\n    <v-row class=\"mt-5 pa-4 rounded-lg\" style=\"background-color: #a2af9b; color: black\">\n      <v-col\n        v-for=\"(node, index) in slave_nodes\"\n        :key=\"index\"\n        cols=\"12\"\n        sm=\"3\"\n        md=\"3\"\n        color=\"primary\"\n      >\n        <v-sheet\n          class=\"pa-3 text-subtitle-1 text-blue-grey-darken-4 rounded-lg\"\n          color=\"primary\"\n          elevation=\"1\"\n        >\n          <v-sheet color=\"primary\">\n            <div class=\"d-flex justify-space-between align-center\">\n              <strong>STATUS :\n                <span :class=\"node.node_status === 'online' ? 'text-teal text-uppercase' : 'text-red-darken-2 text-uppercase'\">\n                  {{ node.node_status }}\n                </span>\n              </strong>\n\n              <div>\n                <v-btn\n                  icon=\"mdi-cog\"\n                  size=\"small\"\n                  variant=\"text\"\n                  @click.stop=\"showNodePopup(node)\"\n                ></v-btn>\n                <v-btn\n                  icon=\"mdi-delete\"\n                  size=\"small\"\n                  variant=\"text\"\n                  color=\"red-darken-2\"\n                  @click.stop=\"unpairNode(node)\"\n                ></v-btn>\n              </div>\n            </div>\n\n            <div class=\"d-flex align-center\">\n              <span class=\"mr-2\">Node Name :</span>\n              <span\n                v-if=\"editingNodeMac !== node.mac_address\"\n                @click.stop=\"startEditing(node)\"\n                style=\"cursor: pointer;\"\n                class=\"font-weight-bold\"\n              >\n                {{ node.name || 'Mesh Node' }}\n              </span>\n              <v-text-field\n                v-else\n                v-model=\"editingNodeName\"\n                @keyup.enter=\"saveNodeName\"\n                @blur=\"saveNodeName\"\n                @click.stop\n                dense\n                autofocus\n                single-line\n                hide-details\n              ></v-text-field>\n            </div>\n\n            <p>MAC Addr : {{ node.mac_address }}</p>\n            <p>Node Type : {{ node.node_type }}</p>\n            <p>Description : {{ node.description }}</p>\n\n            <div v-if=\"node.node_type === 'relay' && node.node_status === 'online'\">\n              <v-btn\n                class=\"mb-2 mt-2\"\n                block\n                color=\"blue-grey-darken-1\"\n                @click=\"setManualMode(node)\"\n              >\n                {{ this.toggle_mode }}\n              </v-btn>\n              <v-divider class=\"my-2\"></v-divider>\n              <div class=\"d-flex justify-space-around\">\n                <v-switch\n                  v-model=\"node.state.r1\"\n                  label=\"Relay 1\"\n                  color=\"teal\"\n                  inset\n                  hide-details\n                  :disabled=\"!node.manual_mode\"\n                  @change.stop=\"toggleRelay(node, 'r1')\"\n                ></v-switch>\n                <v-switch\n                  v-model=\"node.state.r2\"\n                  label=\"Relay 2\"\n                  color=\"teal\"\n                  inset\n                  hide-details\n                  :disabled=\"!node.manual_mode\"\n                  @change.stop=\"toggleRelay(node, 'r2')\"\n                ></v-switch>\n              </div>\n            </div>\n\n          </v-sheet>\n        </v-sheet>\n      </v-col>\n    </v-row>\n\n    <v-dialog v-model=\"dialog\" max-width=\"400\">\n      <v-card>\n        <v-card-text class=\"pa-5\">\n          <div v-if=\"selectedNode\" class=\"text-h6 text-center text-blue-grey-darken-4\">\n            {{ selectedNode.name || 'Mesh Node' }}\n          </div>\n        </v-card-text>\n        <v-card-actions>\n          <v-spacer></v-spacer>\n          <v-btn color=\"blue-darken-1\" text @click=\"dialog = false\">\n            Close\n          </v-btn>\n        </v-card-actions>\n      </v-card>\n    </v-dialog>\n    <!-- Top notification -->\n    <v-snackbar\n      v-model=\"snackbar\"\n      top\n      absolute\n      :timeout=\"notify_timeout\"\n      :color=\"notify_color\"\n      elevation=\"5\"\n    >\n      {{ message }}\n      <template v-slot:actions>\n        <v-btn text @click=\"snackbar = false\">Close</v-btn>\n      </template>\n    </v-snackbar>\n  </div>\n</template>\n\n<script>\nexport default {\n  mounted() {\n    if (localStorage.getItem(\"loggedIn\") === \"false\") {\n      this.redirectLogin();\n    }\n    this.getNodesMongoDB();\n    this.checkMasterStatus();\n    this.checkNodeStatus();\n  },\n  data() {\n    return {\n      slave_nodes: [],\n      getNode_request: false,\n      ping_request: false,\n      allNode_request: false,\n      activeNode_request: false,\n      unpair_request: false,\n      isLoading: false,\n      master_status: \"offline\",\n      editingNodeMac: null,\n      editingNodeName: \"\",\n      dialog: false,\n      selectedNode: null,\n      toggle_mode: \"MANUAL\",\n      snackbar: false, // control notify visibility\n      message: '', // message of notify\n      notify_color: \"teal\",\n      notify_timeout: 0\n    };\n  },\n  watch: {\n    msg(newMsg) {\n      if (newMsg.type == \"MONGO_DB\" && this.getNode_request) {\n        this.isLoading = false;\n        this.slave_nodes = Object.values(newMsg.payload).map(node => ({\n          ...node,\n          node_status: \"offline\",\n          manual_mode: false // Initialize here\n        }));\n        this.getNode_request = false;\n      }\n\n      if (newMsg.type == \"PONG\" && this.ping_request) {\n        this.master_status = \"online\"\n        if (this.ping_delay < 2) {\n          this.ping_delay += 2;\n        }\n        this.ping_request = false;\n      }\n\n      if (newMsg.type == \"ACTIVE_NODE\" && this.activeNode_request) {\n        this.activeNode_request = false;\n        this.slave_nodes = this.slave_nodes.map(node => {\n          const key = node.mac_address;\n          if (newMsg.payload[key] && newMsg.payload[key].state) {\n            if (node.manual_mode == false) {\n              return {\n                ...node,\n                state: newMsg.payload[key]?.state || {},\n                node_status: \"online\"\n              };\n            } else {\n              return {\n                ...node,\n                node_status: \"online\"\n              };\n            }\n          } else {\n            return {\n              ...node,\n              node_status: \"offline\"\n            };\n          }\n        });\n      }\n\n      if (newMsg.type == \"ALL_NODE\" && this.allNode_request) {\n        this.allNode_request = false;\n        const dropObj = {\n          collection: \"nodes\",\n          payload: {},\n          operation: \"deleteMany\",\n          type: \"MONGO_DB\"\n        };\n        this.send(dropObj);\n        setTimeout(() => {\n          const insertObj = {\n            collection: \"nodes\",\n            payload: [Object.values(newMsg.payload)],\n            operation: \"insertMany\",\n            type: \"MONGO_DB\"\n          };\n          this.send(insertObj);\n          this.getNodesMongoDB();\n          // send notify\n          this.showNotification(`Sync successed`, \"green\");\n        }, 1500);\n      }\n      \n      if (newMsg.type == \"UNPAIR_NODE\" && this.unpair_request) {\n        // Send delete request to the database\n        const deleteObj = {\n          collection: \"nodes\",\n          operation: \"deleteOne\",\n          type: \"MONGO_DB\",\n          payload: [{ mac_address: newMsg.payload.mac_address }]\n        };\n        this.send(deleteObj);\n\n        // Immediately remove the node from the local array for UI update\n        this.slave_nodes = this.slave_nodes.filter(\n          (n) => n.mac_address !== newMsg.payload.mac_address\n        );\n\n        this.unpair_request = false;\n        // send notify\n        this.showNotification(`Unpair ${newMsg.payload.mac_address} successed`, \"green\");\n      }\n    }\n  },\n  methods: {\n    showNotification(msg = 'Notification shown at the top!', color = \"teal\") {\n      this.notify_timeout += 3000;\n      this.message = msg;\n      this.notify_color = color;\n      this.snackbar = true;\n      // Optional: send message to Node-RED backend\n      this.$emit('send', { payload: 'top_notification_shown' });\n    },\n    unpairNode(node) {\n      if (node.node_status == \"online\") {\n          if (confirm(`Are you sure you want to unpair the node \"${node.name || node.mac_address}\"?`)) {\n\n          // Send unpair to master mesh\n          const unpairObj = {\n            payload: node.node_id,\n            type: \"UNPAIR_NODE\",\n          }\n          this.send(unpairObj);\n          this.unpair_request = true;\n\n          // send notify\n          this.showNotification(\"Unpairing...\", \"blue\");\n        }\n      } else {\n        // send notify\n          this.showNotification(`This ${node.mac_address} is offline`, \"red\");\n      }\n    },\n\n    setManualMode(node) {\n      if (this.toggle_mode == \"MANUAL\") {\n        node.manual_mode = true;\n        this.toggle_mode = \"AUTO\"\n      } else {\n        node.manual_mode = false;\n        this.toggle_mode = \"MANUAL\"\n      }\n    },\n\n    toggleRelay(node, relayKey) {\n      if (!node || !node.state) {\n        console.error(\"Cannot toggle relay: Node or state is invalid.\", node);\n        return;\n      }\n      const newState = node.state[relayKey];\n      const commandObj = {\n        type: \"RELAY_CONTROL\",\n        payload: {\n          node_id: node.node_id,\n          state: {\n            \"r1\": node.state.r1,\n            \"r2\": node.state.r2,\n          },\n        }\n      };\n      console.log(\"Sending command:\", commandObj);\n      this.send(commandObj);\n    },\n\n    showNodePopup(node) {\n      this.selectedNode = node;\n      this.dialog = true;\n    },\n\n    startEditing(node) {\n      this.editingNodeMac = node.mac_address;\n      this.editingNodeName = node.name || '';\n    },\n\n    saveNodeName() {\n      if (!this.editingNodeMac) return;\n\n      const nodeToUpdate = this.slave_nodes.find(\n        (n) => n.mac_address === this.editingNodeMac\n      );\n\n      if (nodeToUpdate) {\n        nodeToUpdate.name = this.editingNodeName;\n\n        const updateObj = {\n          collection: \"nodes\",\n          operation: \"updateOne\",\n          type: \"MONGO_DB\",\n          payload: [\n            { mac_address: this.editingNodeMac },\n            { $set: { name: this.editingNodeName } }\n          ]\n        };\n\n        this.send(updateObj);\n      }\n\n      this.editingNodeMac = null;\n      this.editingNodeName = \"\";\n    },\n\n    redirectLogin() {\n      const base = window.location.origin;\n      window.location.href = `${base}/dashboard/login`;\n    },\n\n    getNodesMongoDB() {\n      const sendObj = {\n        collection: \"nodes\",\n        operation: \"find.toArray\",\n        type: \"MONGO_DB\"\n      };\n      this.getNode_request = true;\n      this.send(sendObj);\n    },\n\n    checkMasterStatus() {\n      const sendObj = { payload: \"ping\", type: \"PING\" };\n      this.ping_request = true;\n      this.send(sendObj);\n\n      setInterval(() => {\n        this.ping_request = true;\n        if (this.ping_delay == 0) {\n          this.master_status = \"offline\";\n        } else {\n          this.master_status = \"online\";\n          this.ping_delay -= 1;\n        }\n        this.send(sendObj);\n      }, 5000);\n    },\n\n    checkNodeStatus() {\n      const sendObj = { payload: \"active\", type: \"ACTIVE_NODE\" };\n      setInterval(() => {\n        if (this.master_status == \"online\") {\n          this.activeNode_request = true;\n          this.send(sendObj);\n        }\n      }, 1000);\n    },\n\n    syncSlave() {\n      this.allNode_request = true;\n      const sendObj = { payload: \"getAllNode\", type: \"ALL_NODE\" };\n      this.send(sendObj);\n      this.isLoading = true;\n    },\n\n    refreshPage() {\n      window.location.reload();\n    }\n  }\n};\n</script>\n\n<!--\n\n- config relay slave\n\n- config type of sensor (button, toggle, relay)\n\n- online offline filter function\n\n-->",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
@@ -641,7 +689,7 @@
         "collection": "",
         "operation": "",
         "x": 740,
-        "y": 2720,
+        "y": 2820,
         "wires": [
             [
                 "1e4b8208b3d66eb8"
@@ -716,7 +764,7 @@
         "type": "function",
         "z": "2c682173eb064de0",
         "name": "Pseudo Active Node",
-        "func": "if (msg.payload) {\n    msg.payload = {\n        \"A8:46:74:46:18:DC\": {\n            \"mac_address\": \"A8:46:74:46:18:DC\",\n            \"node_id\": 1950750941,\n            \"node_type\": \"relay\",\n            \"state\": {\n            \"r1\": true,\n            \"r2\": true\n            }\n        },\n        \"A8:46:74:46:18:D0\": {\n            \"mac_address\": \"A8:46:74:46:18:D0\",\n            \"node_id\": 1950750929,\n            \"node_type\": \"sensor\",\n            \"state\": {\n            \"gpio_0\": false,\n            \"gpio_1\": false,\n            \"gpio_3\": false\n            }\n        }\n    }\n    return msg;\n}",
+        "func": "if (msg.payload) {\n    msg.payload = {\n        \"A8:46:74:46:18:DC\": {\n            \"mac_address\": \"A8:46:74:46:18:DC\",\n            \"node_id\": 1950750941,\n            \"node_type\": \"relay\",\n            \"state\": {\n            \"r1\": true,\n            \"r2\": true\n            }\n        },\n        \"A8:46:74:46:18:D0\": {\n            \"mac_address\": \"A8:46:74:46:18:D0\",\n            \"node_id\": 1950750929,\n            \"node_type\": \"sensor\",\n            \"state\": {\n                \"gpio\" : {\n                    \"gpio_0\": false,\n                    \"gpio_1\": false,\n                    \"gpio_3\": false\n                },\n                \"i2c\" : {\n                    \"temperature\": 33.9,\n                    \"humidity\": 53.2,\n                    \"light\": 26.66667\n                }\n            }\n        }\n    }\n    return msg;\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -724,7 +772,7 @@
         "finalize": "",
         "libs": [],
         "x": 720,
-        "y": 2460,
+        "y": 2560,
         "wires": [
             [
                 "e05016ef1c99d9ab"
@@ -744,7 +792,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 2460,
+        "y": 2560,
         "wires": [
             [
                 "e103019d912b0671"
@@ -763,8 +811,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1020,
-        "y": 2460,
+        "x": 980,
+        "y": 2560,
         "wires": [
             [
                 "b9bb8e0b80aefb9d"
@@ -784,7 +832,7 @@
         "finalize": "",
         "libs": [],
         "x": 710,
-        "y": 2100,
+        "y": 2060,
         "wires": [
             [
                 "52d435fc7da18a62"
@@ -804,7 +852,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 2100,
+        "y": 2060,
         "wires": [
             [
                 "a5a7bd0418d69e9a"
@@ -824,7 +872,7 @@
         "finalize": "",
         "libs": [],
         "x": 950,
-        "y": 2100,
+        "y": 2060,
         "wires": [
             [
                 "fd7426e6c315f693"
@@ -844,7 +892,7 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 2600,
+        "y": 2700,
         "wires": [
             [
                 "60f63e5e64f49467"
@@ -864,7 +912,7 @@
         "finalize": "",
         "libs": [],
         "x": 890,
-        "y": 2600,
+        "y": 2700,
         "wires": [
             [
                 "c02fc4796c3e4414"
@@ -912,8 +960,8 @@
         "z": "2c682173eb064de0",
         "name": "mqtt in : req/mesh/allnodes",
         "info": "",
-        "x": 580,
-        "y": 2040,
+        "x": 570,
+        "y": 2020,
         "wires": []
     },
     {
@@ -923,7 +971,7 @@
         "name": "mqtt out : req/mesh/allnodes",
         "info": "",
         "x": 840,
-        "y": 2040,
+        "y": 2020,
         "wires": []
     },
     {
@@ -933,7 +981,7 @@
         "name": "mqtt in : req/mesh/nodes",
         "info": "",
         "x": 590,
-        "y": 2520,
+        "y": 2600,
         "wires": []
     },
     {
@@ -943,7 +991,7 @@
         "name": "mqtt out : req/mesh/nodes",
         "info": "",
         "x": 870,
-        "y": 2520,
+        "y": 2600,
         "wires": []
     },
     {
@@ -953,7 +1001,7 @@
         "name": "mqtt in : esp/ping",
         "info": "",
         "x": 620,
-        "y": 1780,
+        "y": 1740,
         "wires": []
     },
     {
@@ -963,7 +1011,7 @@
         "name": "mqtt out : esp/pong",
         "info": "",
         "x": 810,
-        "y": 1780,
+        "y": 1740,
         "wires": []
     },
     {
@@ -979,7 +1027,7 @@
         "finalize": "",
         "libs": [],
         "x": 710,
-        "y": 1820,
+        "y": 1780,
         "wires": [
             [
                 "a8ef2b924362df80"
@@ -999,7 +1047,7 @@
         "finalize": "",
         "libs": [],
         "x": 600,
-        "y": 1960,
+        "y": 1920,
         "wires": [
             [
                 "940767fa7b87149e"
@@ -1019,10 +1067,157 @@
         "finalize": "",
         "libs": [],
         "x": 830,
-        "y": 1960,
+        "y": 1920,
         "wires": [
             [
-                "dc3ea815b143fda4"
+                "12e519c8df58a2c6"
+            ]
+        ]
+    },
+    {
+        "id": "7edb7302290b1cde",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Pseudo Relay Control",
+        "func": "return msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 2180,
+        "wires": [
+            [
+                "360c61bb6dc9d5a6"
+            ]
+        ]
+    },
+    {
+        "id": "f8761ba5befd1d2f",
+        "type": "comment",
+        "z": "2c682173eb064de0",
+        "name": "mqtt in : req/state/update",
+        "info": "",
+        "x": 730,
+        "y": 2140,
+        "wires": []
+    },
+    {
+        "id": "d2410c09cb80c845",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Filter Relay Control",
+        "func": "if (msg.type == \"RELAY_CONTROL\") {\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 2180,
+        "wires": [
+            [
+                "7edb7302290b1cde"
+            ]
+        ]
+    },
+    {
+        "id": "360c61bb6dc9d5a6",
+        "type": "debug",
+        "z": "2c682173eb064de0",
+        "name": "Relay Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 2180,
+        "wires": []
+    },
+    {
+        "id": "702e35ad5726d375",
+        "type": "comment",
+        "z": "2c682173eb064de0",
+        "name": "mqtt in : req/mesh/unpair",
+        "info": "",
+        "x": 610,
+        "y": 2460,
+        "wires": []
+    },
+    {
+        "id": "42bca23738056e66",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Pseudo Unpair Node",
+        "func": "msg.payload = {\n  \"node_id\": 12345,\n  \"mac_address\": \"A8:46:74:46:18:DC\",\n  \"info\": \"unpairing\"\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 2420,
+        "wires": [
+            [
+                "f40a20bbd027a35c"
+            ]
+        ]
+    },
+    {
+        "id": "139f4630319af6dc",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Filter Unpair Node Req",
+        "func": "if (msg.type == \"UNPAIR_NODE\") {\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 2420,
+        "wires": [
+            [
+                "42bca23738056e66"
+            ]
+        ]
+    },
+    {
+        "id": "5f2ecbfb9a7e4650",
+        "type": "comment",
+        "z": "2c682173eb064de0",
+        "name": "mqtt out : req/mesh/unpair",
+        "info": "",
+        "x": 850,
+        "y": 2460,
+        "wires": []
+    },
+    {
+        "id": "f40a20bbd027a35c",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Filter Unpair Node Res",
+        "func": "msg.type = \"UNPAIR_NODE\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 2420,
+        "wires": [
+            [
+                "9a1992c72110a3a2"
             ]
         ]
     },
@@ -1234,7 +1429,7 @@
         }
     },
     {
-        "id": "24ba0fa58a5d0844",
+        "id": "a4e868922ef73cd2",
         "type": "global-config",
         "env": [],
         "modules": {

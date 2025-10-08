@@ -109,19 +109,19 @@
     </div>
   </div>
   <!-- Top notification -->
-    <v-snackbar
-      v-model="snackbar"
-      top
-      absolute
-      :timeout="notify_timeout"
-      :color="notify_color"
-      elevation="5"
-    >
-      {{ message }}
-      <template v-slot:actions>
-        <v-btn text @click="snackbar = false">Close</v-btn>
-      </template>
-    </v-snackbar>
+  <v-snackbar
+    v-model="snackbar"
+    top
+    absolute
+    :timeout="notify_timeout"
+    :color="notify_color"
+    elevation="5"
+  >
+    {{ message }}
+    <template v-slot:actions>
+      <v-btn text @click="snackbar = false">Close</v-btn>
+    </template>
+  </v-snackbar>
 </template>
 
 <script>

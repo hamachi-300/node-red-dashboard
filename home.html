@@ -1,74 +1,181 @@
 <template>
-<!-- top section -->
-<div style="display: flex; flex-direction: column;" class="ma-3">
-  <div class="top-buttons d-lg-flex d-sm-block justify-space-between align-center">
-    <!-- master status -->
-    <strong class="text-h6 font-weight-bold text-uppercase text-blue-grey-darken-4">
-        status : 
+  <div style="display: flex; flex-direction: column;" class="ma-3">
+    <div class="top-buttons d-lg-flex d-sm-block justify-space-between align-center">
+      <strong class="text-h6 font-weight-bold text-uppercase text-blue-grey-darken-4">
+        status :
         <span :class="master_status === 'online' ? 'text-teal' : 'text-red-darken-2'">
           {{ master_status }}
         </span>
-    </strong>
-    <div>
-      <!-- refresh button -->
-      <v-btn
-        outlined
-        @click=""
-        style="background-color: #a2af9b; color: black"
-        class="font-weight-bold text-subtitle-1 text-blue-grey-darken-4 mr-4"
-      >
-        REFRESH
-      </v-btn>
-      <!-- sync button -->
-      <v-btn
-        outlined
-        style="background-color: #a2af9b; color: black"
-        class="font-weight-bold text-subtitle-1 text-blue-grey-darken-4"
-        :loading="isLoading"
-        :disabled="isLoading"
-        @click="syncSlave"
-      >
-        <template v-slot:loader>
-          <v-progress-circular indeterminate color="white" size="20"></v-progress-circular>
-        </template>
-        <span v-if="!isLoading">SYNC</span>
-        <span v-else>Loading...</span>
-      </v-btn>
+      </strong>
+      <div>
+        <v-btn
+          outlined
+          @click="refreshPage"
+          style="background-color: #a2af9b; color: black"
+          class="font-weight-bold text-subtitle-1 text-blue-grey-darken-4 mr-4"
+        >
+          REFRESH
+        </v-btn>
+        <v-btn
+          outlined
+          style="background-color: #a2af9b; color: black"
+          class="font-weight-bold text-subtitle-1 text-blue-grey-darken-4"
+          :loading="isLoading"
+          :disabled="isLoading"
+          @click="syncSlave"
+        >
+          <template v-slot:loader>
+            <v-progress-circular indeterminate color="white" size="20"></v-progress-circular>
+          </template>
+          <span v-if="!isLoading">SYNC</span>
+          <span v-else>Loading...</span>
+        </v-btn>
+      </div>
     </div>
-</div>
-<!-- dashboard slave configs -->
-<v-row class="mt-5 pa-4 rounded-lg" style="background-color: #a2af9b; color: black">
-  <v-col
-    v-for="(node, index) in slave_nodes"
-    :key="index"
-    cols="12"
-    sm="6"
-    md="6"
-    color="primary"
-  >
-    <v-sheet class="pa-3 text-subtitle-1 text-blue-grey-darken-4 rounded-lg"  color="primary" elevation="1">
-      <v-sheet color="primary">
-        <p>Node Status : {{ node.node_status }}</p>
-        <p>Node ID : {{ node.node_id }}</p>
-        <p>MAC Addr : {{ node.mac_address }}</p>
-        <p>Node Type : {{ node.node_type }}</p>
-        <p>Description : {{ node.description }}</p>
-      </v-sheet>
-    </v-sheet>
-  </v-col>
-</v-row>
+
+    <v-row class="mt-5 pa-4 rounded-lg" style="background-color: #a2af9b; color: black">
+      <v-col
+        v-for="(node, index) in slave_nodes"
+        :key="index"
+        cols="12"
+        sm="3"
+        md="3"
+        color="primary"
+      >
+        <v-sheet
+          class="pa-3 text-subtitle-1 text-blue-grey-darken-4 rounded-lg"
+          color="primary"
+          elevation="1"
+        >
+          <v-sheet color="primary">
+            <div class="d-flex justify-space-between align-center">
+              <strong>STATUS :
+                <span :class="node.node_status === 'online' ? 'text-teal text-uppercase' : 'text-red-darken-2 text-uppercase'">
+                  {{ node.node_status }}
+                </span>
+              </strong>
+
+              <div>
+                <v-btn
+                  icon="mdi-cog"
+                  size="small"
+                  variant="text"
+                  @click.stop="showNodePopup(node)"
+                ></v-btn>
+                <v-btn
+                  icon="mdi-delete"
+                  size="small"
+                  variant="text"
+                  color="red-darken-2"
+                  @click.stop="unpairNode(node)"
+                ></v-btn>
+              </div>
+            </div>
+
+            <div class="d-flex align-center">
+              <span class="mr-2">Node Name :</span>
+              <span
+                v-if="editingNodeMac !== node.mac_address"
+                @click.stop="startEditing(node)"
+                style="cursor: pointer;"
+                class="font-weight-bold"
+              >
+                {{ node.name || 'Mesh Node' }}
+              </span>
+              <v-text-field
+                v-else
+                v-model="editingNodeName"
+                @keyup.enter="saveNodeName"
+                @blur="saveNodeName"
+                @click.stop
+                dense
+                autofocus
+                single-line
+                hide-details
+              ></v-text-field>
+            </div>
+
+            <p>MAC Addr : {{ node.mac_address }}</p>
+            <p>Node Type : {{ node.node_type }}</p>
+            <p>Description : {{ node.description }}</p>
+
+            <div v-if="node.node_type === 'relay' && node.node_status === 'online'">
+              <v-btn
+                class="mb-2 mt-2"
+                block
+                color="blue-grey-darken-1"
+                @click="setManualMode(node)"
+              >
+                {{ this.toggle_mode }}
+              </v-btn>
+              <v-divider class="my-2"></v-divider>
+              <div class="d-flex justify-space-around">
+                <v-switch
+                  v-model="node.state.r1"
+                  label="Relay 1"
+                  color="teal"
+                  inset
+                  hide-details
+                  :disabled="!node.manual_mode"
+                  @change.stop="toggleRelay(node, 'r1')"
+                ></v-switch>
+                <v-switch
+                  v-model="node.state.r2"
+                  label="Relay 2"
+                  color="teal"
+                  inset
+                  hide-details
+                  :disabled="!node.manual_mode"
+                  @change.stop="toggleRelay(node, 'r2')"
+                ></v-switch>
+              </div>
+            </div>
+
+          </v-sheet>
+        </v-sheet>
+      </v-col>
+    </v-row>
+
+    <v-dialog v-model="dialog" max-width="400">
+      <v-card>
+        <v-card-text class="pa-5">
+          <div v-if="selectedNode" class="text-h6 text-center text-blue-grey-darken-4">
+            {{ selectedNode.name || 'Mesh Node' }}
+          </div>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue-darken-1" text @click="dialog = false">
+            Close
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <!-- Top notification -->
+    <v-snackbar
+      v-model="snackbar"
+      top
+      absolute
+      :timeout="notify_timeout"
+      :color="notify_color"
+      elevation="5"
+    >
+      {{ message }}
+      <template v-slot:actions>
+        <v-btn text @click="snackbar = false">Close</v-btn>
+      </template>
+    </v-snackbar>
+  </div>
 </template>
+
 <script>
 export default {
   mounted() {
     if (localStorage.getItem("loggedIn") === "false") {
-        this.redirectLogin();
+      this.redirectLogin();
     }
-    // get data from mongoDB at first
     this.getNodesMongoDB();
-    // ping at initial
     this.checkMasterStatus();
-    // get slave node status
     this.checkNodeStatus();
   },
   data() {
@@ -78,51 +185,58 @@ export default {
       ping_request: false,
       allNode_request: false,
       activeNode_request: false,
+      unpair_request: false,
       isLoading: false,
       master_status: "offline",
+      editingNodeMac: null,
+      editingNodeName: "",
+      dialog: false,
+      selectedNode: null,
+      toggle_mode: "MANUAL",
+      snackbar: false, // control notify visibility
+      message: '', // message of notify
+      notify_color: "teal",
+      notify_timeout: 0
     };
   },
   watch: {
     msg(newMsg) {
-      // MongoDB handle 
-
-      // getNodes handle
       if (newMsg.type == "MONGO_DB" && this.getNode_request) {
         this.isLoading = false;
-
-        // add node_status key to slave nodes
         this.slave_nodes = Object.values(newMsg.payload).map(node => ({
           ...node,
-          node_status: "offline"
+          node_status: "offline",
+          manual_mode: false // Initialize here
         }));
-
         this.getNode_request = false;
       }
 
-      // pong handler
       if (newMsg.type == "PONG" && this.ping_request) {
         this.master_status = "online"
         if (this.ping_delay < 2) {
           this.ping_delay += 2;
         }
-        this.ping_request = false; 
+        this.ping_request = false;
       }
 
-      // get active node handler
       if (newMsg.type == "ACTIVE_NODE" && this.activeNode_request) {
         this.activeNode_request = false;
-
-        // Merge state from payload into slave_nodes
         this.slave_nodes = this.slave_nodes.map(node => {
           const key = node.mac_address;
           if (newMsg.payload[key] && newMsg.payload[key].state) {
-            return {
-              ...node,
-              state: newMsg.payload[key]?.state || {},  // merge state
-              node_status: "online"
-            };
+            if (node.manual_mode == false) {
+              return {
+                ...node,
+                state: newMsg.payload[key]?.state || {},
+                node_status: "online"
+              };
+            } else {
+              return {
+                ...node,
+                node_status: "online"
+              };
+            }
           } else {
-            console.log("Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
             return {
               ...node,
               node_status: "offline"
@@ -131,11 +245,8 @@ export default {
         });
       }
 
-      // get all node handler
       if (newMsg.type == "ALL_NODE" && this.allNode_request) {
         this.allNode_request = false;
-        
-        // delete old slave nodes in DB
         const dropObj = {
           collection: "nodes",
           payload: {},
@@ -143,8 +254,6 @@ export default {
           type: "MONGO_DB"
         };
         this.send(dropObj);
-
-        // upload new slave nodes to DB after 1.5 sec
         setTimeout(() => {
           const insertObj = {
             collection: "nodes",
@@ -154,39 +263,151 @@ export default {
           };
           this.send(insertObj);
           this.getNodesMongoDB();
+          // send notify
+          this.showNotification(`Sync successed`, "green");
         }, 1500);
+      }
+      
+      if (newMsg.type == "UNPAIR_NODE" && this.unpair_request) {
+        // Send delete request to the database
+        const deleteObj = {
+          collection: "nodes",
+          operation: "deleteOne",
+          type: "MONGO_DB",
+          payload: [{ mac_address: newMsg.payload.mac_address }]
+        };
+        this.send(deleteObj);
+
+        // Immediately remove the node from the local array for UI update
+        this.slave_nodes = this.slave_nodes.filter(
+          (n) => n.mac_address !== newMsg.payload.mac_address
+        );
+
+        this.unpair_request = false;
+        // send notify
+        this.showNotification(`Unpair ${newMsg.payload.mac_address} successed`, "green");
       }
     }
   },
   methods: {
-    // prevent unlogin user
+    showNotification(msg = 'Notification shown at the top!', color = "teal") {
+      this.notify_timeout += 3000;
+      this.message = msg;
+      this.notify_color = color;
+      this.snackbar = true;
+      // Optional: send message to Node-RED backend
+      this.$emit('send', { payload: 'top_notification_shown' });
+    },
+    unpairNode(node) {
+      if (node.node_status == "online") {
+          if (confirm(`Are you sure you want to unpair the node "${node.name || node.mac_address}"?`)) {
+
+          // Send unpair to master mesh
+          const unpairObj = {
+            payload: node.node_id,
+            type: "UNPAIR_NODE",
+          }
+          this.send(unpairObj);
+          this.unpair_request = true;
+
+          // send notify
+          this.showNotification("Unpairing...", "blue");
+        }
+      } else {
+        // send notify
+          this.showNotification(`This ${node.mac_address} is offline`, "red");
+      }
+    },
+
+    setManualMode(node) {
+      if (this.toggle_mode == "MANUAL") {
+        node.manual_mode = true;
+        this.toggle_mode = "AUTO"
+      } else {
+        node.manual_mode = false;
+        this.toggle_mode = "MANUAL"
+      }
+    },
+
+    toggleRelay(node, relayKey) {
+      if (!node || !node.state) {
+        console.error("Cannot toggle relay: Node or state is invalid.", node);
+        return;
+      }
+      const newState = node.state[relayKey];
+      const commandObj = {
+        type: "RELAY_CONTROL",
+        payload: {
+          node_id: node.node_id,
+          state: {
+            "r1": node.state.r1,
+            "r2": node.state.r2,
+          },
+        }
+      };
+      console.log("Sending command:", commandObj);
+      this.send(commandObj);
+    },
+
+    showNodePopup(node) {
+      this.selectedNode = node;
+      this.dialog = true;
+    },
+
+    startEditing(node) {
+      this.editingNodeMac = node.mac_address;
+      this.editingNodeName = node.name || '';
+    },
+
+    saveNodeName() {
+      if (!this.editingNodeMac) return;
+
+      const nodeToUpdate = this.slave_nodes.find(
+        (n) => n.mac_address === this.editingNodeMac
+      );
+
+      if (nodeToUpdate) {
+        nodeToUpdate.name = this.editingNodeName;
+
+        const updateObj = {
+          collection: "nodes",
+          operation: "updateOne",
+          type: "MONGO_DB",
+          payload: [
+            { mac_address: this.editingNodeMac },
+            { $set: { name: this.editingNodeName } }
+          ]
+        };
+
+        this.send(updateObj);
+      }
+
+      this.editingNodeMac = null;
+      this.editingNodeName = "";
+    },
+
     redirectLogin() {
       const base = window.location.origin;
       window.location.href = `${base}/dashboard/login`;
     },
-    // send request to mongoDB to get slave nodes
+
     getNodesMongoDB() {
       const sendObj = {
         collection: "nodes",
         operation: "find.toArray",
         type: "MONGO_DB"
       };
-      this.getNode_request = true, 
+      this.getNode_request = true;
       this.send(sendObj);
     },
-    // check master node status every 5 sec
+
     checkMasterStatus() {
-      const sendObj = {
-        payload: "ping",
-        type: "PING"
-      };
+      const sendObj = { payload: "ping", type: "PING" };
       this.ping_request = true;
       this.send(sendObj);
 
-      // send ping payload to master node 5 sec interval
       setInterval(() => {
-        this.ping_request = true; 
-        // online & offline logic
+        this.ping_request = true;
         if (this.ping_delay == 0) {
           this.master_status = "offline";
         } else {
@@ -194,42 +415,39 @@ export default {
           this.ping_delay -= 1;
         }
         this.send(sendObj);
-      }, 5000); // 5000 ms = 5 second
+      }, 5000);
     },
-    // check slave node status every 1 sec
-    checkNodeStatus() {
-      const sendObj = {
-        payload: "active",
-        type: "ACTIVE_NODE"
-      };
-      this.activeNode_request = true;
-      this.send(sendObj);
 
-      // send check payload to master node 1 sec interval
+    checkNodeStatus() {
+      const sendObj = { payload: "active", type: "ACTIVE_NODE" };
       setInterval(() => {
-        this.activeNode_request = true; 
-        this.send(sendObj);
-      }, 1000); // 1000 ms = 1 second
+        if (this.master_status == "online") {
+          this.activeNode_request = true;
+          this.send(sendObj);
+        }
+      }, 1000);
     },
-    // get entire slave node to replace to mongoDB nodes collection
+
     syncSlave() {
       this.allNode_request = true;
-      const sendObj = {
-        payload: "getAllNode",
-        type: "ALL_NODE"
-      }
+      const sendObj = { payload: "getAllNode", type: "ALL_NODE" };
       this.send(sendObj);
       this.isLoading = true;
+    },
+
+    refreshPage() {
+      window.location.reload();
     }
   }
 };
 </script>
 
-<!-- 
+<!--
 
-- get active node and match to node in database to tell which node is online [ master online condition ] on open webpage
-- refresh button to get active node again
-- naming system and update to database
-- config relay slave 
+- config relay slave
+
 - config type of sensor (button, toggle, relay)
+
+- online offline filter function
+
 -->
