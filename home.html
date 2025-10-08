@@ -22,11 +22,17 @@
       <!-- sync button -->
       <v-btn
         outlined
-        @click=""
         style="background-color: #a2af9b; color: black"
         class="font-weight-bold text-subtitle-1 text-blue-grey-darken-4"
+        :loading="isLoading"
+        :disabled="isLoading"
+        @click="syncSlave"
       >
-        SYNC
+        <template v-slot:loader>
+          <v-progress-circular indeterminate color="white" size="20"></v-progress-circular>
+        </template>
+        <span v-if="!isLoading">SYNC</span>
+        <span v-else>Loading...</span>
       </v-btn>
     </div>
 </div>
@@ -42,6 +48,7 @@
   >
     <v-sheet class="pa-3 text-subtitle-1 text-blue-grey-darken-4 rounded-lg"  color="primary" elevation="1">
       <v-sheet color="primary">
+        <p>Node Status : {{ node.node_status }}</p>
         <p>Node ID : {{ node.node_id }}</p>
         <p>MAC Addr : {{ node.mac_address }}</p>
         <p>Node Type : {{ node.node_type }}</p>
@@ -57,11 +64,12 @@ export default {
     if (localStorage.getItem("loggedIn") === "false") {
         this.redirectLogin();
     }
-    
     // get data from mongoDB at first
     this.getNodesMongoDB();
     // ping at initial
-    this.checkStatus();
+    this.checkMasterStatus();
+    // get slave node status
+    this.checkNodeStatus();
   },
   data() {
     return {
@@ -69,6 +77,8 @@ export default {
       getNode_request: false,
       ping_request: false,
       allNode_request: false,
+      activeNode_request: false,
+      isLoading: false,
       master_status: "offline",
     };
   },
@@ -78,9 +88,15 @@ export default {
 
       // getNodes handle
       if (newMsg.type == "MONGO_DB" && this.getNode_request) {
-        this.slave_nodes = newMsg.payload;
+        this.isLoading = false;
+
+        // add node_status key to slave nodes
+        this.slave_nodes = Object.values(newMsg.payload).map(node => ({
+          ...node,
+          node_status: "offline"
+        }));
+
         this.getNode_request = false;
-        console.log(this.slave_nodes);
       }
 
       // pong handler
@@ -92,18 +108,63 @@ export default {
         this.ping_request = false; 
       }
 
+      // get active node handler
+      if (newMsg.type == "ACTIVE_NODE" && this.activeNode_request) {
+        this.activeNode_request = false;
+
+        // Merge state from payload into slave_nodes
+        this.slave_nodes = this.slave_nodes.map(node => {
+          const key = node.mac_address;
+          if (newMsg.payload[key] && newMsg.payload[key].state) {
+            return {
+              ...node,
+              state: newMsg.payload[key]?.state || {},  // merge state
+              node_status: "online"
+            };
+          } else {
+            console.log("Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+            return {
+              ...node,
+              node_status: "offline"
+            };
+          }
+        });
+      }
+
       // get all node handler
       if (newMsg.type == "ALL_NODE" && this.allNode_request) {
         this.allNode_request = false;
-      }
+        
+        // delete old slave nodes in DB
+        const dropObj = {
+          collection: "nodes",
+          payload: {},
+          operation: "deleteMany",
+          type: "MONGO_DB"
+        };
+        this.send(dropObj);
 
+        // upload new slave nodes to DB after 1.5 sec
+        setTimeout(() => {
+          const insertObj = {
+            collection: "nodes",
+            payload: [Object.values(newMsg.payload)],
+            operation: "insertMany",
+            type: "MONGO_DB"
+          };
+          this.send(insertObj);
+          this.getNodesMongoDB();
+        }, 1500);
+      }
     }
   },
   methods: {
+    // prevent unlogin user
     redirectLogin() {
       const base = window.location.origin;
       window.location.href = `${base}/dashboard/login`;
     },
+    // send request to mongoDB to get slave nodes
     getNodesMongoDB() {
       const sendObj = {
         collection: "nodes",
@@ -113,7 +174,8 @@ export default {
       this.getNode_request = true, 
       this.send(sendObj);
     },
-    checkStatus() {
+    // check master node status every 5 sec
+    checkMasterStatus() {
       const sendObj = {
         payload: "ping",
         type: "PING"
@@ -132,8 +194,24 @@ export default {
           this.ping_delay -= 1;
         }
         this.send(sendObj);
-      }, 5000); // 1000 ms = 1 second
+      }, 5000); // 5000 ms = 5 second
     },
+    // check slave node status every 1 sec
+    checkNodeStatus() {
+      const sendObj = {
+        payload: "active",
+        type: "ACTIVE_NODE"
+      };
+      this.activeNode_request = true;
+      this.send(sendObj);
+
+      // send check payload to master node 1 sec interval
+      setInterval(() => {
+        this.activeNode_request = true; 
+        this.send(sendObj);
+      }, 1000); // 1000 ms = 1 second
+    },
+    // get entire slave node to replace to mongoDB nodes collection
     syncSlave() {
       this.allNode_request = true;
       const sendObj = {
@@ -141,6 +219,7 @@ export default {
         type: "ALL_NODE"
       }
       this.send(sendObj);
+      this.isLoading = true;
     }
   }
 };
@@ -148,7 +227,6 @@ export default {
 
 <!-- 
 
-- sync button for sync slave database with mesh slave
 - get active node and match to node in database to tell which node is online [ master online condition ] on open webpage
 - refresh button to get active node again
 - naming system and update to database
