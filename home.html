@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex; flex-direction: column;" class="ma-3">
+  <div style="display: flex; flex-direction: column" class="ma-3">
     <div class="top-buttons d-lg-flex d-sm-block justify-space-between align-center">
       <strong class="text-h6 font-weight-bold text-uppercase text-blue-grey-darken-4">
         status :
@@ -38,7 +38,7 @@
         v-for="(node, index) in slave_nodes"
         :key="index"
         cols="12"
-        sm="3"
+        sm="6"
         md="3"
         color="primary"
       >
@@ -61,6 +61,7 @@
                   size="small"
                   variant="text"
                   @click.stop="showNodePopup(node)"
+                  :disabled="node.node_status === 'offline'" 
                 ></v-btn>
                 <v-btn
                   icon="mdi-delete"
@@ -68,6 +69,7 @@
                   variant="text"
                   color="red-darken-2"
                   @click.stop="unpairNode(node)"
+                  :disabled="node.node_status === 'offline'" 
                 ></v-btn>
               </div>
             </div>
@@ -136,22 +138,84 @@
       </v-col>
     </v-row>
 
-    <v-dialog v-model="dialog" max-width="400">
+    <v-dialog v-model="dialog" max-width="500">
       <v-card>
-        <v-card-text class="pa-5">
-          <div v-if="selectedNode" class="text-h6 text-center text-blue-grey-darken-4">
-            {{ selectedNode.name || 'Mesh Node' }}
-          </div>
-        </v-card-text>
-        <v-card-actions>
+        <div v-if="selectedNode" class="text-h6 text-center text-blue-grey-darken-4 pa-3" style="background-color: #a2af9b;">
+          {{ selectedNode.name || 'Mesh Node' }}
+        </div>
+        
+        <v-list v-if="editableNodeConfig && editableNodeConfig.state && editableNodeConfig.state.gpio">
+          <v-list-item 
+            v-for="(gpioConfig, gpioPin) in editableNodeConfig.state.gpio" 
+            :key="gpioPin"
+          >
+            <div class="d-flex flex-column flex-sm-row justify-space-between align-center">
+              
+              <div class="font-weight-bold mb-2 mb-sm-0">
+                {{ gpioPin }}
+              </div>
+              
+              <v-btn-toggle
+                v-model="gpioConfig.type"
+                variant="outlined"
+                divided
+                density="compact"
+              >
+                <v-btn 
+                  value="button" 
+                  @click="updateGpioConfig(gpioPin, 'button')" 
+                  :disabled="gpio_config.mode[gpioPin] === 'button'" 
+                  :color="gpio_config.mode[gpioPin] === 'button' ? 'primary' : ''">
+                  Button
+                </v-btn>
+                <v-btn 
+                  value="toggle" 
+                  @click="updateGpioConfig(gpioPin, 'toggle')" 
+                  :disabled="gpio_config.mode[gpioPin] === 'toggle'" 
+                  :color="gpio_config.mode[gpioPin] === 'toggle' ? 'primary' : ''">
+                  Toggle
+                </v-btn>
+                <v-btn 
+                  value="delay" 
+                  @click="updateGpioConfig(gpioPin, 'delay')" 
+                  :disabled="gpio_config.mode[gpioPin] === 'delay'" 
+                  :color="gpio_config.mode[gpioPin] === 'delay' ? 'primary' : ''">
+                  Delay
+                </v-btn>
+              </v-btn-toggle>
+            </div>
+          </v-list-item>
+        </v-list>
+        
+        <v-card-actions class="pa-3">
+          <v-btn
+            v-if="selectedNode && selectedNode.node_type === 'sensor'"
+            style="background-color: #a2af9b; color: black"
+            text
+            @click="saveSensorConfig"
+          >
+            Save
+          </v-btn>
+          <v-btn
+            v-if="selectedNode && selectedNode.node_type === 'relay'"
+            style="background-color: #a2af9b; color: black"
+            text
+            @click="saveRelayConfig"
+          >
+            Save
+          </v-btn>
           <v-spacer></v-spacer>
-          <v-btn color="blue-darken-1" text @click="dialog = false">
+          <v-btn 
+            style="background-color: #90a4ae; color: black"
+            text 
+            @click="closeDialog"
+          >
             Close
           </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <!-- Top notification -->
+
     <v-snackbar
       v-model="snackbar"
       top
@@ -170,275 +234,290 @@
 
 <script>
 export default {
-  mounted() {
-    if (localStorage.getItem("loggedIn") === "false") {
-      this.redirectLogin();
-    }
-    this.getNodesMongoDB();
-    this.checkMasterStatus();
-    this.checkNodeStatus();
-  },
-  data() {
-    return {
-      slave_nodes: [],
-      getNode_request: false,
-      ping_request: false,
-      allNode_request: false,
-      activeNode_request: false,
-      unpair_request: false,
-      isLoading: false,
-      master_status: "offline",
-      editingNodeMac: null,
-      editingNodeName: "",
-      dialog: false,
-      selectedNode: null,
-      toggle_mode: "MANUAL",
-      snackbar: false, // control notify visibility
-      message: '', // message of notify
-      notify_color: "teal",
-      notify_timeout: 0
-    };
-  },
-  watch: {
-    msg(newMsg) {
-      if (newMsg.type == "MONGO_DB" && this.getNode_request) {
-        this.isLoading = false;
-        this.slave_nodes = Object.values(newMsg.payload).map(node => ({
-          ...node,
-          node_status: "offline",
-          manual_mode: false // Initialize here
-        }));
-        this.getNode_request = false;
+  mounted() {
+    if (localStorage.getItem("loggedIn") === "false") {
+      this.redirectLogin();
+    }
+    this.getNodesMongoDB();
+    this.checkMasterStatus();
+    this.checkNodeStatus();
+  },
+  data() {
+    return {
+      slave_nodes: [],
+      getNode_request: false,
+      ping_request: false,
+      allNode_request: false,
+      activeNode_request: false,
+      unpair_request: false,
+      gpioConfig_request: false,
+      isLoading: false,
+      master_status: "offline",
+      editingNodeMac: null,
+      editingNodeName: "",
+      dialog: false,
+      selectedNode: null,
+      editableNodeConfig: null, // Temporary storage for edits in the dialog
+      toggle_mode: "MANUAL",
+      snackbar: false,
+      message: '',
+      notify_color: "teal",
+      notify_timeout: 0,
+      gpio_config: {
+        node_id: "",
+        mode: {}
+      },
+    };
+  },
+  watch: {
+    msg(newMsg) {
+      if (newMsg.type == "MONGO_DB" && this.getNode_request) {
+        this.isLoading = false;
+        this.slave_nodes = Object.values(newMsg.payload).map(node => ({
+          ...node,
+          node_status: "offline",
+          manual_mode: false
+        }));
+        this.getNode_request = false;
+      }
+
+      if (newMsg.type == "PONG" && this.ping_request) {
+        this.master_status = "online"
+        if (this.ping_delay < 2) {
+          this.ping_delay += 2;
+        }
+        this.ping_request = false;
+      }
+
+      if (newMsg.type == "ACTIVE_NODE" && this.activeNode_request) {
+        this.activeNode_request = false;
+        this.slave_nodes = this.slave_nodes.map(node => {
+          const key = node.mac_address;
+          if (newMsg.payload[key] && newMsg.payload[key].state) {
+            if (node.manual_mode == false) {
+              return {
+                ...node,
+                state: newMsg.payload[key]?.state || {},
+                node_status: "online"
+              };
+            } else {
+              return {
+                ...node,
+                node_status: "online"
+              };
+            }
+          } else {
+            return {
+              ...node,
+              node_status: "offline"
+            };
+          }
+        });
+      }
+
+      if (newMsg.type == "ALL_NODE" && this.allNode_request) {
+        this.allNode_request = false;
+        const dropObj = {
+          collection: "nodes",
+          payload: {},
+          operation: "deleteMany",
+          type: "MONGO_DB"
+        };
+        this.send(dropObj);
+        setTimeout(() => {
+          const insertObj = {
+            collection: "nodes",
+            payload: [Object.values(newMsg.payload)],
+            operation: "insertMany",
+            type: "MONGO_DB"
+          };
+          this.send(insertObj);
+          this.getNodesMongoDB();
+          this.showNotification(`Sync succeeded`, "green");
+        }, 1500);
+      }
+      
+      if (newMsg.type == "UNPAIR_NODE" && this.unpair_request) {
+        const deleteObj = {
+          collection: "nodes",
+          operation: "deleteOne",
+          type: "MONGO_DB",
+          payload: [{ mac_address: newMsg.payload.mac_address }]
+        };
+        this.send(deleteObj);
+        this.slave_nodes = this.slave_nodes.filter(
+          (n) => n.mac_address !== newMsg.payload.mac_address
+        );
+        this.unpair_request = false;
+        this.showNotification(`Unpair ${newMsg.payload.mac_address} succeeded`, "green");
+      }
+
+       if (newMsg.type == "UPDATE_GPIO_CONFIG" && this.gpioConfig_request) {
+        this.gpioConfig_request = false;
+        this.showNotification(`GPIO configuration updated successfully`, "green");
       }
-
-      if (newMsg.type == "PONG" && this.ping_request) {
-        this.master_status = "online"
-        if (this.ping_delay < 2) {
-          this.ping_delay += 2;
-        }
-        this.ping_request = false;
-      }
-
-      if (newMsg.type == "ACTIVE_NODE" && this.activeNode_request) {
-        this.activeNode_request = false;
-        this.slave_nodes = this.slave_nodes.map(node => {
-          const key = node.mac_address;
-          if (newMsg.payload[key] && newMsg.payload[key].state) {
-            if (node.manual_mode == false) {
-              return {
-                ...node,
-                state: newMsg.payload[key]?.state || {},
-                node_status: "online"
-              };
-            } else {
-              return {
-                ...node,
-                node_status: "online"
-              };
-            }
-          } else {
-            return {
-              ...node,
-              node_status: "offline"
-            };
-          }
-        });
-      }
-
-      if (newMsg.type == "ALL_NODE" && this.allNode_request) {
-        this.allNode_request = false;
-        const dropObj = {
-          collection: "nodes",
-          payload: {},
-          operation: "deleteMany",
-          type: "MONGO_DB"
-        };
-        this.send(dropObj);
-        setTimeout(() => {
-          const insertObj = {
-            collection: "nodes",
-            payload: [Object.values(newMsg.payload)],
-            operation: "insertMany",
-            type: "MONGO_DB"
-          };
-          this.send(insertObj);
-          this.getNodesMongoDB();
-          // send notify
-          this.showNotification(`Sync successed`, "green");
-        }, 1500);
-      }
-      
-      if (newMsg.type == "UNPAIR_NODE" && this.unpair_request) {
-        // Send delete request to the database
-        const deleteObj = {
-          collection: "nodes",
-          operation: "deleteOne",
-          type: "MONGO_DB",
-          payload: [{ mac_address: newMsg.payload.mac_address }]
-        };
-        this.send(deleteObj);
-
-        // Immediately remove the node from the local array for UI update
-        this.slave_nodes = this.slave_nodes.filter(
-          (n) => n.mac_address !== newMsg.payload.mac_address
-        );
-
-        this.unpair_request = false;
-        // send notify
-        this.showNotification(`Unpair ${newMsg.payload.mac_address} successed`, "green");
-      }
-    }
-  },
-  methods: {
-    showNotification(msg = 'Notification shown at the top!', color = "teal") {
-      this.notify_timeout += 3000;
-      this.message = msg;
-      this.notify_color = color;
-      this.snackbar = true;
-      // Optional: send message to Node-RED backend
-      this.$emit('send', { payload: 'top_notification_shown' });
-    },
-    unpairNode(node) {
-      if (node.node_status == "online") {
-          if (confirm(`Are you sure you want to unpair the node "${node.name || node.mac_address}"?`)) {
-
-          // Send unpair to master mesh
-          const unpairObj = {
-            payload: node.node_id,
-            type: "UNPAIR_NODE",
-          }
-          this.send(unpairObj);
-          this.unpair_request = true;
-
-          // send notify
-          this.showNotification("Unpairing...", "blue");
-        }
-      } else {
-        // send notify
-          this.showNotification(`This ${node.mac_address} is offline`, "red");
-      }
-    },
-
-    setManualMode(node) {
-      if (this.toggle_mode == "MANUAL") {
-        node.manual_mode = true;
-        this.toggle_mode = "AUTO"
-      } else {
-        node.manual_mode = false;
-        this.toggle_mode = "MANUAL"
-      }
-    },
-
-    toggleRelay(node, relayKey) {
-      if (!node || !node.state) {
-        console.error("Cannot toggle relay: Node or state is invalid.", node);
-        return;
-      }
-      const newState = node.state[relayKey];
-      const commandObj = {
-        type: "RELAY_CONTROL",
-        payload: {
-          node_id: node.node_id,
-          state: {
-            "r1": node.state.r1,
-            "r2": node.state.r2,
-          },
-        }
-      };
-      console.log("Sending command:", commandObj);
-      this.send(commandObj);
-    },
-
-    showNodePopup(node) {
-      this.selectedNode = node;
-      this.dialog = true;
-    },
-
-    startEditing(node) {
-      this.editingNodeMac = node.mac_address;
-      this.editingNodeName = node.name || '';
-    },
-
-    saveNodeName() {
-      if (!this.editingNodeMac) return;
-
-      const nodeToUpdate = this.slave_nodes.find(
-        (n) => n.mac_address === this.editingNodeMac
-      );
-
-      if (nodeToUpdate) {
-        nodeToUpdate.name = this.editingNodeName;
-
-        const updateObj = {
-          collection: "nodes",
-          operation: "updateOne",
-          type: "MONGO_DB",
-          payload: [
-            { mac_address: this.editingNodeMac },
-            { $set: { name: this.editingNodeName } }
-          ]
-        };
-
-        this.send(updateObj);
-      }
-
-      this.editingNodeMac = null;
-      this.editingNodeName = "";
-    },
-
-    redirectLogin() {
-      const base = window.location.origin;
-      window.location.href = `${base}/dashboard/login`;
-    },
-
-    getNodesMongoDB() {
-      const sendObj = {
-        collection: "nodes",
-        operation: "find.toArray",
-        type: "MONGO_DB"
-      };
-      this.getNode_request = true;
-      this.send(sendObj);
-    },
-
-    checkMasterStatus() {
-      const sendObj = { payload: "ping", type: "PING" };
-      this.ping_request = true;
-      this.send(sendObj);
-
-      setInterval(() => {
-        this.ping_request = true;
-        if (this.ping_delay == 0) {
-          this.master_status = "offline";
-        } else {
-          this.master_status = "online";
-          this.ping_delay -= 1;
-        }
-        this.send(sendObj);
-      }, 5000);
-    },
-
-    checkNodeStatus() {
-      const sendObj = { payload: "active", type: "ACTIVE_NODE" };
-      setInterval(() => {
-        if (this.master_status == "online") {
-          this.activeNode_request = true;
-          this.send(sendObj);
-        }
-      }, 1000);
-    },
-
-    syncSlave() {
-      this.allNode_request = true;
-      const sendObj = { payload: "getAllNode", type: "ALL_NODE" };
-      this.send(sendObj);
-      this.isLoading = true;
-    },
-
-    refreshPage() {
-      window.location.reload();
-    }
-  }
+    }
+  },
+  methods: {
+    closeDialog() {
+      this.dialog = false;
+      // refresh the gpio_config object
+      this.gpio_config = {
+        node_id: "",
+        mode: {}
+      };
+      this.selectedNode = null;
+      this.editableNodeConfig = null;
+    },
+    updateGpioConfig(gpioPin, newType) {
+      this.gpio_config.mode[gpioPin] = newType;
+      console.log("Updated GPIO Config:", this.gpio_config);
+    },
+    saveSensorConfig() {
+      const updateObj = {
+        payload: this.gpio_config,
+        type: "UPDATE_GPIO_CONFIG",
+      };
+      this.send(updateObj);
+      this.gpioConfig_request = true;  
+      this.showNotification("Saving GPIO configuration...", "blue");
+      this.closeDialog();
+    },
+    showNotification(msg = 'Notification shown at the top!', color = "teal") {
+      this.notify_timeout += 3000;
+      this.message = msg;
+      this.notify_color = color;
+      this.snackbar = true;
+      this.$emit('send', { payload: 'top_notification_shown' });
+    },
+    unpairNode(node) {
+      if (node.node_status == "online") {
+        if (confirm(`Are you sure you want to unpair the node "${node.name || node.mac_address}"?`)) {
+          const unpairObj = {
+            payload: node.node_id,
+            type: "UNPAIR_NODE",
+          }
+          this.send(unpairObj);
+          this.unpair_request = true;
+          this.showNotification("Unpairing...", "blue");
+        }
+      } else {
+        this.showNotification(`This ${node.mac_address} is offline`, "red");
+      }
+    },
+    setManualMode(node) {
+      if (this.toggle_mode == "MANUAL") {
+        node.manual_mode = true;
+        this.toggle_mode = "AUTO"
+      } else {
+        node.manual_mode = false;
+        this.toggle_mode = "MANUAL"
+      }
+    },
+    toggleRelay(node, relayKey) {
+      if (!node || !node.state) {
+        console.error("Cannot toggle relay: Node or state is invalid.", node);
+        return;
+      }
+      const commandObj = {
+        type: "RELAY_CONTROL",
+        payload: {
+          node_id: node.node_id,
+          state: {
+            "r1": node.state.r1,
+            "r2": node.state.r2,
+          },
+        }
+      };
+      this.send(commandObj);
+    },
+    showNodePopup(node) {
+      if (node.node_type == "sensor") {
+        let default_gpio = node.state.gpio || {};
+        for (let key in default_gpio) {
+          default_gpio[key] = "button";
+        } 
+        this.gpio_config = {
+          node_id: node.node_id,
+          mode: default_gpio || {}
+        };
+        console.log("Default GPIO Config:", this.gpio_config);
+      }
+      this.selectedNode = node;
+      // Create a deep copy of the node for editing to avoid modifying the original data until saved
+      this.editableNodeConfig = JSON.parse(JSON.stringify(node));
+      this.dialog = true;
+    },
+    startEditing(node) {
+      this.editingNodeMac = node.mac_address;
+      this.editingNodeName = node.name || '';
+    },
+    saveNodeName() {
+      if (!this.editingNodeMac) return;
+      const nodeToUpdate = this.slave_nodes.find(n => n.mac_address === this.editingNodeMac);
+      if (nodeToUpdate) {
+        nodeToUpdate.name = this.editingNodeName;
+        const updateObj = {
+          collection: "nodes",
+          operation: "updateOne",
+          type: "MONGO_DB",
+          payload: [
+            { mac_address: this.editingNodeMac },
+            { $set: { name: this.editingNodeName } }
+          ]
+        };
+        this.send(updateObj);
+      }
+      this.editingNodeMac = null;
+      this.editingNodeName = "";
+    },
+    redirectLogin() {
+      const base = window.location.origin;
+      window.location.href = `${base}/dashboard/login`;
+    },
+    getNodesMongoDB() {
+      const sendObj = {
+        collection: "nodes",
+        operation: "find.toArray",
+        type: "MONGO_DB"
+      };
+      this.getNode_request = true;
+      this.send(sendObj);
+    },
+    checkMasterStatus() {
+      const sendObj = { payload: "ping", type: "PING" };
+      this.ping_request = true;
+      this.send(sendObj);
+      setInterval(() => {
+        this.ping_request = true;
+        if (this.ping_delay == 0) {
+          this.master_status = "offline";
+        } else {
+          this.master_status = "online";
+          this.ping_delay -= 1;
+        }
+        this.send(sendObj);
+      }, 5000);
+    },
+    checkNodeStatus() {
+      const sendObj = { payload: "active", type: "ACTIVE_NODE" };
+      setInterval(() => {
+        if (this.master_status == "online") {
+          this.activeNode_request = true;
+          this.send(sendObj);
+        }
+      }, 1000);
+    },
+    syncSlave() {
+      this.allNode_request = true;
+      const sendObj = { payload: "getAllNode", type: "ALL_NODE" };
+      this.send(sendObj);
+      this.isLoading = true;
+    },
+    refreshPage() {
+      window.location.reload();
+    }
+  }
 };
 </script>
 
