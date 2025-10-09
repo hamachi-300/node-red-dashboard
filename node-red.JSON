@@ -134,12 +134,12 @@
         "id": "e0e44357057ba5c3",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 40,
-        "y": 2340,
+        "x": 1320,
+        "y": 780,
         "wires": [
             [
-                "ae7c5b3d7e4a5795",
-                "498c72312f925ecb"
+                "36f53e223aef6872",
+                "5159011c320839ba"
             ]
         ]
     },
@@ -147,8 +147,8 @@
         "id": "f4a13cbca9ec8ca7",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 1380,
-        "y": 2260,
+        "x": 3220,
+        "y": 700,
         "wires": [
             [
                 "81d74a33ea5da797"
@@ -159,8 +159,8 @@
         "id": "34af37b65b55eacf",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 340,
-        "y": 2860,
+        "x": 1820,
+        "y": 1580,
         "wires": [
             [
                 "859b3bd66bc892ae"
@@ -171,8 +171,8 @@
         "id": "c02fc4796c3e4414",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 1060,
-        "y": 2860,
+        "x": 2780,
+        "y": 1580,
         "wires": [
             [
                 "b9bb8e0b80aefb9d"
@@ -183,8 +183,8 @@
         "id": "df7a3faee1583cba",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 280,
-        "y": 1920,
+        "x": 1640,
+        "y": 220,
         "wires": [
             [
                 "fdce47c8830e0420"
@@ -205,8 +205,8 @@
         "id": "f7f4e351ed6248e3",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 200,
-        "y": 2060,
+        "x": 1560,
+        "y": 360,
         "wires": [
             [
                 "df7a3faee1583cba",
@@ -218,8 +218,8 @@
         "id": "c14b30fed8c2b15d",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 280,
-        "y": 2720,
+        "x": 1740,
+        "y": 1440,
         "wires": [
             [
                 "34af37b65b55eacf",
@@ -231,11 +231,11 @@
         "id": "fd7426e6c315f693",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 1300,
-        "y": 2060,
+        "x": 3040,
+        "y": 360,
         "wires": [
             [
-                "f4a13cbca9ec8ca7"
+                "0828b628b6f651dc"
             ]
         ]
     },
@@ -243,8 +243,8 @@
         "id": "b9bb8e0b80aefb9d",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 1140,
-        "y": 2720,
+        "x": 2860,
+        "y": 1440,
         "wires": [
             [
                 "9a1992c72110a3a2"
@@ -255,8 +255,8 @@
         "id": "12e519c8df58a2c6",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 1220,
-        "y": 1920,
+        "x": 2960,
+        "y": 220,
         "wires": [
             [
                 "fd7426e6c315f693"
@@ -267,8 +267,8 @@
         "id": "ae7c5b3d7e4a5795",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 120,
-        "y": 2180,
+        "x": 1480,
+        "y": 480,
         "wires": [
             [
                 "f7f4e351ed6248e3",
@@ -280,8 +280,8 @@
         "id": "2350652fbadaae99",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 200,
-        "y": 2580,
+        "x": 1660,
+        "y": 1300,
         "wires": [
             [
                 "c14b30fed8c2b15d",
@@ -293,8 +293,8 @@
         "id": "9a1992c72110a3a2",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 1220,
-        "y": 2580,
+        "x": 2940,
+        "y": 1300,
         "wires": [
             [
                 "bc0df7681d9cbc45"
@@ -305,11 +305,11 @@
         "id": "bc0df7681d9cbc45",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 1300,
-        "y": 2460,
+        "x": 3020,
+        "y": 1180,
         "wires": [
             [
-                "f4a13cbca9ec8ca7"
+                "01f7625f3734e1db"
             ]
         ]
     },
@@ -317,12 +317,87 @@
         "id": "498c72312f925ecb",
         "type": "junction",
         "z": "2c682173eb064de0",
-        "x": 120,
-        "y": 2460,
+        "x": 1580,
+        "y": 1180,
         "wires": [
             [
                 "2350652fbadaae99",
                 "3e5dd7ea9e590980"
+            ]
+        ]
+    },
+    {
+        "id": "36f53e223aef6872",
+        "type": "junction",
+        "z": "2c682173eb064de0",
+        "x": 1400,
+        "y": 600,
+        "wires": [
+            [
+                "ae7c5b3d7e4a5795",
+                "d36963b9ce8297ee"
+            ]
+        ]
+    },
+    {
+        "id": "0828b628b6f651dc",
+        "type": "junction",
+        "z": "2c682173eb064de0",
+        "x": 3120,
+        "y": 600,
+        "wires": [
+            [
+                "f4a13cbca9ec8ca7"
+            ]
+        ]
+    },
+    {
+        "id": "5159011c320839ba",
+        "type": "junction",
+        "z": "2c682173eb064de0",
+        "x": 1400,
+        "y": 880,
+        "wires": [
+            [
+                "6797372e78d6ff0d",
+                "24838956d182cb22"
+            ]
+        ]
+    },
+    {
+        "id": "077ac4e53213c43f",
+        "type": "junction",
+        "z": "2c682173eb064de0",
+        "x": 3140,
+        "y": 880,
+        "wires": [
+            [
+                "f4a13cbca9ec8ca7"
+            ]
+        ]
+    },
+    {
+        "id": "24838956d182cb22",
+        "type": "junction",
+        "z": "2c682173eb064de0",
+        "x": 1500,
+        "y": 1020,
+        "wires": [
+            [
+                "498c72312f925ecb",
+                "3250d2b2f41803d5"
+            ]
+        ]
+    },
+    {
+        "id": "01f7625f3734e1db",
+        "type": "junction",
+        "z": "2c682173eb064de0",
+        "x": 3100,
+        "y": 1020,
+        "wires": [
+            [
+                "077ac4e53213c43f"
             ]
         ]
     },
@@ -605,7 +680,7 @@
         "templateScope": "local",
         "className": "",
         "x": 720,
-        "y": 1420,
+        "y": 1380,
         "wires": [
             [
                 "414b2c245a73e2f4"
@@ -650,14 +725,14 @@
         "width": 0,
         "height": 14,
         "head": "",
-        "format": "<template>\n  <div style=\"display: flex; flex-direction: column\" class=\"ma-3\">\n    <div class=\"top-buttons d-lg-flex d-sm-block justify-space-between align-center\">\n      <strong class=\"text-h6 font-weight-bold text-uppercase text-blue-grey-darken-4\">\n        status :\n        <span :class=\"master_status === 'online' ? 'text-teal' : 'text-red-darken-2'\">\n          {{ master_status }}\n        </span>\n      </strong>\n      <div>\n        <v-btn outlined @click=\"refreshPage\" style=\"background-color: #a2af9b; color: black\"\n          class=\"font-weight-bold text-subtitle-1 text-blue-grey-darken-4 mr-4\">\n          REFRESH\n        </v-btn>\n        <v-btn outlined style=\"background-color: #a2af9b; color: black\"\n          class=\"font-weight-bold text-subtitle-1 text-blue-grey-darken-4\" :loading=\"isLoading\" :disabled=\"isLoading\"\n          @click=\"syncSlave\">\n          <template v-slot:loader>\n            <v-progress-circular indeterminate color=\"white\" size=\"20\"></v-progress-circular>\n          </template>\n          <span v-if=\"!isLoading\">SYNC</span>\n          <span v-else>Loading...</span>\n        </v-btn>\n      </div>\n    </div>\n\n    <v-row class=\"mt-5 pa-4 rounded-lg\" style=\"background-color: #a2af9b; color: black\">\n      <v-col v-for=\"(node, index) in slave_nodes\" :key=\"index\" cols=\"12\" sm=\"6\" md=\"3\" color=\"primary\">\n        <v-sheet class=\"pa-3 text-subtitle-1 text-blue-grey-darken-4 rounded-lg\" color=\"primary\" elevation=\"1\">\n          <v-sheet color=\"primary\">\n            <div class=\"d-flex justify-space-between align-center\">\n              <strong>STATUS :\n                <span :class=\"node.node_status === 'online' ? 'text-teal text-uppercase' : 'text-red-darken-2 text-uppercase'\">\n                  {{ node.node_status }}\n                </span>\n              </strong>\n\n              <div>\n                <v-btn icon=\"mdi-cog\" size=\"small\" variant=\"text\" @click.stop=\"showNodePopup(node)\"\n                  :disabled=\"node.node_status === 'offline'\"></v-btn>\n                <v-btn icon=\"mdi-delete\" size=\"small\" variant=\"text\" color=\"red-darken-2\" @click.stop=\"unpairNode(node)\"\n                  :disabled=\"node.node_status === 'offline'\"></v-btn>\n              </div>\n            </div>\n\n            <div class=\"d-flex align-center\">\n              <span class=\"mr-2\">Node Name :</span>\n              <span\n                v-if=\"editingNodeMac !== node.mac_address\"\n                @click.stop=\"startEditing(node)\"\n                style=\"cursor: pointer;\"\n                class=\"font-weight-bold\"\n              >\n                {{ node.name || 'Mesh Node' }}\n              </span>\n              <v-text-field v-else v-model=\"editingNodeName\" @keyup.enter=\"saveNodeName\" @blur=\"saveNodeName\"\n                @click.stop dense autofocus single-line hide-details></v-text-field>\n            </div>\n\n            <p>MAC Addr : {{ node.mac_address }}</p>\n            <p>Node Type : {{ node.node_type }}</p>\n            <p>Description : {{ node.description }}</p>\n\n            <div v-if=\"node.node_type === 'relay' && node.node_status === 'online'\">\n              <v-btn class=\"mb-2 mt-2\" block color=\"blue-grey-darken-1\" @click=\"setManualMode(node)\">\n                {{ this.toggle_mode }}\n              </v-btn>\n              <v-divider class=\"my-2\"></v-divider>\n              <div class=\"d-flex justify-space-around\">\n                <v-switch v-model=\"node.state.r1\" label=\"Relay 1\" color=\"teal\" inset hide-details\n                  :disabled=\"!node.manual_mode\" @change.stop=\"toggleRelay(node, 'r1')\"></v-switch>\n                <v-switch v-model=\"node.state.r2\" label=\"Relay 2\" color=\"teal\" inset hide-details\n                  :disabled=\"!node.manual_mode\" @change.stop=\"toggleRelay(node, 'r2')\"></v-switch>\n              </div>\n            </div>\n\n          </v-sheet>\n        </v-sheet>\n      </v-col>\n    </v-row>\n\n    <v-dialog v-model=\"dialog\" max-width=\"500\">\n      <v-card>\n        <div v-if=\"selectedNode\" class=\"text-h6 text-center text-blue-grey-darken-4 pa-3\"\n          style=\"background-color: #a2af9b;\">\n          {{ selectedNode.name || 'Mesh Node' }}\n        </div>\n\n        <v-list v-if=\"editableNodeConfig && editableNodeConfig.state && editableNodeConfig.state.gpio\">\n          <v-list-item v-for=\"(gpioConfig, gpioPin) in editableNodeConfig.state.gpio\" :key=\"gpioPin\">\n            <div class=\"d-flex flex-column flex-sm-row justify-space-between align-center\">\n\n              <div class=\"font-weight-bold mb-2 mb-sm-0\">\n                {{ gpioPin }}\n              </div>\n\n              <v-btn-toggle v-model=\"gpioConfig.type\" variant=\"outlined\" divided density=\"compact\">\n                <v-btn value=\"button\" @click=\"updateGpioConfig(gpioPin, 'button')\"\n                  :disabled=\"gpio_config.mode[gpioPin] === 'button'\"\n                  :color=\"gpio_config.mode[gpioPin] === 'button' ? 'primary' : ''\">\n                  Button\n                </v-btn>\n                <v-btn value=\"toggle\" @click=\"updateGpioConfig(gpioPin, 'toggle')\"\n                  :disabled=\"gpio_config.mode[gpioPin] === 'toggle'\"\n                  :color=\"gpio_config.mode[gpioPin] === 'toggle' ? 'primary' : ''\">\n                  Toggle\n                </v-btn>\n                <v-btn value=\"delay\" @click=\"updateGpioConfig(gpioPin, 'delay')\"\n                  :disabled=\"gpio_config.mode[gpioPin] === 'delay'\"\n                  :color=\"gpio_config.mode[gpioPin] === 'delay' ? 'primary' : ''\">\n                  Delay\n                </v-btn>\n              </v-btn-toggle>\n            </div>\n          </v-list-item>\n        </v-list>\n\n        <v-card-actions class=\"pa-3\">\n          <v-btn v-if=\"selectedNode && selectedNode.node_type === 'sensor'\"\n            style=\"background-color: #a2af9b; color: black\" text @click=\"saveSensorConfig\">\n            Save\n          </v-btn>\n          <v-btn v-if=\"selectedNode && selectedNode.node_type === 'relay'\"\n            style=\"background-color: #a2af9b; color: black\" text @click=\"saveRelayConfig\">\n            Save\n          </v-btn>\n          <v-spacer></v-spacer>\n          <v-btn style=\"background-color: #90a4ae; color: black\" text @click=\"closeDialog\">\n            Close\n          </v-btn>\n        </v-card-actions>\n      </v-card>\n    </v-dialog>\n\n    <v-snackbar v-model=\"snackbar\" top absolute :timeout=\"notify_timeout\" :color=\"notify_color\" elevation=\"5\">\n      {{ message }}\n      <template v-slot:actions>\n        <v-btn text @click=\"snackbar = false\">Close</v-btn>\n      </template>\n    </v-snackbar>\n  </div>\n</template>\n\n<script>\n  export default {\n  mounted() {\n    if (localStorage.getItem(\"loggedIn\") === \"false\") {\n      this.redirectLogin();\n    }\n    this.getNodesMongoDB();\n    this.checkMasterStatus();\n    this.checkNodeStatus();\n  },\n  data() {\n    return {\n      slave_nodes: [],\n      getNode_request: false,\n      ping_request: false,\n      allNode_request: false,\n      activeNode_request: false,\n      unpair_request: false,\n      gpioConfig_request: false,\n      isLoading: false,\n      master_status: \"offline\",\n      editingNodeMac: null,\n      editingNodeName: \"\",\n      dialog: false,\n      selectedNode: null,\n      editableNodeConfig: null, // Temporary storage for edits in the dialog\n      toggle_mode: \"MANUAL\",\n      snackbar: false,\n      message: '',\n      notify_color: \"teal\",\n      notify_timeout: 0,\n      gpio_config: {\n        node_id: \"\",\n        mode: {}\n      },\n    };\n  },\n  watch: {\n    msg(newMsg) {\n      if (newMsg.type == \"MONGO_DB\" && this.getNode_request) {\n        this.isLoading = false;\n        this.slave_nodes = Object.values(newMsg.payload).map(node => ({\n          ...node,\n          node_status: \"offline\",\n          manual_mode: false\n        }));\n        this.getNode_request = false;\n      }\n\n      if (newMsg.type == \"PONG\" && this.ping_request) {\n        this.master_status = \"online\"\n        if (this.ping_delay < 2) {\n          this.ping_delay += 2;\n        }\n        this.ping_request = false;\n      }\n\n      if (newMsg.type == \"ACTIVE_NODE\" && this.activeNode_request) {\n        this.activeNode_request = false;\n        this.slave_nodes = this.slave_nodes.map(node => {\n          const key = node.mac_address;\n          if (newMsg.payload[key] && newMsg.payload[key].state) {\n            if (node.manual_mode == false) {\n              return {\n                ...node,\n                state: newMsg.payload[key]?.state || {},\n                node_status: \"online\"\n              };\n            } else {\n              return {\n                ...node,\n                node_status: \"online\"\n              };\n            }\n          } else {\n            return {\n              ...node,\n              node_status: \"offline\"\n            };\n          }\n        });\n      }\n\n      if (newMsg.type == \"ALL_NODE\" && this.allNode_request) {\n        this.allNode_request = false;\n        const dropObj = {\n          collection: \"nodes\",\n          payload: {},\n          operation: \"deleteMany\",\n          type: \"MONGO_DB\"\n        };\n        this.send(dropObj);\n        setTimeout(() => {\n          const insertObj = {\n            collection: \"nodes\",\n            payload: [Object.values(newMsg.payload)],\n            operation: \"insertMany\",\n            type: \"MONGO_DB\"\n          };\n          this.send(insertObj);\n          this.getNodesMongoDB();\n          this.showNotification(`Sync succeeded`, \"green\");\n        }, 1500);\n      }\n      \n      if (newMsg.type == \"UNPAIR_NODE\" && this.unpair_request) {\n        const deleteObj = {\n          collection: \"nodes\",\n          operation: \"deleteOne\",\n          type: \"MONGO_DB\",\n          payload: [{ mac_address: newMsg.payload.mac_address }]\n        };\n        this.send(deleteObj);\n        this.slave_nodes = this.slave_nodes.filter(\n          (n) => n.mac_address !== newMsg.payload.mac_address\n        );\n        this.unpair_request = false;\n        this.showNotification(`Unpair ${newMsg.payload.mac_address} succeeded`, \"green\");\n      }\n\n       if (newMsg.type == \"UPDATE_GPIO_CONFIG\" && this.gpioConfig_request) {\n        this.gpioConfig_request = false;\n        this.showNotification(`GPIO configuration updated successfully`, \"green\");\n      }\n    }\n  },\n  methods: {\n    closeDialog() {\n      this.dialog = false;\n      // refresh the gpio_config object\n      this.gpio_config = {\n        node_id: \"\",\n        mode: {}\n      };\n      this.selectedNode = null;\n      this.editableNodeConfig = null;\n    },\n    updateGpioConfig(gpioPin, newType) {\n      this.gpio_config.mode[gpioPin] = newType;\n      console.log(\"Updated GPIO Config:\", this.gpio_config);\n    },\n    saveSensorConfig() {\n      const updateObj = {\n        payload: this.gpio_config,\n        type: \"UPDATE_GPIO_CONFIG\",\n      };\n      this.send(updateObj);\n      this.gpioConfig_request = true;  \n      this.showNotification(\"Saving GPIO configuration...\", \"blue\");\n      this.closeDialog();\n    },\n    showNotification(msg = 'Notification shown at the top!', color = \"teal\") {\n      this.notify_timeout += 3000;\n      this.message = msg;\n      this.notify_color = color;\n      this.snackbar = true;\n      this.$emit('send', { payload: 'top_notification_shown' });\n    },\n    unpairNode(node) {\n      if (node.node_status == \"online\") {\n        if (confirm(`Are you sure you want to unpair the node \"${node.name || node.mac_address}\"?`)) {\n          const unpairObj = {\n            payload: node.node_id,\n            type: \"UNPAIR_NODE\",\n          }\n          this.send(unpairObj);\n          this.unpair_request = true;\n          this.showNotification(\"Unpairing...\", \"blue\");\n        }\n      } else {\n        this.showNotification(`This ${node.mac_address} is offline`, \"red\");\n      }\n    },\n    setManualMode(node) {\n      if (this.toggle_mode == \"MANUAL\") {\n        node.manual_mode = true;\n        this.toggle_mode = \"AUTO\"\n      } else {\n        node.manual_mode = false;\n        this.toggle_mode = \"MANUAL\"\n      }\n    },\n    toggleRelay(node, relayKey) {\n      if (!node || !node.state) {\n        console.error(\"Cannot toggle relay: Node or state is invalid.\", node);\n        return;\n      }\n      const commandObj = {\n        type: \"RELAY_CONTROL\",\n        payload: {\n          node_id: node.node_id,\n          state: {\n            \"r1\": node.state.r1,\n            \"r2\": node.state.r2,\n          },\n        }\n      };\n      this.send(commandObj);\n    },\n    showNodePopup(node) {\n      if (node.node_type == \"sensor\") {\n        let default_gpio = node.state.gpio || {};\n        for (let key in default_gpio) {\n          default_gpio[key] = \"button\";\n        } \n        this.gpio_config = {\n          node_id: node.node_id,\n          mode: default_gpio || {}\n        };\n        console.log(\"Default GPIO Config:\", this.gpio_config);\n      }\n      this.selectedNode = node;\n      // Create a deep copy of the node for editing to avoid modifying the original data until saved\n      this.editableNodeConfig = JSON.parse(JSON.stringify(node));\n      this.dialog = true;\n    },\n    startEditing(node) {\n      this.editingNodeMac = node.mac_address;\n      this.editingNodeName = node.name || '';\n    },\n    saveNodeName() {\n      if (!this.editingNodeMac) return;\n      const nodeToUpdate = this.slave_nodes.find(n => n.mac_address === this.editingNodeMac);\n      if (nodeToUpdate) {\n        nodeToUpdate.name = this.editingNodeName;\n        const updateObj = {\n          collection: \"nodes\",\n          operation: \"updateOne\",\n          type: \"MONGO_DB\",\n          payload: [\n            { mac_address: this.editingNodeMac },\n            { $set: { name: this.editingNodeName } }\n          ]\n        };\n        this.send(updateObj);\n      }\n      this.editingNodeMac = null;\n      this.editingNodeName = \"\";\n    },\n    redirectLogin() {\n      const base = window.location.origin;\n      window.location.href = `${base}/dashboard/login`;\n    },\n    getNodesMongoDB() {\n      const sendObj = {\n        collection: \"nodes\",\n        operation: \"find.toArray\",\n        type: \"MONGO_DB\"\n      };\n      this.getNode_request = true;\n      this.send(sendObj);\n    },\n    checkMasterStatus() {\n      const sendObj = { payload: \"ping\", type: \"PING\" };\n      this.ping_request = true;\n      this.send(sendObj);\n      setInterval(() => {\n        this.ping_request = true;\n        if (this.ping_delay == 0) {\n          this.master_status = \"offline\";\n        } else {\n          this.master_status = \"online\";\n          this.ping_delay -= 1;\n        }\n        this.send(sendObj);\n      }, 5000);\n    },\n    checkNodeStatus() {\n      const sendObj = { payload: \"active\", type: \"ACTIVE_NODE\" };\n      setInterval(() => {\n        if (this.master_status == \"online\") {\n          this.activeNode_request = true;\n          this.send(sendObj);\n        }\n      }, 1000);\n    },\n    syncSlave() {\n      this.allNode_request = true;\n      const sendObj = { payload: \"getAllNode\", type: \"ALL_NODE\" };\n      this.send(sendObj);\n      this.isLoading = true;\n    },\n    refreshPage() {\n      window.location.reload();\n    }\n  }\n};\n</script>\n\n<!--\n\n- config relay slave\n\n- config type of sensor (button, toggle, relay)\n\n- online offline filter function\n\n-->",
+        "format": "<template>\n  <div style=\"display: flex; flex-direction: column\" class=\"ma-3\">\n    <div class=\"top-buttons d-lg-flex d-sm-block justify-space-between align-center\">\n      <div>\n        <strong class=\"text-h6 font-weight-bold text-uppercase text-blue-grey-darken-4 mr-4\">\n          status :\n          <span :class=\"master_status === 'online' ? 'text-teal' : 'text-red-darken-2'\">\n            {{ master_status }}\n          </span>\n        </strong>\n        <v-btn\n            outlined\n            style=\"background-color: #a2af9b; color: black\"\n            class=\"font-weight-bold text-subtitle-1 text-blue-grey-darken-4\"\n            @click=\"updateConfigRelay\"\n          >\n          <v-icon>mdi-refresh</v-icon>\n        </v-btn>\n      </div>\n      <div>\n        <v-btn\n          outlined\n          @click=\"refreshPage\"\n          style=\"background-color: #a2af9b; color: black\"\n          class=\"font-weight-bold text-subtitle-1 text-blue-grey-darken-4 mr-4\"\n        >\n          REFRESH\n        </v-btn>\n        <v-btn\n          outlined\n          style=\"background-color: #a2af9b; color: black\"\n          class=\"font-weight-bold text-subtitle-1 text-blue-grey-darken-4\"\n          :loading=\"isLoading\"\n          :disabled=\"isLoading\"\n          @click=\"syncSlave\"\n        >\n          <template v-slot:loader>\n            <v-progress-circular indeterminate color=\"white\" size=\"20\"></v-progress-circular>\n          </template>\n          <span v-if=\"!isLoading\">SYNC</span>\n          <span v-else>Loading...</span>\n        </v-btn>\n      </div>\n    </div>\n    <v-row class=\"mt-5 pa-4 rounded-lg\" style=\"background-color: #a2af9b; color: black\">\n      <v-col\n        v-for=\"(node, index) in slave_nodes\"\n        :key=\"index\"\n        cols=\"12\"\n        sm=\"6\"\n        md=\"3\"\n      >\n        <v-sheet\n          class=\"pa-3 text-subtitle-1 text-blue-grey-darken-4 rounded-lg\"\n          elevation=\"1\"\n          color=\"primary\"\n        >\n          <v-sheet color=\"primary\">\n            <div class=\"d-flex justify-space-between align-center\">\n              <strong>STATUS :\n                <span :class=\"node.node_status === 'online' ? 'text-teal text-uppercase' : 'text-red-darken-2 text-uppercase'\">\n                  {{ node.node_status }}\n                </span>\n              </strong>\n              <div>\n                <v-btn\n                  icon=\"mdi-cog\"\n                  size=\"small\"\n                  variant=\"text\"\n                  @click.stop=\"showNodePopup(node)\"\n                  :disabled=\"node.node_status === 'offline'\"\n                ></v-btn>\n                <v-btn\n                  icon=\"mdi-delete\"\n                  size=\"small\"\n                  variant=\"text\"\n                  color=\"red-darken-2\"\n                  @click.stop=\"unpairNode(node)\"\n                  :disabled=\"node.node_status === 'offline'\"\n                ></v-btn>\n              </div>\n            </div>\n            <div class=\"d-flex align-center\">\n              <span class=\"mr-2\">Node Name :</span>\n              <span\n                v-if=\"editingNodeMac !== node.mac_address\"\n                @click.stop=\"startEditing(node)\"\n                style=\"cursor: pointer;\"\n                class=\"font-weight-bold\"\n              >\n                {{ node.name || 'Mesh Node' }}\n              </span>\n              <v-text-field\n                v-else\n                v-model=\"editingNodeName\"\n                @keyup.enter=\"saveNodeName\"\n                @blur=\"saveNodeName\"\n                @click.stop\n                dense\n                autofocus\n                single-line\n                hide-details\n              ></v-text-field>\n            </div>\n            <p>MAC Addr : {{ node.mac_address }}</p>\n            <p>Node ID : {{ node.node_id }}</p>\n            <p>Node Type : {{ node.node_type }}</p>\n            <p>Description : {{ node.description }}</p>\n            \n            <div v-if=\"node.node_type === 'sensor' && node.state && node.state.i2c && node.node_status == 'online'\" class=\"mt-2\">\n              <v-divider class=\"my-1\"></v-divider>\n              <p v-for=\"(value, key) in node.state.i2c\" :key=\"key\" class=\"mb-0 text-caption\">\n                <strong class=\"text-capitalize font-weight-bold\">{{ key }}:</strong> {{ value }}\n              </p>\n              <v-divider class=\"mt-1\"></v-divider>\n            </div>\n            <div v-if=\"node.node_type === 'relay' && node.node_status === 'online'\">\n              \n              <v-btn\n                class=\"mb-2 mt-2\"\n                block\n                color=\"blue-grey-darken-1\"\n                @click=\"setManualMode(node)\"\n              >\n                {{ node.manual_mode ? 'AUTO' : 'MANUAL' }}\n              </v-btn>\n              <v-divider class=\"my-2\"></v-divider>\n              <div class=\"d-flex justify-space-around\">\n                <v-switch\n                  v-model=\"node.state.r1\"\n                  label=\"Relay 1\"\n                  color=\"teal\"\n                  inset\n                  hide-details\n                  :disabled=\"!node.manual_mode\"\n                  @change.stop=\"toggleRelay(node, 'r1')\"\n                ></v-switch>\n                <v-switch\n                  v-model=\"node.state.r2\"\n                  label=\"Relay 2\"\n                  color=\"teal\"\n                  inset\n                  hide-details\n                  :disabled=\"!node.manual_mode\"\n                  @change.stop=\"toggleRelay(node, 'r2')\"\n                ></v-switch>\n              </div>\n            </div>\n          </v-sheet>\n        </v-sheet>\n      </v-col>\n    </v-row>\n    <v-dialog v-model=\"dialog\" max-width=\"600\">\n      <v-card v-if=\"selectedNode\">\n        <div class=\"text-h6 text-center text-blue-grey-darken-4 pa-3\" style=\"background-color: #a2af9b;\">\n          {{ selectedNode.name || 'Mesh Node' }}\n        </div>\n        \n        <v-list v-if=\"selectedNode.node_type === 'sensor' && editableNodeConfig.state && editableNodeConfig.state.gpio\">\n          <v-list-item \n            v-for=\"(gpioConfig, gpioPin) in editableNodeConfig.state.gpio\" \n            :key=\"gpioPin\"\n          >\n            <div class=\"d-flex flex-column flex-sm-row justify-space-between align-center\">\n              <div class=\"font-weight-bold mb-2 mb-sm-0\">\n                {{ gpioPin }}\n              </div>\n              <v-btn-toggle\n                v-model=\"gpio_config.mode[gpioPin]\"\n                variant=\"outlined\"\n                divided\n                density=\"compact\"\n              >\n                <v-btn \n                  value=\"button\" \n                  @click=\"updateGpioConfig(gpioPin, 'button')\" \n                >Button</v-btn>\n                <v-btn \n                  value=\"toggle\" \n                  @click=\"updateGpioConfig(gpioPin, 'toggle')\" \n                >Toggle</v-btn>\n                <v-btn \n                  value=\"delay\" \n                  @click=\"updateGpioConfig(gpioPin, 'delay')\" \n                >Delay</v-btn>\n              </v-btn-toggle>\n            </div>\n          </v-list-item>\n        </v-list>\n        <v-list v-else-if=\"selectedNode.node_type === 'relay'\">\n          <v-list-item>\n            <div class=\"d-flex flex-column flex-sm-row flex-wrap align-start align-sm-center\">\n              <strong class=\"mr-sm-4 mb-2 mb-sm-0\">Relay 1:</strong>\n              <div style=\"width: 100%;\" class=\"d-flex flex-column flex-sm-row flex-wrap align-start align-sm-center\">\n                <v-select\n                  v-model=\"editableNodeConfig.state.r1_sensor\"\n                  :items=\"sensorNodeList\"\n                  label=\"Sensor Node\"\n                  dense outlined hide-details\n                  class=\"mr-sm-2 mb-2 mb-sm-0 w-100 w-sm-auto\"\n                  style=\"max-width: 150px;\"\n                ></v-select>\n                <v-select\n                  v-model=\"editableNodeConfig.state.r1_sensor_type\"\n                  :items=\"['gpio', 'i2c']\"\n                  label=\"Type\"\n                  dense outlined hide-details\n                  class=\"mr-sm-2 mb-2 mb-sm-0 w-100 w-sm-auto\"\n                  style=\"max-width: 100px;\"\n                ></v-select>\n              </div>\n              <div class=\"d-flex flex-column\" style=\"width: 100%;\">\n                <span class=\"text-caption mb-1\" :class=\"{ 'text-disabled': !editableNodeConfig.state.r1_sensor_type }\">Pin/Addr:</span>\n                <v-btn-toggle\n                  v-model=\"editableNodeConfig.state.r1_sensor_pin\"\n                  variant=\"outlined\"\n                  density=\"compact\"\n                  divided\n                  :disabled=\"!editableNodeConfig.state.r1_sensor_type\"\n                  class=\"flex-wrap\"\n                >\n                  <v-btn\n                    v-for=\"pin in r1_sensor_pins\"\n                    :key=\"pin\"\n                    :value=\"pin\"\n                    class=\"flex-grow-1\"\n                  >\n                    {{ pin }}\n                  </v-btn>\n                </v-btn-toggle>\n              </div>\n              <div class=\"d-flex flex-column\" style=\"width: 100%;\">\n                <v-text-field\n                  v-if=\"editableNodeConfig.state.r1_sensor && editableNodeConfig.state.r1_sensor_type && editableNodeConfig.state.r1_sensor_type == 'i2c' && editableNodeConfig.state.r1_sensor_pin\"\n                  v-model=\"editableNodeConfig.state.r1_condition_name\"\n                  label=\"Work Condition Ex: >30\"\n                  dense\n                  outlined\n                  hide-details\n                  class=\"mt-4\"\n                ></v-text-field>\n                <v-btn-toggle\n                  v-if=\"editableNodeConfig.state.r1_sensor && editableNodeConfig.state.r1_sensor_type && editableNodeConfig.state.r1_sensor_type == 'gpio' && editableNodeConfig.state.r1_sensor_pin\"\n                  v-model=\"editableNodeConfig.state.r1_condition_name\"\n                  variant=\"outlined\"\n                  density=\"compact\"\n                  divided\n                  class=\"mt-4\"\n                >\n                  <v-btn :value=\"true\">TRUE</v-btn>\n                  <v-btn :value=\"false\">FAlSE</v-btn>\n                </v-btn-toggle>\n              </div>\n            </div>\n          </v-list-item>\n          <v-divider></v-divider>\n          <v-list-item>\n            <div class=\"d-flex flex-column flex-sm-row flex-wrap align-start align-sm-center\">\n              <strong class=\"mr-sm-4 mb-2 mb-sm-0\">Relay 2:</strong>\n              <div style=\"width: 100%;\" class=\"d-flex flex-column flex-sm-row flex-wrap align-start align-sm-center\">\n                <v-select\n                  v-model=\"editableNodeConfig.state.r2_sensor\"\n                  :items=\"sensorNodeList\"\n                  label=\"Sensor Node\"\n                  dense outlined hide-details\n                  class=\"mr-sm-2 mb-2 mb-sm-0 w-100 w-sm-auto\"\n                  style=\"max-width: 150px;\"\n                ></v-select>\n                <v-select\n                  v-model=\"editableNodeConfig.state.r2_sensor_type\"\n                  :items=\"['gpio', 'i2c']\"\n                  label=\"Type\"\n                  dense outlined hide-details\n                  class=\"mr-sm-2 mb-2 mb-sm-0 w-100 w-sm-auto\"\n                  style=\"max-width: 100px;\"\n                ></v-select>\n              </div>\n              <div class=\"d-flex flex-column\" style=\"width: 100%;\">\n                <span class=\"text-caption mb-1\" :class=\"{ 'text-disabled': !editableNodeConfig.state.r2_sensor_type }\">Pin/Addr:</span>\n                <v-btn-toggle\n                  v-model=\"editableNodeConfig.state.r2_sensor_pin\"\n                  variant=\"outlined\"\n                  density=\"compact\"\n                  divided\n                  :disabled=\"!editableNodeConfig.state.r2_sensor_type\"\n                  class=\"flex-wrap\"\n                >\n                  <v-btn\n                    v-for=\"pin in r2_sensor_pins\"\n                    :key=\"pin\"\n                    :value=\"pin\"\n                    class=\"flex-grow-1\"\n                  >\n                    {{ pin }}\n                  </v-btn>\n                </v-btn-toggle>\n              </div>\n              <div class=\"d-flex flex-column\" style=\"width: 100%;\">\n                <v-text-field\n                  v-if=\"editableNodeConfig.state.r2_sensor && editableNodeConfig.state.r2_sensor_type && editableNodeConfig.state.r2_sensor_type == 'i2c' && editableNodeConfig.state.r2_sensor_pin\"\n                  v-model=\"editableNodeConfig.state.r2_condition_name\"\n                  label=\"Work Condition Ex: >30\"\n                  dense\n                  outlined\n                  hide-details\n                  class=\"mt-4\"\n                ></v-text-field>\n                <v-btn-toggle\n                  v-if=\"editableNodeConfig.state.r2_sensor && editableNodeConfig.state.r2_sensor_type && editableNodeConfig.state.r2_sensor_type == 'gpio' && editableNodeConfig.state.r2_sensor_pin\"\n                  v-model=\"editableNodeConfig.state.r2_condition_name\"\n                  variant=\"outlined\"\n                  density=\"compact\"\n                  divided\n                  class=\"mt-4\"\n                >\n                  <v-btn :value=\"true\">TRUE</v-btn>\n                  <v-btn :value=\"false\">FAlSE</v-btn>\n                </v-btn-toggle>\n              </div>\n            </div>\n          </v-list-item>\n        </v-list>\n        \n        <v-card-actions class=\"pa-3\">\n          <v-btn\n            v-if=\"selectedNode.node_type === 'sensor'\"\n            style=\"background-color: #a2af9b; color: black\"\n            text\n            @click=\"saveNodeConfig\"\n          >\n            Save\n          </v-btn>\n          <v-btn\n            v-if=\"selectedNode.node_type === 'relay' && !selectedNode.config\"\n            style=\"background-color: #a2af9b; color: black\"\n            text\n            @click=\"saveNodeConfig\"\n          >\n            Save\n          </v-btn>\n          <v-btn\n            v-if=\"selectedNode.node_type === 'relay' && selectedNode.config\"\n            style=\"background-color: rgb(211, 59, 59); color: white\"\n            text\n            @click=\"deleteConfig(selectedNode)\"\n          >\n            Delete\n          </v-btn>\n          <v-spacer></v-spacer>\n          <v-btn \n            style=\"background-color: #90a4ae; color: black\" \n            text\n            @click=\"closeDialog\"\n          >\n            Close\n          </v-btn>\n        </v-card-actions>\n      </v-card>\n    </v-dialog>\n    <v-snackbar\n      v-model=\"snackbar\"\n      top\n      absolute\n      :timeout=\"notify_timeout\"\n      :color=\"notify_color\"\n      elevation=\"5\"\n    >\n      {{ message }}\n      <template v-slot:actions>\n        <v-btn text @click=\"snackbar = false\">Close</v-btn>\n      </template>\n    </v-snackbar>\n  </div>\n</template>\n<script>\nexport default {\n  name: \"NodeManager\",\n  mounted() {\n    if (localStorage.getItem(\"loggedIn\") === \"false\") {\n      this.redirectLogin();\n    }\n    this.getNodesMongoDB();\n    this.checkMasterStatus();\n    this.checkNodeStatus(); \n  },\n  data() {\n    return {\n      slave_nodes: [],\n      getNode_request: false,\n      ping_request: false,\n      allNode_request: false,\n      activeNode_request: false,\n      unpair_request: false,\n      gpioConfig_request: false,\n      relayConfig_request: false,\n      getRelayConfig_request: false,\n      removeConfig_request: false,\n      toAuto_request: false,\n      toManual_request: false,\n      isLoading: false,\n      master_status: \"offline\",\n      editingNodeMac: null,\n      editingNodeName: \"\",\n      dialog: false,\n      selectedNode: null,\n      editableNodeConfig: null, // Temporary storage for edits in the dialog\n      snackbar: false,\n      message: '',\n      notify_color: \"teal\",\n      notify_timeout: 0,\n      gpio_config: {\n        node_id: \"\",\n        mode: {}\n      },\n    };\n  },\n  computed: {\n    // Returns a list of online sensor nodes for the dropdowns\n    sensorNodeList() {\n      return this.slave_nodes\n        .filter(n => n.node_type === 'sensor' && n.node_status === 'online')\n        .map(n => n.name || n.mac_address);\n    },\n    // Dynamically gets the available pins for the Relay 1 sensor\n    r1_sensor_pins() {\n      if (!this.editableNodeConfig || !this.editableNodeConfig.state.r1_sensor || !this.editableNodeConfig.state.r1_sensor_type) {\n        return [];\n      }\n      \n      const selectedNodeName = this.editableNodeConfig.state.r1_sensor;\n      const node = this.slave_nodes.find(n => (n.name === selectedNodeName || n.mac_address === selectedNodeName));\n      \n      if (!node || !node.state) return [];\n      const type = this.editableNodeConfig.state.r1_sensor_type;\n      if (type === 'gpio' && node.state.gpio) {\n        return Object.keys(node.state.gpio);\n      }\n      if (type === 'i2c' && node.state.i2c) { // Assuming i2c data might exist at node.state.i2c\n        return Object.keys(node.state.i2c);\n      }\n      \n      return [];\n    },\n    // Dynamically gets the available pins for the Relay 2 sensor\n    r2_sensor_pins() {\n      if (!this.editableNodeConfig || !this.editableNodeConfig.state.r2_sensor || !this.editableNodeConfig.state.r2_sensor_type) {\n        return [];\n      }\n      \n      const selectedNodeName = this.editableNodeConfig.state.r2_sensor;\n      const node = this.slave_nodes.find(n => (n.name === selectedNodeName || n.mac_address === selectedNodeName));\n      \n      if (!node || !node.state) return [];\n      const type = this.editableNodeConfig.state.r2_sensor_type;\n      if (type === 'gpio' && node.state.gpio) {\n        return Object.keys(node.state.gpio);\n      }\n      if (type === 'i2c' && node.state.i2c) {\n        return Object.keys(node.state.i2c);\n      }\n      \n      return [];\n    }\n  },\n  watch: {\n    msg(newMsg) {\n      if (newMsg.type == \"MONGO_DB\" && this.getNode_request) {\n        this.isLoading = false;\n        this.slave_nodes = Object.values(newMsg.payload).map(node => ({\n          ...node,\n          node_status: \"offline\",\n          manual_mode: false,\n        }));\n        this.getNode_request = false;\n      }\n      if (newMsg.type == \"PONG\" && this.ping_request) {\n        this.master_status = \"online\";\n        if (this.ping_delay < 2) {\n          this.ping_delay += 2;\n        }\n        this.ping_request = false;\n      }\n      if (newMsg.type == \"ACTIVE_NODE\" && this.activeNode_request) {\n        this.activeNode_request = false;\n        this.slave_nodes = this.slave_nodes.map(node => {\n          const key = node.mac_address;\n          if (newMsg.payload[key] && newMsg.payload[key].state) {\n            if (node.manual_mode == false) {\n              return {\n                ...node,\n                state: newMsg.payload[key]?.state || {},\n                node_status: \"online\"\n              };\n            } else {\n              return {\n                ...node,\n                node_status: \"online\"\n              };\n            }\n          } else {\n            return {\n              ...node,\n              node_status: \"offline\"\n            };\n          }\n        });\n      }\n      if (newMsg.type == \"ALL_NODE\" && this.allNode_request) {\n        this.allNode_request = false;\n        const dropObj = {\n          collection: \"nodes\",\n          payload: {},\n          operation: \"deleteMany\",\n          type: \"MONGO_DB\"\n        };\n        this.send(dropObj);\n        setTimeout(() => {\n          const insertObj = {\n            collection: \"nodes\",\n            payload: [Object.values(newMsg.payload)],\n            operation: \"insertMany\",\n            type: \"MONGO_DB\"\n          };\n          this.send(insertObj);\n          this.getNodesMongoDB();\n          this.showNotification(`Sync succeeded`, \"green\");\n        }, 1500);\n      }\n      \n      if (newMsg.type == \"UNPAIR_NODE\" && this.unpair_request) {\n        const deleteObj = {\n          collection: \"nodes\",\n          operation: \"deleteOne\",\n          type: \"MONGO_DB\",\n          payload: [{ mac_address: newMsg.payload.mac_address }]\n        };\n        this.send(deleteObj);\n        this.slave_nodes = this.slave_nodes.filter(\n          (n) => n.mac_address !== newMsg.payload.mac_address\n        );\n        this.unpair_request = false;\n        this.showNotification(`Unpair ${newMsg.payload.mac_address} succeeded`, \"green\");\n      }\n      if (newMsg.type == \"UPDATE_GPIO_CONFIG\" && this.gpioConfig_request) {\n        this.gpioConfig_request = false;\n        this.showNotification(`node_id : ${newMsg.payload.node_id} GPIO configuration updated successfully`, \"green\");\n      }\n      if (newMsg.type == \"RELAY_CONFIG\" && this.relayConfig_request) {\n        this.relayConfig_request = false;\n        this.showNotification(`node_id : ${newMsg.payload.node_id} Relay configuration updated successfully`, \"green\");\n        this.updateConfigRelay();\n      }\n      if (newMsg.type == \"GET_RELAY_CONFIG\" && this.getRelayConfig_request) {\n        this.getRelayConfig_request = false;\n        const updatedRelays = Object.keys(newMsg.payload || {});\n        this.slave_nodes = this.slave_nodes.map(node => {\n          if (node.node_type === 'relay') {\n            const updatedRelay = updatedRelays.find(r => r == node.node_id);\n            if (updatedRelay) {\n              return {\n                ...node,\n                config: {\n                  [node.node_id]: newMsg.payload[updatedRelay]\n                }\n              };\n            }\n          }\n          return node;\n        });\n        // drop all and insert again\n        this.allNode_request = false;\n        const dropObj = {\n          collection: \"nodes\",\n          payload: {},\n          operation: \"deleteMany\",\n          type: \"MONGO_DB\"\n        };\n        this.send(dropObj);\n        \n        // add all node again\n        setTimeout(() => {\n          const insertObj = {\n            collection: \"nodes\",\n            payload: [Object.values(this.slave_nodes)],\n            operation: \"insertMany\",\n            type: \"MONGO_DB\"\n          };\n          this.send(insertObj);\n          this.getNodesMongoDB();\n          this.showNotification(`Sync succeeded`, \"green\");\n        }, 1500);\n      }\n      if (newMsg.type == \"REMOVE_CONFIG\" && this.removeConfig_request) {\n        this.removeConfig_request = false;\n        this.showNotification(`node_id : ${newMsg.payload.node_id} configuration removed successfully`, \"green\");\n        this.updateConfigRelay();\n      }\n      if (newMsg.type == \"REMOVE_CONFIG\" && this.toManual_request) {\n        this.toManual_request = false;\n        // change auto mode to manual mode\n        this.slave_nodes = this.slave_nodes.map(node => {\n          if (node.node_id === newMsg.payload.node_id) {\n            return {\n              ...node,\n              manual_mode: true\n            };\n          }\n          return node;\n        });\n      }\n      if (newMsg.type == \"RELAY_CONFIG\" && this.toAuto_request) {\n        this.toAuto_request = false;\n        // change manual mode to auto mode\n        this.slave_nodes = this.slave_nodes.map(node => {\n          if (node.node_id === newMsg.payload.node_id) {\n            return {\n              ...node,\n              manual_mode: false\n            };\n          }\n          return node;\n        }); \n      }\n    }\n  },\n  methods: {\n    updateConfigRelay() {\n      if (this.master_status !== \"online\") {\n        this.showNotification(\"Master node is offline. Cannot fetch relay configurations.\", \"red\");\n        return;\n      }\n      const configObj = {\n        payload: \"getConfig\",\n        type: \"GET_RELAY_CONFIG\",\n      };\n      this.getRelayConfig_request = true;\n      this.send(configObj);\n    },\n    saveNodeConfig() {\n      if (!this.selectedNode) return;\n      if (this.selectedNode.node_type === 'sensor') {\n        this.saveSensorConfig();\n      } else if (this.selectedNode.node_type === 'relay') {\n        this.saveRelayConfig();\n      }\n    },\n    saveRelayConfig() {\n      // map editableNodeConfig r1_sensor to node_id\n      if (!this.editableNodeConfig) return;\n      const r1_sensor_node = this.slave_nodes.find(n => (n.name === this.editableNodeConfig.state.r1_sensor || n.mac_address === this.editableNodeConfig.state.r1_sensor));\n      const r2_sensor_node = this.slave_nodes.find(n => (n.name === this.editableNodeConfig.state.r2_sensor || n.mac_address === this.editableNodeConfig.state.r2_sensor));\n      const configObj = {\n        payload: {\n          [this.editableNodeConfig.node_id]: {\n            r1: {\n              node_id: r1_sensor_node ? r1_sensor_node.node_id : null,\n              condition: `${this.editableNodeConfig.state.r1_sensor_pin}|${this.editableNodeConfig.state.r1_condition_name}` || null,\n            },\n            r2: {\n              node_id: r2_sensor_node ? r2_sensor_node.node_id : null,\n              condition: `${this.editableNodeConfig.state.r2_sensor_pin}${this.editableNodeConfig.state.r2_condition_name}` || null,\n            }\n          }\n        },\n        type: \"RELAY_CONFIG\",\n      };\n      this.send(configObj);\n      this.showNotification(\"Saving relay configuration...\", \"blue\");\n      this.relayConfig_request = true;\n      this.closeDialog();\n    },\n    saveSensorConfig() {\n      const updateObj = {\n        payload: this.gpio_config,\n        type: \"UPDATE_GPIO_CONFIG\",\n      };\n      this.send(updateObj);\n      this.gpioConfig_request = true;\n      this.showNotification(\"Saving GPIO configuration...\", \"blue\");\n      this.closeDialog();\n    },\n    closeDialog() {\n      this.dialog = false;\n      this.gpio_config = {\n        node_id: \"\",\n        mode: {}\n      };\n      this.selectedNode = null;\n      this.editableNodeConfig = null;\n    },\n    updateGpioConfig(gpioPin, newType) {\n      this.gpio_config.mode[gpioPin] = newType;\n    },\n    showNotification(msg = 'Notification shown at the top!', color = \"teal\") {\n      this.notify_timeout += 3000;\n      this.message = msg;\n      this.notify_color = color;\n      this.snackbar = true;\n      this.$emit('send', { payload: 'top_notification_shown' });\n    },\n    unpairNode(node) {\n      if (this.master_status !== \"online\") {\n        this.showNotification(\"Master node is offline. Cannot fetch relay configurations.\", \"red\");\n        return;\n      }\n      if (node.node_status == \"online\") {\n        if (confirm(`Are you sure you want to unpair the node \"${node.name || node.mac_address}\"?`)) {\n          const unpairObj = {\n            payload: node.node_id,\n            type: \"UNPAIR_NODE\",\n          }\n          this.send(unpairObj);\n          this.unpair_request = true;\n          this.showNotification(\"Unpairing...\", \"blue\");\n        }\n      } else {\n        this.showNotification(`This ${node.mac_address} is offline`, \"red\");\n      }\n    },\n    setManualMode(node) {\n      if (!node.manual_mode) {\n        const removeObj = {\n          payload: node.node_id,\n          type: \"REMOVE_CONFIG\",\n        }\n        this.send(removeObj);\n        this.toManual_request = true;\n        this.showNotification(`Toggle ${node.name || node.mac_address} to manual....`, \"blue\");\n      } else {\n        if (node.config) {\n          const configObj = {\n            payload: node.config,\n            type: \"RELAY_CONFIG\",\n          };\n          this.send(configObj);\n          this.toAuto_request = true;\n          this.showNotification(`Toggle ${node.name || node.mac_address} to auto....`, \"blue\");\n        } else {\n          this.showNotification(\"No configuration found for this relay node. Please set up the configuration first.\", \"red\");\n          return;\n        }\n      }\n    },\n    toggleRelay(node) {\n      if (!node || !node.state) {\n        return;\n      }\n      const commandObj = {\n        type: \"RELAY_CONTROL\",\n        payload: {\n          node_id: node.node_id,\n          state: {\n            \"r1\": node.state.r1,\n            \"r2\": node.state.r2,\n          },\n        }\n      };\n      this.send(commandObj);\n    },\n    showNodePopup(node) {\n      if (node.node_type == \"sensor\") {\n        let default_gpio = node.state.gpio || {};\n        for (let key in default_gpio) {\n          default_gpio[key] = \"button\";\n        } \n        this.gpio_config = {\n          node_id: node.node_id,\n          mode: default_gpio || {}\n        };\n      }\n      this.selectedNode = node;\n      this.editableNodeConfig = JSON.parse(JSON.stringify(node));\n      this.dialog = true;\n    },\n    startEditing(node) {\n      this.editingNodeMac = node.mac_address;\n      this.editingNodeName = node.name || '';\n    },\n    saveNodeName() {\n      if (!this.editingNodeMac) return;\n      const nodeToUpdate = this.slave_nodes.find(n => n.mac_address === this.editingNodeMac);\n      if (nodeToUpdate) {\n        nodeToUpdate.name = this.editingNodeName;\n        const updateObj = {\n          collection: \"nodes\",\n          operation: \"updateOne\",\n          type: \"MONGO_DB\",\n          payload: [\n            { mac_address: this.editingNodeMac },\n            { $set: { name: this.editingNodeName } }\n          ]\n        };\n        this.send(updateObj);\n      }\n      this.editingNodeMac = null;\n      this.editingNodeName = \"\";\n    },\n    redirectLogin() {\n      const base = window.location.origin;\n      window.location.href = `${base}/dashboard/login`;\n    },\n    getNodesMongoDB() {\n      const sendObj = {\n        collection: \"nodes\",\n        operation: \"find.toArray\",\n        type: \"MONGO_DB\"\n      };\n      this.getNode_request = true;\n      this.send(sendObj);\n    },\n    checkMasterStatus() {\n      const sendObj = { payload: \"ping\", type: \"PING\" };\n      this.ping_request = true;\n      this.send(sendObj);\n      setInterval(() => {\n        this.ping_request = true;\n        if (this.ping_delay == 0) {\n          this.master_status = \"offline\";\n        } else {\n          this.master_status = \"online\";\n          this.ping_delay -= 1;\n        }\n        this.send(sendObj);\n      }, 5000);\n    },\n    checkNodeStatus() {\n      const sendObj = { payload: \"active\", type: \"ACTIVE_NODE\" };\n      setInterval(() => {\n        if (this.master_status == \"online\") {\n          this.activeNode_request = true;\n          this.send(sendObj);\n        }\n      }, 1000);\n    },\n    syncSlave() {\n      if (this.master_status !== \"online\") {\n        this.showNotification(\"Master node is offline. Cannot fetch relay configurations.\", \"red\");\n        return;\n      }\n      this.allNode_request = true;\n      const sendObj = { payload: \"getAllNode\", type: \"ALL_NODE\" };\n      this.send(sendObj);\n      this.isLoading = true;\n    },\n    refreshPage() {\n      window.location.reload();\n    },\n    removeConfig(node) {\n      const removeObj = {\n        payload: node.node_id,\n        type: \"REMOVE_CONFIG\",\n      }\n      this.send(removeObj);\n      this.removeConfig_request = true;\n    },\n    deleteConfig(node) {\n      if (confirm(`Are you sure you want to delete the configuration for the node \"${node.name || node.mac_address}\"?`)) {\n        this.removeConfig(node);\n        this.showNotification(\"Removing configuration...\", \"blue\");\n        this.closeDialog();\n      }\n    },\n  }\n}\n</script>\n<style scoped>\n/* Add any component-specific styles here */\n</style>\n\n<!--\n- online offline filter function\n\n-->",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 720,
-        "y": 2300,
+        "x": 2300,
+        "y": 740,
         "wires": [
             [
                 "e0e44357057ba5c3"
@@ -677,7 +752,7 @@
         "collection": "",
         "operation": "",
         "x": 720,
-        "y": 1560,
+        "y": 1520,
         "wires": [
             [
                 "b17e40686d04010d"
@@ -693,8 +768,8 @@
         "name": "mongoDB",
         "collection": "",
         "operation": "",
-        "x": 740,
-        "y": 2980,
+        "x": 2320,
+        "y": 1700,
         "wires": [
             [
                 "1e4b8208b3d66eb8"
@@ -769,15 +844,15 @@
         "type": "function",
         "z": "2c682173eb064de0",
         "name": "Pseudo Active Node",
-        "func": "if (msg.payload) {\n    msg.payload = {\n        \"A8:46:74:46:18:DC\": {\n            \"mac_address\": \"A8:46:74:46:18:DC\",\n            \"node_id\": 1950750941,\n            \"node_type\": \"relay\",\n            \"state\": {\n            \"r1\": true,\n            \"r2\": true\n            }\n        },\n        \"A8:46:74:46:18:D0\": {\n            \"mac_address\": \"A8:46:74:46:18:D0\",\n            \"node_id\": 1950750929,\n            \"node_type\": \"sensor\",\n            \"state\": {\n                \"gpio\" : {\n                    \"gpio_0\": false,\n                    \"gpio_1\": false,\n                    \"gpio_3\": false\n                },\n                \"i2c\" : {\n                    \"temperature\": 33.9,\n                    \"humidity\": 53.2,\n                    \"light\": 26.66667\n                }\n            }\n        }\n    }\n    return msg;\n}",
+        "func": "if (msg.payload) {\n    msg.payload = {\n        \"A8:46:74:46:18:DC\": {\n            \"mac_address\": \"A8:46:74:46:18:DC\",\n            \"node_id\": 1950750941,\n            \"node_type\": \"relay\",\n            \"state\": {\n            \"r1\": true,\n            \"r2\": true\n            }\n        },\n        \"A8:46:74:46:18:D0\": {\n            \"mac_address\": \"A8:46:74:46:18:D0\",\n            \"node_id\": 1950750929,\n            \"node_type\": \"sensor\",\n            \"state\": {\n                \"gpio\" : {\n                    \"gpio_0\": false,\n                    \"gpio_1\": false,\n                    \"gpio_3\": false\n                },\n                \"i2c\" : {\n                    \"temperature\": 33.9,\n                    \"humudity\": 53.2,\n                    \"light\": 26.66667\n                }\n            }\n        }\n    }\n    return msg;\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
-        "y": 2720,
+        "x": 2300,
+        "y": 1440,
         "wires": [
             [
                 "e05016ef1c99d9ab"
@@ -796,8 +871,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 2720,
+        "x": 2060,
+        "y": 1440,
         "wires": [
             [
                 "e103019d912b0671"
@@ -816,8 +891,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 980,
-        "y": 2720,
+        "x": 2560,
+        "y": 1440,
         "wires": [
             [
                 "b9bb8e0b80aefb9d"
@@ -836,8 +911,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 2060,
+        "x": 2290,
+        "y": 360,
         "wires": [
             [
                 "52d435fc7da18a62"
@@ -856,8 +931,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
-        "y": 2060,
+        "x": 2050,
+        "y": 360,
         "wires": [
             [
                 "a5a7bd0418d69e9a"
@@ -876,8 +951,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 950,
-        "y": 2060,
+        "x": 2530,
+        "y": 360,
         "wires": [
             [
                 "fd7426e6c315f693"
@@ -896,8 +971,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 2860,
+        "x": 2170,
+        "y": 1580,
         "wires": [
             [
                 "60f63e5e64f49467"
@@ -916,8 +991,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 890,
-        "y": 2860,
+        "x": 2470,
+        "y": 1580,
         "wires": [
             [
                 "c02fc4796c3e4414"
@@ -965,8 +1040,8 @@
         "z": "2c682173eb064de0",
         "name": "mqtt out : req/mesh/allnodes",
         "info": "",
-        "x": 580,
-        "y": 2020,
+        "x": 2160,
+        "y": 320,
         "wires": []
     },
     {
@@ -975,8 +1050,8 @@
         "z": "2c682173eb064de0",
         "name": "mqtt in : res/mesh/allnodes",
         "info": "",
-        "x": 830,
-        "y": 2020,
+        "x": 2410,
+        "y": 320,
         "wires": []
     },
     {
@@ -985,8 +1060,8 @@
         "z": "2c682173eb064de0",
         "name": "mqtt out : req/mesh/nodes",
         "info": "",
-        "x": 590,
-        "y": 2760,
+        "x": 2170,
+        "y": 1480,
         "wires": []
     },
     {
@@ -995,8 +1070,8 @@
         "z": "2c682173eb064de0",
         "name": "mqtt in: res/mesh/nodes",
         "info": "",
-        "x": 860,
-        "y": 2760,
+        "x": 2440,
+        "y": 1480,
         "wires": []
     },
     {
@@ -1005,8 +1080,8 @@
         "z": "2c682173eb064de0",
         "name": "mqtt out : esp/ping",
         "info": "",
-        "x": 610,
-        "y": 1740,
+        "x": 2190,
+        "y": 40,
         "wires": []
     },
     {
@@ -1015,8 +1090,8 @@
         "z": "2c682173eb064de0",
         "name": "mqtt in : esp/pong",
         "info": "",
-        "x": 810,
-        "y": 1740,
+        "x": 2390,
+        "y": 40,
         "wires": []
     },
     {
@@ -1031,8 +1106,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 1780,
+        "x": 2290,
+        "y": 80,
         "wires": [
             [
                 "a8ef2b924362df80"
@@ -1051,8 +1126,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
-        "y": 1920,
+        "x": 2180,
+        "y": 220,
         "wires": [
             [
                 "940767fa7b87149e"
@@ -1071,8 +1146,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
-        "y": 1920,
+        "x": 2410,
+        "y": 220,
         "wires": [
             [
                 "12e519c8df58a2c6"
@@ -1091,8 +1166,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
-        "y": 2180,
+        "x": 2300,
+        "y": 480,
         "wires": [
             [
                 "360c61bb6dc9d5a6"
@@ -1105,8 +1180,8 @@
         "z": "2c682173eb064de0",
         "name": "mqtt out : req/state/update",
         "info": "",
-        "x": 730,
-        "y": 2140,
+        "x": 2310,
+        "y": 440,
         "wires": []
     },
     {
@@ -1121,8 +1196,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 2180,
+        "x": 2070,
+        "y": 480,
         "wires": [
             [
                 "7edb7302290b1cde"
@@ -1134,7 +1209,7 @@
         "type": "debug",
         "z": "2c682173eb064de0",
         "name": "Relay Debug",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1142,8 +1217,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 2180,
+        "x": 2530,
+        "y": 480,
         "wires": []
     },
     {
@@ -1152,8 +1227,8 @@
         "z": "2c682173eb064de0",
         "name": "mqtt out : req/mesh/unpair",
         "info": "",
-        "x": 550,
-        "y": 2620,
+        "x": 2130,
+        "y": 1340,
         "wires": []
     },
     {
@@ -1168,8 +1243,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 2580,
+        "x": 2260,
+        "y": 1300,
         "wires": [
             [
                 "f40a20bbd027a35c"
@@ -1188,8 +1263,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 2580,
+        "x": 2040,
+        "y": 1300,
         "wires": [
             [
                 "42bca23738056e66"
@@ -1202,8 +1277,8 @@
         "z": "2c682173eb064de0",
         "name": "mqtt in : res/mesh/unpair",
         "info": "",
-        "x": 830,
-        "y": 2620,
+        "x": 2410,
+        "y": 1340,
         "wires": []
     },
     {
@@ -1218,8 +1293,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 920,
-        "y": 2580,
+        "x": 2500,
+        "y": 1300,
         "wires": [
             [
                 "9a1992c72110a3a2"
@@ -1258,8 +1333,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 2460,
+        "x": 2260,
+        "y": 1180,
         "wires": [
             [
                 "c480f62ecfe42887"
@@ -1278,8 +1353,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 390,
-        "y": 2460,
+        "x": 1970,
+        "y": 1180,
         "wires": [
             [
                 "819491c8890ba0e6"
@@ -1298,8 +1373,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 950,
-        "y": 2460,
+        "x": 2530,
+        "y": 1180,
         "wires": [
             [
                 "bc0df7681d9cbc45"
@@ -1312,8 +1387,8 @@
         "z": "2c682173eb064de0",
         "name": "mqtt out : req/mode/update",
         "info": "",
-        "x": 550,
-        "y": 2500,
+        "x": 2130,
+        "y": 1220,
         "wires": []
     },
     {
@@ -1322,8 +1397,248 @@
         "z": "2c682173eb064de0",
         "name": "mqtt in : res/mode/update",
         "info": "",
-        "x": 830,
-        "y": 2500,
+        "x": 2410,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "4b136e59afc1504c",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Pseudu Config Relay",
+        "func": "if (msg.payload) {\n    msg.payload = { \n        \"node_id\": 1950750941, \n        \"status\": \"OK\", \"info\": \"OK\" \n    }\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2280,
+        "y": 600,
+        "wires": [
+            [
+                "65efb4c29d5c46cb"
+            ]
+        ]
+    },
+    {
+        "id": "d36963b9ce8297ee",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Filter Config Relay",
+        "func": "if (msg.type == \"RELAY_CONFIG\") {\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1990,
+        "y": 600,
+        "wires": [
+            [
+                "4b136e59afc1504c"
+            ]
+        ]
+    },
+    {
+        "id": "65efb4c29d5c46cb",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Filter Config Relay",
+        "func": "msg.type = \"RELAY_CONFIG\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2550,
+        "y": 600,
+        "wires": [
+            [
+                "0828b628b6f651dc"
+            ]
+        ]
+    },
+    {
+        "id": "e25703f56feee270",
+        "type": "comment",
+        "z": "2c682173eb064de0",
+        "name": "mqtt out : req/config/set",
+        "info": "",
+        "x": 2160,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "ad5c3f8c01c32084",
+        "type": "comment",
+        "z": "2c682173eb064de0",
+        "name": "mqtt in : res/config/set",
+        "info": "",
+        "x": 2440,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "ae729bab3af5c2c1",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Pseudu Get Config",
+        "func": "if (msg.payload) {\n    msg.payload = {\n        \"1950750941\": {\n            \"r1\": {\n                \"node_id\":1950750929,\n                \"condition\":\"gpio_1|true\"\n            },\n            \"r2\": {\n                \"node_id\":1950750929,\n                \"condition\":\"light>200\"\n            }\n        },\n        \"195075230941\": {\n            \"r1\": {\n                \"node_id\": 1950750929,\n                \"condition\": \"gpio_1|true\"\n            },\n            \"r2\": {\n                \"node_id\": 1950750929,\n                \"condition\": \"light>200\"\n            }\n        }\n    }\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2270,
+        "y": 880,
+        "wires": [
+            [
+                "70eddee43adda882"
+            ]
+        ]
+    },
+    {
+        "id": "6797372e78d6ff0d",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Filter Get Config",
+        "func": "if (msg.type == \"GET_RELAY_CONFIG\") {\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2020,
+        "y": 880,
+        "wires": [
+            [
+                "ae729bab3af5c2c1"
+            ]
+        ]
+    },
+    {
+        "id": "70eddee43adda882",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Filter Get Config",
+        "func": "msg.type = \"GET_RELAY_CONFIG\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2520,
+        "y": 880,
+        "wires": [
+            [
+                "077ac4e53213c43f"
+            ]
+        ]
+    },
+    {
+        "id": "72e14380c85e165f",
+        "type": "comment",
+        "z": "2c682173eb064de0",
+        "name": "mqtt out : req/config/remove",
+        "info": "",
+        "x": 2140,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "4deaf2be35e97e2f",
+        "type": "comment",
+        "z": "2c682173eb064de0",
+        "name": "mqtt in : res/config/remove",
+        "info": "",
+        "x": 2410,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "7a8a346844e20fb9",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Pseudu Remove Config",
+        "func": "if (msg.payload) {\n    msg.payload = {\n        \"node_id\": 1950750941,\n        \"status\": \"OK\",\n        \"info\": \"OK\"\n    }\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2290,
+        "y": 1020,
+        "wires": [
+            [
+                "57af227c25c7db9a"
+            ]
+        ]
+    },
+    {
+        "id": "3250d2b2f41803d5",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Filter Remove Config",
+        "func": "if (msg.type == \"REMOVE_CONFIG\") {\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2040,
+        "y": 1020,
+        "wires": [
+            [
+                "7a8a346844e20fb9"
+            ]
+        ]
+    },
+    {
+        "id": "57af227c25c7db9a",
+        "type": "function",
+        "z": "2c682173eb064de0",
+        "name": "Filter Remove Config",
+        "func": "msg.type = \"REMOVE_CONFIG\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2540,
+        "y": 1020,
+        "wires": [
+            [
+                "01f7625f3734e1db"
+            ]
+        ]
+    },
+    {
+        "id": "18964b086de651ae",
+        "type": "comment",
+        "z": "2c682173eb064de0",
+        "name": "mqtt out : req/config/get",
+        "info": "",
+        "x": 2160,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "d4e655e627178cf5",
+        "type": "comment",
+        "z": "2c682173eb064de0",
+        "name": "mqtt in : res/config/get",
+        "info": "",
+        "x": 2400,
+        "y": 1060,
         "wires": []
     },
     {
@@ -1534,7 +1849,7 @@
         }
     },
     {
-        "id": "b1b03a0829cfbeff",
+        "id": "e142beba424e9386",
         "type": "global-config",
         "env": [],
         "modules": {

@@ -142,6 +142,7 @@
           {{ selectedNode.name || 'Mesh Node' }}
         </div>
         
+        <!-- sensor popup content -->
         <v-list v-if="editableNodeConfig && editableNodeConfig.state && editableNodeConfig.state.gpio">
           <v-list-item 
             v-for="(gpioConfig, gpioPin) in editableNodeConfig.state.gpio" 
@@ -189,6 +190,35 @@
             </template>
           </v-list-item>
         </v-list>
+
+        <!-- relay popup content -->
+        <v-list v-else-if="editableNodeConfig && editableNodeConfig.state && (editableNodeConfig.node_type === 'relay')">
+          <v-list-item>
+            <v-list-item-title class="font-weight-bold">
+              Relay 1
+            </v-list-item-title>
+            <template v-slot:append>
+              <v-switch
+                v-model="editableNodeConfig.state.r1"
+                color="teal"
+                inset
+                hide-details
+              ></v-switch>
+            </template>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title class="font-weight-bold">
+              Relay 2
+            </v-list-item-title>
+            <template v-slot:append>
+              <v-switch
+                v-model="editableNodeConfig.state.r2"
+                color="teal"
+                inset
+                hide-details
+              ></v-switch>
+            </template>
+          </v-list-item>
         
         <v-card-actions class="pa-3">
           <v-btn
