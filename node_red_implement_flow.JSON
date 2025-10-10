@@ -1,6 +1,7 @@
+
 [
     {
-        "id": "2c682173eb064de0",
+        "id": "9babbc837fd78c64",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,443 +9,391 @@
         "env": []
     },
     {
-        "id": "4d73b1b5c177d13a",
+        "id": "0794496234f35e9e",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 180,
-        "y": 580,
+        "z": "9babbc837fd78c64",
+        "x": 440,
+        "y": 1840,
         "wires": [
             [
-                "4472b5190b4b72f8",
-                "65f08f8689f4b1ee"
+                "baaa8f06bd62aef9",
+                "b3a9cc66a09576d7"
             ]
         ]
     },
     {
-        "id": "567f64296f314b8a",
+        "id": "b61d42e86596bcec",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1260,
-        "y": 500,
+        "z": "9babbc837fd78c64",
+        "x": 1560,
+        "y": 1760,
         "wires": [
             [
-                "f3bda6c28c4cdefd"
+                "903afa9a686f0d5f"
             ]
         ]
     },
     {
-        "id": "ca478c1c869a4381",
+        "id": "55d99ae3eab3b021",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1180,
-        "y": 280,
-        "wires": [
-            [
-                "567f64296f314b8a"
-            ]
-        ]
-    },
-    {
-        "id": "2662d247e5832ef4",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 340,
-        "y": 280,
-        "wires": [
-            [
-                "35c058ec66022a16"
-            ]
-        ]
-    },
-    {
-        "id": "4472b5190b4b72f8",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 260,
-        "y": 720,
-        "wires": [
-            [
-                "628aaeee6693ac2b",
-                "b0e27f5ab60e12fd"
-            ]
-        ]
-    },
-    {
-        "id": "b0e27f5ab60e12fd",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 340,
-        "y": 960,
-        "wires": [
-            [
-                "dadc1fd165490ce2"
-            ]
-        ]
-    },
-    {
-        "id": "990288c0b07710ec",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1180,
-        "y": 720,
-        "wires": [
-            [
-                "567f64296f314b8a"
-            ]
-        ]
-    },
-    {
-        "id": "8c89bbddc8ff1946",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1120,
-        "y": 1160,
-        "wires": [
-            [
-                "990288c0b07710ec"
-            ]
-        ]
-    },
-    {
-        "id": "dadc1fd165490ce2",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 420,
-        "y": 1160,
-        "wires": [
-            [
-                "cb049ac75fb69645"
-            ]
-        ]
-    },
-    {
-        "id": "65f08f8689f4b1ee",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 260,
-        "y": 380,
-        "wires": [
-            [
-                "2662d247e5832ef4",
-                "db79adae9b08456e"
-            ]
-        ]
-    },
-    {
-        "id": "e0e44357057ba5c3",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1320,
-        "y": 780,
-        "wires": [
-            [
-                "36f53e223aef6872",
-                "5159011c320839ba"
-            ]
-        ]
-    },
-    {
-        "id": "f4a13cbca9ec8ca7",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 3220,
-        "y": 700,
-        "wires": [
-            [
-                "81d74a33ea5da797"
-            ]
-        ]
-    },
-    {
-        "id": "34af37b65b55eacf",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1820,
+        "z": "9babbc837fd78c64",
+        "x": 1480,
         "y": 1580,
         "wires": [
             [
-                "859b3bd66bc892ae"
+                "b61d42e86596bcec"
             ]
         ]
     },
     {
-        "id": "c02fc4796c3e4414",
+        "id": "4a16c384b45d79b8",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 2780,
+        "z": "9babbc837fd78c64",
+        "x": 600,
         "y": 1580,
         "wires": [
             [
-                "b9bb8e0b80aefb9d"
+                "bc753feb05c4dd92"
             ]
         ]
     },
     {
-        "id": "df7a3faee1583cba",
+        "id": "baaa8f06bd62aef9",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1640,
-        "y": 220,
+        "z": "9babbc837fd78c64",
+        "x": 520,
+        "y": 1980,
         "wires": [
             [
-                "fdce47c8830e0420"
+                "cee5215287bf65ab",
+                "fec591adcf0fcd05"
             ]
         ]
     },
     {
-        "id": "dc3ea815b143fda4",
+        "id": "f93b90e6ce98d552",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 880,
-        "y": 280,
+        "z": "9babbc837fd78c64",
+        "x": 1480,
+        "y": 1980,
+        "wires": [
+            [
+                "b61d42e86596bcec"
+            ]
+        ]
+    },
+    {
+        "id": "50c992fa5adaf9fc",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 1420,
+        "y": 2280,
+        "wires": [
+            [
+                "f93b90e6ce98d552"
+            ]
+        ]
+    },
+    {
+        "id": "b3a9cc66a09576d7",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 520,
+        "y": 1680,
+        "wires": [
+            [
+                "4a16c384b45d79b8",
+                "7d3981e25feb0f6e"
+            ]
+        ]
+    },
+    {
+        "id": "be914ae0279faa62",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 1300,
+        "y": 1000,
+        "wires": [
+            [
+                "7f4d6ee19ec6efd8",
+                "df4c47b89fa85776"
+            ]
+        ]
+    },
+    {
+        "id": "ae11635abee45a06",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 3200,
+        "y": 920,
+        "wires": [
+            [
+                "845286707c55e686"
+            ]
+        ]
+    },
+    {
+        "id": "f6e7f713b7c2b67b",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 1800,
+        "y": 1800,
+        "wires": [
+            [
+                "3c07e2d5b67028db"
+            ]
+        ]
+    },
+    {
+        "id": "57c27fa1f6dbd168",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 2760,
+        "y": 1800,
+        "wires": [
+            [
+                "74be171e71954601"
+            ]
+        ]
+    },
+    {
+        "id": "596c1fcf2921b9e6",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 1620,
+        "y": 440,
+        "wires": [
+            [
+                "49ae29923e8d67cc"
+            ]
+        ]
+    },
+    {
+        "id": "5dcfad4734369096",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 1180,
+        "y": 1580,
         "wires": [
             []
         ]
     },
     {
-        "id": "f7f4e351ed6248e3",
+        "id": "6d3d5a36b078e11e",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1560,
-        "y": 360,
+        "z": "9babbc837fd78c64",
+        "x": 1540,
+        "y": 580,
         "wires": [
             [
-                "df7a3faee1583cba",
-                "07d88fd0251f9976"
+                "596c1fcf2921b9e6",
+                "73b38195c834311d"
             ]
         ]
     },
     {
-        "id": "c14b30fed8c2b15d",
+        "id": "05435512e12f1e02",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1740,
-        "y": 1440,
+        "z": "9babbc837fd78c64",
+        "x": 1720,
+        "y": 1660,
         "wires": [
             [
-                "34af37b65b55eacf",
-                "14b63b61051ac714"
+                "f6e7f713b7c2b67b",
+                "9fb693c55fdb20ad"
             ]
         ]
     },
     {
-        "id": "fd7426e6c315f693",
+        "id": "68c759c03d22b673",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 3040,
-        "y": 360,
-        "wires": [
-            [
-                "0828b628b6f651dc"
-            ]
-        ]
-    },
-    {
-        "id": "b9bb8e0b80aefb9d",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 2860,
-        "y": 1440,
-        "wires": [
-            [
-                "9a1992c72110a3a2"
-            ]
-        ]
-    },
-    {
-        "id": "12e519c8df58a2c6",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 2960,
-        "y": 220,
-        "wires": [
-            [
-                "fd7426e6c315f693"
-            ]
-        ]
-    },
-    {
-        "id": "ae7c5b3d7e4a5795",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1480,
-        "y": 480,
-        "wires": [
-            [
-                "f7f4e351ed6248e3",
-                "d2410c09cb80c845"
-            ]
-        ]
-    },
-    {
-        "id": "2350652fbadaae99",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1660,
-        "y": 1300,
-        "wires": [
-            [
-                "c14b30fed8c2b15d",
-                "139f4630319af6dc"
-            ]
-        ]
-    },
-    {
-        "id": "9a1992c72110a3a2",
-        "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 2940,
-        "y": 1300,
-        "wires": [
-            [
-                "bc0df7681d9cbc45"
-            ]
-        ]
-    },
-    {
-        "id": "bc0df7681d9cbc45",
-        "type": "junction",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "x": 3020,
-        "y": 1180,
+        "y": 580,
         "wires": [
             [
-                "01f7625f3734e1db"
+                "937b682f103897b1"
             ]
         ]
     },
     {
-        "id": "498c72312f925ecb",
+        "id": "74be171e71954601",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1580,
-        "y": 1180,
+        "z": "9babbc837fd78c64",
+        "x": 2840,
+        "y": 1660,
         "wires": [
             [
-                "2350652fbadaae99",
-                "3e5dd7ea9e590980"
+                "3861c43f14f696d6"
             ]
         ]
     },
     {
-        "id": "36f53e223aef6872",
+        "id": "d523b6a5035b6acc",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1400,
-        "y": 600,
+        "z": "9babbc837fd78c64",
+        "x": 2940,
+        "y": 440,
         "wires": [
             [
-                "ae7c5b3d7e4a5795",
-                "d36963b9ce8297ee"
+                "68c759c03d22b673"
             ]
         ]
     },
     {
-        "id": "0828b628b6f651dc",
+        "id": "cecc85d7b8117fd8",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 3120,
-        "y": 600,
+        "z": "9babbc837fd78c64",
+        "x": 1460,
+        "y": 700,
         "wires": [
             [
-                "f4a13cbca9ec8ca7"
+                "6d3d5a36b078e11e",
+                "4a44cd224e28e1cd"
             ]
         ]
     },
     {
-        "id": "5159011c320839ba",
+        "id": "283f4f7d0108bfc8",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1400,
-        "y": 880,
+        "z": "9babbc837fd78c64",
+        "x": 1640,
+        "y": 1520,
         "wires": [
             [
-                "6797372e78d6ff0d",
-                "24838956d182cb22"
+                "05435512e12f1e02",
+                "cf4d45899bd4266f"
             ]
         ]
     },
     {
-        "id": "077ac4e53213c43f",
+        "id": "3861c43f14f696d6",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 3140,
-        "y": 880,
+        "z": "9babbc837fd78c64",
+        "x": 2920,
+        "y": 1520,
         "wires": [
             [
-                "f4a13cbca9ec8ca7"
+                "6770e6c283aeb7c1"
             ]
         ]
     },
     {
-        "id": "24838956d182cb22",
+        "id": "6770e6c283aeb7c1",
         "type": "junction",
-        "z": "2c682173eb064de0",
-        "x": 1500,
-        "y": 1020,
+        "z": "9babbc837fd78c64",
+        "x": 3000,
+        "y": 1400,
         "wires": [
             [
-                "498c72312f925ecb",
-                "3250d2b2f41803d5"
+                "67be4de9e1efc2b3"
             ]
         ]
     },
     {
-        "id": "01f7625f3734e1db",
+        "id": "8b4502fd42e4e1e5",
         "type": "junction",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
+        "x": 1560,
+        "y": 1400,
+        "wires": [
+            [
+                "283f4f7d0108bfc8",
+                "25876fdf1d53eb7d"
+            ]
+        ]
+    },
+    {
+        "id": "7f4d6ee19ec6efd8",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 1380,
+        "y": 820,
+        "wires": [
+            [
+                "cecc85d7b8117fd8",
+                "734db2ba7f28d256"
+            ]
+        ]
+    },
+    {
+        "id": "937b682f103897b1",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
         "x": 3100,
-        "y": 1020,
+        "y": 820,
         "wires": [
             [
-                "077ac4e53213c43f"
+                "ae11635abee45a06"
             ]
         ]
     },
     {
-        "id": "849cc3e8cfb02cf5",
-        "type": "function",
-        "z": "2c682173eb064de0",
-        "name": "Pseudo Scan Node",
-        "func": "if (msg.payload) {\n    msg.payload = {\n        \"result\": [\n            {\n                \"mac_address\": \"0C:AD:ER:BE:HU:15\",\n                \"display_name\": \"MeshNode\"\n            },\n            {\n                \"mac_address\": \"10:B5:1B:15:1E:AA\",\n                \"display_name\": \"MeshNode\"\n            }\n        ]\n    };\n    return msg\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 730,
-        "y": 860,
+        "id": "df4c47b89fa85776",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 1380,
+        "y": 1100,
         "wires": [
             [
-                "3c898bbf7c3df719"
+                "cfad4b187685b1c6",
+                "66bf9e6f2d06db1b"
             ]
         ]
     },
     {
-        "id": "50d414316f279371",
-        "type": "function",
-        "z": "2c682173eb064de0",
-        "name": "Pseudo Ping Pong",
-        "func": "if (msg.payload) {\n    msg.payload = \"alive\"\n    return msg;\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 690,
-        "y": 140,
+        "id": "0256e1c8beac84a1",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 3120,
+        "y": 1100,
         "wires": [
             [
-                "70b03f26254364a2"
+                "ae11635abee45a06"
             ]
         ]
     },
     {
-        "id": "35c058ec66022a16",
+        "id": "66bf9e6f2d06db1b",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 1480,
+        "y": 1240,
+        "wires": [
+            [
+                "8b4502fd42e4e1e5",
+                "5f8057507c6cf886"
+            ]
+        ]
+    },
+    {
+        "id": "67be4de9e1efc2b3",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 3080,
+        "y": 1240,
+        "wires": [
+            [
+                "0256e1c8beac84a1"
+            ]
+        ]
+    },
+    {
+        "id": "fec591adcf0fcd05",
+        "type": "junction",
+        "z": "9babbc837fd78c64",
+        "x": 580,
+        "y": 2280,
+        "wires": [
+            [
+                "853b29a45caae3f4"
+            ]
+        ]
+    },
+    {
+        "id": "bc753feb05c4dd92",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Ping",
         "func": "if (msg.payload == \"ping\") {\n    return msg;\n}",
         "outputs": 1,
@@ -453,38 +402,38 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
-        "y": 280,
+        "x": 760,
+        "y": 1580,
         "wires": [
             [
-                "50d414316f279371"
+                "3b93d4fae855a8df"
             ]
         ]
     },
     {
-        "id": "718f735a79ab1db4",
+        "id": "e3dd5e1169036c61",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt out : req/mesh/scan",
         "info": "",
-        "x": 610,
-        "y": 820,
+        "x": 870,
+        "y": 2020,
         "wires": []
     },
     {
-        "id": "1e28c023bd1c9431",
+        "id": "9e3b9c0646b13ef6",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt in : res/mesh/scan",
         "info": "",
-        "x": 840,
-        "y": 820,
+        "x": 1120,
+        "y": 2020,
         "wires": []
     },
     {
-        "id": "628aaeee6693ac2b",
+        "id": "cee5215287bf65ab",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Scan Req",
         "func": "if (msg.payload == \"scan\") {\n    return msg;\n}",
         "outputs": 1,
@@ -493,18 +442,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
-        "y": 720,
+        "x": 660,
+        "y": 1980,
         "wires": [
             [
-                "849cc3e8cfb02cf5"
+                "9af5192b892e41f0"
             ]
         ]
     },
     {
-        "id": "70b03f26254364a2",
+        "id": "e5442db22fcd0627",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Pong",
         "func": "msg.scan = false;\nmsg.pong = true;\nmsg.info = false;\nmsg.pair = false;\nreturn msg;",
         "outputs": 1,
@@ -513,18 +462,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
-        "y": 280,
+        "x": 1250,
+        "y": 1580,
         "wires": [
             [
-                "ca478c1c869a4381"
+                "55d99ae3eab3b021"
             ]
         ]
     },
     {
-        "id": "3c898bbf7c3df719",
+        "id": "a5a9d9c738f6c426",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Scan Res",
         "func": "msg.scan = true;\nmsg.pong = false;\nmsg.info = false;\nmsg.pair = false;\nreturn msg;",
         "outputs": 1,
@@ -533,55 +482,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 840,
-        "y": 720,
+        "x": 1300,
+        "y": 1980,
         "wires": [
             [
-                "990288c0b07710ec"
+                "f93b90e6ce98d552"
             ]
         ]
     },
     {
-        "id": "1e07b4314edd585b",
-        "type": "debug",
-        "z": "2c682173eb064de0",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 300,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "a3bcb49fdd374e06",
+        "id": "691511c527ebdf50",
         "type": "function",
-        "z": "2c682173eb064de0",
-        "name": "Pseudo Pairing",
-        "func": "if (msg.payload) {\n    msg.payload = {\n        \"mac_address\":\"0C:AD:ER:BE:HU:15\", \n        \"info\":\"pairing to new node.\"\n    };\n\n    // Error condition\n    // msg.payload = {\n    //     \"mac_address\":\"0C:AD:ER:BE:HU:15\",\n    //     \"info\":\"failed to connect to node.\"\n    // };\n\n    return msg;\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 730,
-        "y": 1300,
-        "wires": [
-            [
-                "e3794c8ee1dd02c6"
-            ]
-        ]
-    },
-    {
-        "id": "e3794c8ee1dd02c6",
-        "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Pair Res",
         "func": "msg.scan = false;\nmsg.pong = false;\nmsg.info = false;\nmsg.pair = true;\nreturn msg;",
         "outputs": 1,
@@ -590,18 +502,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 850,
-        "y": 1160,
+        "x": 1280,
+        "y": 2280,
         "wires": [
             [
-                "8c89bbddc8ff1946"
+                "50c992fa5adaf9fc"
             ]
         ]
     },
     {
-        "id": "cb049ac75fb69645",
+        "id": "853b29a45caae3f4",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Pair Req",
         "func": "if (msg.pair == \"true\") {\n    return msg;\n}",
         "outputs": 1,
@@ -610,66 +522,43 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
-        "y": 1160,
+        "x": 700,
+        "y": 2280,
         "wires": [
             [
-                "a3bcb49fdd374e06"
+                "25be8f444779bdc8"
             ]
         ]
     },
     {
-        "id": "c24cce32ce2b54b3",
+        "id": "3f355a2af74d3da6",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt out : req/mesh/pair",
         "info": "",
-        "x": 630,
-        "y": 1260,
+        "x": 880,
+        "y": 2320,
         "wires": []
     },
     {
-        "id": "67fae7c955747ddb",
+        "id": "e5d5953fdaf7af22",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt in : res/mesh/pair",
         "info": "",
-        "x": 860,
-        "y": 1260,
+        "x": 1120,
+        "y": 2320,
         "wires": []
     },
     {
-        "id": "6026d2b7bbeec104",
-        "type": "inject",
-        "z": "2c682173eb064de0",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "ping",
-        "payloadType": "str",
-        "x": 310,
-        "y": 220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b17e40686d04010d",
+        "id": "c8cd44a106d97cb8",
         "type": "ui-template",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "group": "2f692e7cb40097ed",
         "page": "",
         "ui": "",
         "name": "Login Template",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 14,
         "head": "",
@@ -679,23 +568,23 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 720,
-        "y": 1380,
+        "x": 1720,
+        "y": 1920,
         "wires": [
             [
-                "414b2c245a73e2f4"
+                "e4c7fbabd7519b17"
             ]
         ]
     },
     {
-        "id": "f3bda6c28c4cdefd",
+        "id": "903afa9a686f0d5f",
         "type": "ui-template",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "group": "8146a75c4508b858",
         "page": "",
         "ui": "",
         "name": "Scan Template",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 14,
         "head": "",
@@ -705,23 +594,23 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 720,
-        "y": 540,
+        "x": 1020,
+        "y": 1800,
         "wires": [
             [
-                "4d73b1b5c177d13a"
+                "0794496234f35e9e"
             ]
         ]
     },
     {
-        "id": "81d74a33ea5da797",
+        "id": "845286707c55e686",
         "type": "ui-template",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "group": "dd337cb0663d76c3",
         "page": "",
         "ui": "",
         "name": "Home Template",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 14,
         "head": "",
@@ -731,11 +620,11 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 2300,
-        "y": 740,
+        "x": 2280,
+        "y": 960,
         "wires": [
             [
-                "e0e44357057ba5c3"
+                "be914ae0279faa62"
             ]
         ],
         "inputLabels": [
@@ -743,126 +632,53 @@
         ]
     },
     {
-        "id": "414b2c245a73e2f4",
+        "id": "e4c7fbabd7519b17",
         "type": "mongodb3 in",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "service": "_ext_",
         "configNode": "013c016d2aaac063",
         "name": "mongoDB",
         "collection": "",
         "operation": "",
-        "x": 720,
-        "y": 1520,
+        "x": 1720,
+        "y": 2060,
         "wires": [
             [
-                "b17e40686d04010d"
+                "c8cd44a106d97cb8"
             ]
         ]
     },
     {
-        "id": "60f63e5e64f49467",
+        "id": "ea4028a539d27d56",
         "type": "mongodb3 in",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "service": "_ext_",
         "configNode": "013c016d2aaac063",
         "name": "mongoDB",
         "collection": "",
         "operation": "",
-        "x": 2320,
-        "y": 1700,
+        "x": 2300,
+        "y": 1920,
         "wires": [
             [
-                "1e4b8208b3d66eb8"
+                "f826f38addbdcfd0"
             ]
         ]
     },
     {
-        "id": "0b82205ee75a6ba7",
-        "type": "inject",
-        "z": "2c682173eb064de0",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "pair",
-                "v": "true",
-                "vt": "bool"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "0C:AD:ER:BE:HU:15\"",
-        "payloadType": "str",
-        "x": 320,
-        "y": 1320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1d0bd63eacdc4dfc",
-        "type": "inject",
-        "z": "2c682173eb064de0",
-        "name": "Pseudo Paired",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"mac_address\":\"0C:AD:ER:BE:HU:15\",\"node_id\":1950750929,\"node_type\":\"sensor\",\"info\":\"pair success!\"}",
-        "payloadType": "json",
-        "x": 620,
-        "y": 1000,
-        "wires": [
-            [
-                "e3794c8ee1dd02c6"
-            ]
-        ]
-    },
-    {
-        "id": "c68ea67af5dd77d5",
+        "id": "1a41c284981ee977",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt in : res/mesh/pair",
         "info": "",
-        "x": 610,
-        "y": 960,
+        "x": 1120,
+        "y": 2160,
         "wires": []
     },
     {
-        "id": "e103019d912b0671",
+        "id": "9fb693c55fdb20ad",
         "type": "function",
-        "z": "2c682173eb064de0",
-        "name": "Pseudo Active Node",
-        "func": "if (msg.payload) {\n    msg.payload = {\n        \"A8:46:74:46:18:DC\": {\n            \"mac_address\": \"A8:46:74:46:18:DC\",\n            \"node_id\": 1950750941,\n            \"node_type\": \"relay\",\n            \"state\": {\n            \"r1\": true,\n            \"r2\": true\n            }\n        },\n        \"A8:46:74:46:18:D0\": {\n            \"mac_address\": \"A8:46:74:46:18:D0\",\n            \"node_id\": 1950750929,\n            \"node_type\": \"sensor\",\n            \"state\": {\n                \"gpio\" : {\n                    \"gpio_0\": false,\n                    \"gpio_1\": false,\n                    \"gpio_3\": false\n                },\n                \"i2c\" : {\n                    \"temperature\": 33.9,\n                    \"humudity\": 53.2,\n                    \"light\": 26.66667\n                }\n            }\n        }\n    }\n    return msg;\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2300,
-        "y": 1440,
-        "wires": [
-            [
-                "e05016ef1c99d9ab"
-            ]
-        ]
-    },
-    {
-        "id": "14b63b61051ac714",
-        "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Active Node Req",
         "func": "if (msg.type == \"ACTIVE_NODE\") {\n    return msg;\n}",
         "outputs": 1,
@@ -871,18 +687,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2060,
-        "y": 1440,
+        "x": 1960,
+        "y": 1660,
         "wires": [
             [
-                "e103019d912b0671"
+                "a0896732b714b788"
             ]
         ]
     },
     {
-        "id": "e05016ef1c99d9ab",
+        "id": "caa291fbccf767a6",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Active Node Res",
         "func": "msg.type = \"ACTIVE_NODE\";\nreturn msg;",
         "outputs": 1,
@@ -891,38 +707,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2560,
-        "y": 1440,
+        "x": 2580,
+        "y": 1660,
         "wires": [
             [
-                "b9bb8e0b80aefb9d"
+                "74be171e71954601"
             ]
         ]
     },
     {
-        "id": "a5a7bd0418d69e9a",
+        "id": "73b38195c834311d",
         "type": "function",
-        "z": "2c682173eb064de0",
-        "name": "Pseudo All Node",
-        "func": "if (msg.payload) {\n    msg.payload = {\n        \"A8:46:74:46:18:DC\": {\n            \"mac_address\": \"A8:46:74:46:18:DC\",\n            \"node_id\": 1950750941,\n            \"node_type\": \"relay\"\n        },\n        \"A8:46:74:46:18:D0\": {\n            \"mac_address\": \"A8:46:74:46:18:D0\",\n            \"node_id\": 1950750929,\n            \"node_type\": \"sensor\"\n        }\n    }\n    return msg;\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2290,
-        "y": 360,
-        "wires": [
-            [
-                "52d435fc7da18a62"
-            ]
-        ]
-    },
-    {
-        "id": "07d88fd0251f9976",
-        "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter All Node Req",
         "func": "if (msg.type == \"ALL_NODE\") {\n    return msg;\n}",
         "outputs": 1,
@@ -931,18 +727,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2050,
-        "y": 360,
+        "x": 1950,
+        "y": 580,
         "wires": [
             [
-                "a5a7bd0418d69e9a"
+                "9c67126ad884c85e"
             ]
         ]
     },
     {
-        "id": "52d435fc7da18a62",
+        "id": "64790b1ae0f8ab04",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter All Node Res",
         "func": "msg.type = \"ALL_NODE\";\nreturn msg;",
         "outputs": 1,
@@ -951,18 +747,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2530,
-        "y": 360,
+        "x": 2610,
+        "y": 580,
         "wires": [
             [
-                "fd7426e6c315f693"
+                "68c759c03d22b673"
             ]
         ]
     },
     {
-        "id": "859b3bd66bc892ae",
+        "id": "3c07e2d5b67028db",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Req Mongo",
         "func": "if (msg.type == \"MONGO_DB\") {\n    return msg;\n}",
         "outputs": 1,
@@ -971,18 +767,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2170,
-        "y": 1580,
+        "x": 2150,
+        "y": 1800,
         "wires": [
             [
-                "60f63e5e64f49467"
+                "ea4028a539d27d56"
             ]
         ]
     },
     {
-        "id": "1e4b8208b3d66eb8",
+        "id": "f826f38addbdcfd0",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Res Mongo",
         "func": "if (!msg.payload.result) {\n    msg.type = \"MONGO_DB\";\n    return msg;\n}",
         "outputs": 1,
@@ -991,18 +787,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2470,
-        "y": 1580,
+        "x": 2450,
+        "y": 1800,
         "wires": [
             [
-                "c02fc4796c3e4414"
+                "57c27fa1f6dbd168"
             ]
         ]
     },
     {
-        "id": "db79adae9b08456e",
+        "id": "7d3981e25feb0f6e",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Mongo",
         "func": "if (msg.toMongo){\n    return msg;\n}",
         "outputs": 1,
@@ -1011,113 +807,93 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 380,
+        "x": 750,
+        "y": 1680,
         "wires": [
             [
-                "90f6a692f0f33d60"
+                "1517247b2731ab42"
             ]
         ]
     },
     {
-        "id": "90f6a692f0f33d60",
+        "id": "1517247b2731ab42",
         "type": "mongodb3 in",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "service": "_ext_",
         "configNode": "013c016d2aaac063",
         "name": "mongoDB",
         "collection": "",
         "operation": "",
-        "x": 800,
-        "y": 380,
+        "x": 920,
+        "y": 1680,
         "wires": [
             []
         ]
     },
     {
-        "id": "55a623171fc79f7d",
+        "id": "25eca35aca08f0c3",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt out : req/mesh/allnodes",
         "info": "",
-        "x": 2160,
-        "y": 320,
+        "x": 2140,
+        "y": 540,
         "wires": []
     },
     {
-        "id": "d3363709dc27bd68",
+        "id": "e65b7ee879b5ee02",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt in : res/mesh/allnodes",
         "info": "",
-        "x": 2410,
-        "y": 320,
+        "x": 2390,
+        "y": 540,
         "wires": []
     },
     {
-        "id": "3529f7b1daa289a4",
+        "id": "c2782f536a6cae63",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt out : req/mesh/nodes",
         "info": "",
-        "x": 2170,
-        "y": 1480,
+        "x": 2150,
+        "y": 1700,
         "wires": []
     },
     {
-        "id": "62b7f6335b217409",
+        "id": "7e88533fa7aeab3d",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt in: res/mesh/nodes",
         "info": "",
-        "x": 2440,
-        "y": 1480,
+        "x": 2420,
+        "y": 1700,
         "wires": []
     },
     {
-        "id": "d19c169f0e8a8e3a",
+        "id": "0be3c3ed72c11511",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt out : esp/ping",
         "info": "",
-        "x": 2190,
-        "y": 40,
+        "x": 2170,
+        "y": 400,
         "wires": []
     },
     {
-        "id": "d05016c063f7ce6a",
+        "id": "d69800f2712d2693",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt in : esp/pong",
         "info": "",
-        "x": 2390,
-        "y": 40,
+        "x": 2370,
+        "y": 400,
         "wires": []
     },
     {
-        "id": "940767fa7b87149e",
+        "id": "49ae29923e8d67cc",
         "type": "function",
-        "z": "2c682173eb064de0",
-        "name": "Pseudo Ping Pong",
-        "func": "if (msg.payload) {\n    msg.payload = \"alive\"\n    return msg;\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2290,
-        "y": 80,
-        "wires": [
-            [
-                "a8ef2b924362df80"
-            ]
-        ]
-    },
-    {
-        "id": "fdce47c8830e0420",
-        "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Ping",
         "func": "if (msg.type == \"PING\") {\n    return msg;\n}",
         "outputs": 1,
@@ -1126,18 +902,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2180,
-        "y": 220,
+        "x": 2020,
+        "y": 440,
         "wires": [
             [
-                "940767fa7b87149e"
+                "39a15f1bfe009358"
             ]
         ]
     },
     {
-        "id": "a8ef2b924362df80",
+        "id": "e780abff69d2c288",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Pong",
         "func": "msg.type = \"PONG\"\nreturn msg;",
         "outputs": 1,
@@ -1146,48 +922,28 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2410,
-        "y": 220,
+        "x": 2510,
+        "y": 440,
         "wires": [
             [
-                "12e519c8df58a2c6"
+                "d523b6a5035b6acc"
             ]
         ]
     },
     {
-        "id": "7edb7302290b1cde",
-        "type": "function",
-        "z": "2c682173eb064de0",
-        "name": "Pseudo Relay Control",
-        "func": "return msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2300,
-        "y": 480,
-        "wires": [
-            [
-                "360c61bb6dc9d5a6"
-            ]
-        ]
-    },
-    {
-        "id": "f8761ba5befd1d2f",
+        "id": "898693719b063907",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt out : req/state/update",
         "info": "",
-        "x": 2310,
-        "y": 440,
+        "x": 2150,
+        "y": 660,
         "wires": []
     },
     {
-        "id": "d2410c09cb80c845",
+        "id": "4a44cd224e28e1cd",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Relay Control",
         "func": "if (msg.type == \"RELAY_CONTROL\") {\n    return msg;\n}",
         "outputs": 1,
@@ -1196,65 +952,28 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2070,
-        "y": 480,
+        "x": 1970,
+        "y": 700,
         "wires": [
             [
-                "7edb7302290b1cde"
+                "6107c8213bb82cc2"
             ]
         ]
     },
     {
-        "id": "360c61bb6dc9d5a6",
-        "type": "debug",
-        "z": "2c682173eb064de0",
-        "name": "Relay Debug",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2530,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "702e35ad5726d375",
+        "id": "b1f325076e33922c",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt out : req/mesh/unpair",
         "info": "",
         "x": 2130,
-        "y": 1340,
+        "y": 1560,
         "wires": []
     },
     {
-        "id": "42bca23738056e66",
+        "id": "cf4d45899bd4266f",
         "type": "function",
-        "z": "2c682173eb064de0",
-        "name": "Pseudo Unpair Node",
-        "func": "if (msg.payload) {\n  msg.payload = {\n    \"node_id\": 12345,\n    \"mac_address\": \"A8:46:74:46:18:DC\",\n    \"info\": \"unpairing\"\n  }\n  return msg;\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2260,
-        "y": 1300,
-        "wires": [
-            [
-                "f40a20bbd027a35c"
-            ]
-        ]
-    },
-    {
-        "id": "139f4630319af6dc",
-        "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Unpair Node Req",
         "func": "if (msg.type == \"UNPAIR_NODE\") {\n    return msg;\n}",
         "outputs": 1,
@@ -1263,28 +982,28 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2040,
-        "y": 1300,
+        "x": 1960,
+        "y": 1520,
         "wires": [
             [
-                "42bca23738056e66"
+                "0e82f7d3d684a4d6"
             ]
         ]
     },
     {
-        "id": "5f2ecbfb9a7e4650",
+        "id": "7b1937f1e08f3c21",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt in : res/mesh/unpair",
         "info": "",
-        "x": 2410,
-        "y": 1340,
+        "x": 2390,
+        "y": 1560,
         "wires": []
     },
     {
-        "id": "f40a20bbd027a35c",
+        "id": "45773f6da9e4cd1b",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Unpair Node Res",
         "func": "msg.type = \"UNPAIR_NODE\";\nreturn msg;",
         "outputs": 1,
@@ -1293,58 +1012,38 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2500,
-        "y": 1300,
+        "x": 2580,
+        "y": 1520,
         "wires": [
             [
-                "9a1992c72110a3a2"
+                "3861c43f14f696d6"
             ]
         ]
     },
     {
-        "id": "4888745f99eb533c",
+        "id": "985e856af650663d",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt out : esp/ping",
         "info": "",
-        "x": 590,
-        "y": 100,
+        "x": 890,
+        "y": 1540,
         "wires": []
     },
     {
-        "id": "66f1bc45562a3b3e",
+        "id": "fb6958045ec3329b",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt in : esp/pong",
         "info": "",
-        "x": 790,
-        "y": 100,
+        "x": 1110,
+        "y": 1540,
         "wires": []
     },
     {
-        "id": "819491c8890ba0e6",
+        "id": "25876fdf1d53eb7d",
         "type": "function",
-        "z": "2c682173eb064de0",
-        "name": "Pseudu Update GPIO Type",
-        "func": "if (msg.payload) {\n    msg.payload = { \n        \"node_id\": 1950750929, \n        \"info\": \"OK\" \n    }\n    return msg;\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2260,
-        "y": 1180,
-        "wires": [
-            [
-                "c480f62ecfe42887"
-            ]
-        ]
-    },
-    {
-        "id": "3e5dd7ea9e590980",
-        "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Update GPIO Type",
         "func": "if (msg.type == \"UPDATE_GPIO_CONFIG\") {\n    return msg;\n}",
         "outputs": 1,
@@ -1353,18 +1052,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1970,
-        "y": 1180,
+        "x": 1930,
+        "y": 1400,
         "wires": [
             [
-                "819491c8890ba0e6"
+                "771a8fe8eb3f11df"
             ]
         ]
     },
     {
-        "id": "c480f62ecfe42887",
+        "id": "90a06b5da3190fb0",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Update GPIO Type",
         "func": "msg.type = \"UPDATE_GPIO_CONFIG\";\nreturn msg;",
         "outputs": 1,
@@ -1373,58 +1072,38 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2530,
-        "y": 1180,
+        "x": 2590,
+        "y": 1400,
         "wires": [
             [
-                "bc0df7681d9cbc45"
+                "6770e6c283aeb7c1"
             ]
         ]
     },
     {
-        "id": "944e6a18b5fe141d",
+        "id": "dfbf224ba0a4339b",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt out : req/mode/update",
         "info": "",
-        "x": 2130,
-        "y": 1220,
+        "x": 2150,
+        "y": 1440,
         "wires": []
     },
     {
-        "id": "254aeb489644d27f",
+        "id": "4ae1d3e5b8868356",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt in : res/mode/update",
         "info": "",
-        "x": 2410,
-        "y": 1220,
+        "x": 2390,
+        "y": 1440,
         "wires": []
     },
     {
-        "id": "4b136e59afc1504c",
+        "id": "734db2ba7f28d256",
         "type": "function",
-        "z": "2c682173eb064de0",
-        "name": "Pseudu Config Relay",
-        "func": "if (msg.payload) {\n    msg.payload = { \n        \"node_id\": 1950750941, \n        \"status\": \"OK\", \"info\": \"OK\" \n    }\n    return msg;\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2280,
-        "y": 600,
-        "wires": [
-            [
-                "65efb4c29d5c46cb"
-            ]
-        ]
-    },
-    {
-        "id": "d36963b9ce8297ee",
-        "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Config Relay",
         "func": "if (msg.type == \"RELAY_CONFIG\") {\n    return msg;\n}",
         "outputs": 1,
@@ -1433,18 +1112,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1990,
-        "y": 600,
+        "x": 1970,
+        "y": 820,
         "wires": [
             [
-                "4b136e59afc1504c"
+                "f8e0e5e76f1a5db0"
             ]
         ]
     },
     {
-        "id": "65efb4c29d5c46cb",
+        "id": "fa24e40ce1c4cdcd",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Config Relay",
         "func": "msg.type = \"RELAY_CONFIG\";\nreturn msg;",
         "outputs": 1,
@@ -1453,58 +1132,38 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2550,
-        "y": 600,
+        "x": 2590,
+        "y": 820,
         "wires": [
             [
-                "0828b628b6f651dc"
+                "937b682f103897b1"
             ]
         ]
     },
     {
-        "id": "e25703f56feee270",
+        "id": "cc7bc4b11a864039",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt out : req/config/set",
         "info": "",
         "x": 2160,
-        "y": 560,
+        "y": 780,
         "wires": []
     },
     {
-        "id": "ad5c3f8c01c32084",
+        "id": "aa65880674631004",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt in : res/config/set",
         "info": "",
-        "x": 2440,
-        "y": 560,
+        "x": 2380,
+        "y": 780,
         "wires": []
     },
     {
-        "id": "ae729bab3af5c2c1",
+        "id": "cfad4b187685b1c6",
         "type": "function",
-        "z": "2c682173eb064de0",
-        "name": "Pseudu Get Config",
-        "func": "if (msg.payload) {\n    msg.payload = {\n        \"1950750941\": {\n            \"r1\": {\n                \"node_id\":1950750929,\n                \"condition\":\"gpio_1|true\"\n            },\n            \"r2\": {\n                \"node_id\":1950750929,\n                \"condition\":\"light>200\"\n            }\n        },\n        \"195075230941\": {\n            \"r1\": {\n                \"node_id\": 1950750929,\n                \"condition\": \"gpio_1|true\"\n            },\n            \"r2\": {\n                \"node_id\": 1950750929,\n                \"condition\": \"light>200\"\n            }\n        }\n    }\n    return msg;\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2270,
-        "y": 880,
-        "wires": [
-            [
-                "70eddee43adda882"
-            ]
-        ]
-    },
-    {
-        "id": "6797372e78d6ff0d",
-        "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Get Config",
         "func": "if (msg.type == \"GET_RELAY_CONFIG\") {\n    return msg;\n}",
         "outputs": 1,
@@ -1513,18 +1172,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2020,
-        "y": 880,
+        "x": 1960,
+        "y": 1100,
         "wires": [
             [
-                "ae729bab3af5c2c1"
+                "be5fccfe9899028c"
             ]
         ]
     },
     {
-        "id": "70eddee43adda882",
+        "id": "2a8b496b66123947",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Get Config",
         "func": "msg.type = \"GET_RELAY_CONFIG\";\nreturn msg;",
         "outputs": 1,
@@ -1533,58 +1192,38 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2520,
-        "y": 880,
+        "x": 2580,
+        "y": 1100,
         "wires": [
             [
-                "077ac4e53213c43f"
+                "0256e1c8beac84a1"
             ]
         ]
     },
     {
-        "id": "72e14380c85e165f",
+        "id": "bf8912b6bf932555",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt out : req/config/remove",
         "info": "",
         "x": 2140,
-        "y": 920,
+        "y": 1140,
         "wires": []
     },
     {
-        "id": "4deaf2be35e97e2f",
+        "id": "bae1f4c738030269",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt in : res/config/remove",
         "info": "",
-        "x": 2410,
-        "y": 920,
+        "x": 2390,
+        "y": 1140,
         "wires": []
     },
     {
-        "id": "7a8a346844e20fb9",
+        "id": "5f8057507c6cf886",
         "type": "function",
-        "z": "2c682173eb064de0",
-        "name": "Pseudu Remove Config",
-        "func": "if (msg.payload) {\n    msg.payload = {\n        \"node_id\": 1950750941,\n        \"status\": \"OK\",\n        \"info\": \"OK\"\n    }\n    return msg;\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2290,
-        "y": 1020,
-        "wires": [
-            [
-                "57af227c25c7db9a"
-            ]
-        ]
-    },
-    {
-        "id": "3250d2b2f41803d5",
-        "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Remove Config",
         "func": "if (msg.type == \"REMOVE_CONFIG\") {\n    return msg;\n}",
         "outputs": 1,
@@ -1593,18 +1232,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2040,
-        "y": 1020,
+        "x": 1940,
+        "y": 1240,
         "wires": [
             [
-                "7a8a346844e20fb9"
+                "e1614bbd836a9a92"
             ]
         ]
     },
     {
-        "id": "57af227c25c7db9a",
+        "id": "0a02e4d95e0876da",
         "type": "function",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "Filter Remove Config",
         "func": "msg.type = \"REMOVE_CONFIG\";\nreturn msg;",
         "outputs": 1,
@@ -1613,38 +1252,506 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2540,
-        "y": 1020,
+        "x": 2600,
+        "y": 1240,
         "wires": [
             [
-                "01f7625f3734e1db"
+                "67be4de9e1efc2b3"
             ]
         ]
     },
     {
-        "id": "18964b086de651ae",
+        "id": "11a9d7f9098e9596",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt out : req/config/get",
         "info": "",
         "x": 2160,
-        "y": 1060,
+        "y": 1280,
         "wires": []
     },
     {
-        "id": "d4e655e627178cf5",
+        "id": "3d045777519b0ad8",
         "type": "comment",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "mqtt in : res/config/get",
         "info": "",
-        "x": 2400,
-        "y": 1060,
+        "x": 2380,
+        "y": 1280,
         "wires": []
     },
     {
-        "id": "9495a6eaaea64898",
+        "id": "39a15f1bfe009358",
+        "type": "mqtt out",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "esp/ping",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc4d597ebc76b350",
+        "x": 2200,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "8dd31f48e95ad88c",
+        "type": "mqtt in",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "esp/pong",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cc4d597ebc76b350",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2340,
+        "y": 440,
+        "wires": [
+            [
+                "e780abff69d2c288"
+            ]
+        ]
+    },
+    {
+        "id": "9c67126ad884c85e",
+        "type": "mqtt out",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "req/mesh/allnodes",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc4d597ebc76b350",
+        "x": 2170,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "b08afdcd245b301c",
+        "type": "mqtt in",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "res/mesh/allnodes",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cc4d597ebc76b350",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2370,
+        "y": 580,
+        "wires": [
+            [
+                "64790b1ae0f8ab04"
+            ]
+        ]
+    },
+    {
+        "id": "6107c8213bb82cc2",
+        "type": "mqtt out",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "req/state/update",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc4d597ebc76b350",
+        "x": 2180,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "f8e0e5e76f1a5db0",
+        "type": "mqtt out",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "req/config/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc4d597ebc76b350",
+        "x": 2180,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "61b4ede9e15049ff",
+        "type": "mqtt in",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "res/config/set",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cc4d597ebc76b350",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2350,
+        "y": 820,
+        "wires": [
+            [
+                "fa24e40ce1c4cdcd"
+            ]
+        ]
+    },
+    {
+        "id": "be5fccfe9899028c",
+        "type": "mqtt out",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "req/config/remove",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc4d597ebc76b350",
+        "x": 2170,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "7bf7da7ddb1aa7bb",
+        "type": "mqtt in",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "res/config/remove",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cc4d597ebc76b350",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2370,
+        "y": 1100,
+        "wires": [
+            [
+                "2a8b496b66123947"
+            ]
+        ]
+    },
+    {
+        "id": "e1614bbd836a9a92",
+        "type": "mqtt out",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "req/config/get",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc4d597ebc76b350",
+        "x": 2180,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "40f33c1c64c6f6c2",
+        "type": "mqtt in",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "res/config/get",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cc4d597ebc76b350",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2350,
+        "y": 1240,
+        "wires": [
+            [
+                "0a02e4d95e0876da"
+            ]
+        ]
+    },
+    {
+        "id": "771a8fe8eb3f11df",
+        "type": "mqtt out",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "req/mode/update",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc4d597ebc76b350",
+        "x": 2170,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "cf907d8057f2dc74",
+        "type": "mqtt in",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "res/mode/update",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cc4d597ebc76b350",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2360,
+        "y": 1400,
+        "wires": [
+            [
+                "90a06b5da3190fb0"
+            ]
+        ]
+    },
+    {
+        "id": "0e82f7d3d684a4d6",
+        "type": "mqtt out",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "req/mesh/unpair",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc4d597ebc76b350",
+        "x": 2180,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "5d3805925ccfe9a1",
+        "type": "mqtt in",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "res/mesh/unpair",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cc4d597ebc76b350",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2360,
+        "y": 1520,
+        "wires": [
+            [
+                "45773f6da9e4cd1b"
+            ]
+        ]
+    },
+    {
+        "id": "a0896732b714b788",
+        "type": "mqtt out",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "req/mesh/nodes",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc4d597ebc76b350",
+        "x": 2180,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "1d24001c72a76e4a",
+        "type": "mqtt in",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "res/mesh/nodes",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cc4d597ebc76b350",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2360,
+        "y": 1660,
+        "wires": [
+            [
+                "caa291fbccf767a6"
+            ]
+        ]
+    },
+    {
+        "id": "f78df0efc30a4fa9",
+        "type": "mqtt in",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "esp/pong",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cc4d597ebc76b350",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1080,
+        "y": 1580,
+        "wires": [
+            [
+                "e5442db22fcd0627"
+            ]
+        ]
+    },
+    {
+        "id": "3b93d4fae855a8df",
+        "type": "mqtt out",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "esp/ping",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc4d597ebc76b350",
+        "x": 920,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "9af5192b892e41f0",
+        "type": "mqtt out",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "req/mesh/scan",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc4d597ebc76b350",
+        "x": 900,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "a0b527f775b3a8a2",
+        "type": "mqtt in",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "res/mesh/scan",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cc4d597ebc76b350",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1100,
+        "y": 1980,
+        "wires": [
+            [
+                "a5a9d9c738f6c426"
+            ]
+        ]
+    },
+    {
+        "id": "9e9fcf3ae718a9b1",
+        "type": "mqtt in",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "res/mesh/pair",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cc4d597ebc76b350",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1090,
+        "y": 2200,
+        "wires": [
+            [
+                "691511c527ebdf50"
+            ]
+        ]
+    },
+    {
+        "id": "25be8f444779bdc8",
+        "type": "mqtt out",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "req/mesh/pair",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cc4d597ebc76b350",
+        "x": 900,
+        "y": 2280,
+        "wires": []
+    },
+    {
+        "id": "c1b22560189de595",
+        "type": "mqtt in",
+        "z": "9babbc837fd78c64",
+        "name": "",
+        "topic": "res/mesh/pair",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cc4d597ebc76b350",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1090,
+        "y": 2280,
+        "wires": [
+            [
+                "691511c527ebdf50"
+            ]
+        ]
+    },
+    {
+        "id": "8783f5800d899183",
         "type": "ui_spacer",
-        "z": "2c682173eb064de0",
+        "z": "9babbc837fd78c64",
         "name": "spacer",
         "group": "",
         "order": 1,
@@ -1700,6 +1807,37 @@
         "name": "smart_home",
         "options": "{ “useNewUrlParser”: true}",
         "parallelism": -1
+    },
+    {
+        "id": "cc4d597ebc76b350",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.122",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     },
     {
         "id": "f721a59bf36641c2",
@@ -1849,7 +1987,7 @@
         }
     },
     {
-        "id": "a46cefacc368f932",
+        "id": "c752c7985c1b23b2",
         "type": "global-config",
         "env": [],
         "modules": {
