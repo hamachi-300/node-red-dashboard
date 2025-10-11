@@ -380,18 +380,18 @@ export default {
       this.redirectLogin();
     }
     this.getNodesMongoDB();
-    this.checkMasterStatus();
     this.checkNodeStatus(); 
   },
   data() {
     return {
       slave_nodes: [],
       getNode_request: false,
-      ping_request: false,
+      ping_delay: 0,
       allNode_request: false,
       activeNode_request: false,
       unpair_request: false,
       gpioConfig_request: false,
+      getGpioConfig_request: false,
       relayConfig_request: false,
       getRelayConfig_request: false,
       removeConfig_request: false,
@@ -473,12 +473,11 @@ export default {
         }));
         this.getNode_request = false;
       }
-      if (newMsg.type == "PONG" && this.ping_request) {
+      if (newMsg.type == "PONG") {
         this.master_status = "online";
         if (this.ping_delay < 2) {
           this.ping_delay += 2;
         }
-        this.ping_request = false;
       }
       if (newMsg.type == "ACTIVE_NODE" && this.activeNode_request) {
         this.activeNode_request = false;
@@ -544,6 +543,20 @@ export default {
       if (newMsg.type == "UPDATE_GPIO_CONFIG" && this.gpioConfig_request) {
         this.gpioConfig_request = false;
         this.showNotification(`node_id : ${newMsg.payload.node_id} GPIO configuration updated successfully`, "green");
+      }
+      if (newMsg.type == "GET_GPIO_CONFIG" && this.getGpioConfig_request) {
+        this.getGpioConfig_request = false;
+        if (newMsg.payload && newMsg.payload.mode) {
+          this.gpio_config = {
+            node_id: newMsg.payload.node_id,
+            mode: newMsg.payload.mode
+          };
+        } else {
+          this.gpio_config = {
+            node_id: "",
+            mode: {}
+          };
+        }
       }
       if (newMsg.type == "RELAY_CONFIG" && this.relayConfig_request) {
         this.relayConfig_request = false;
@@ -621,9 +634,23 @@ export default {
           return node;
         }); 
       }
+      if (newMsg.type == "GET_GPIO_CONFIG" && this.getGpioConfig_request) {
+        this.snackbar = false;
     }
   },
   methods: {
+    getGpioConfig() {
+      if (this.master_status !== "online") {
+        this.showNotification("Master node is offline. Cannot fetch GPIO configurations.", "red");
+        return;
+      }
+      const configObj = {
+        payload: "getConfig",
+        type: "GET_GPIO_CONFIG",
+      };
+      this.getGpioConfig_request = true;
+      this.send(configObj);
+    },
     updateConfigRelay() {
       if (this.master_status !== "online") {
         this.showNotification("Master node is offline. Cannot fetch relay configurations.", "red");
@@ -758,6 +785,7 @@ export default {
       this.send(commandObj);
     },
     showNodePopup(node) {
+      if (master_status)
       if (node.node_type == "sensor") {
         let default_gpio = node.state.gpio || {};
         for (let key in default_gpio) {
@@ -767,6 +795,7 @@ export default {
           node_id: node.node_id,
           mode: default_gpio || {}
         };
+        this.getGpioConfig();
       }
       this.selectedNode = node;
       this.editableNodeConfig = JSON.parse(JSON.stringify(node));
@@ -808,21 +837,6 @@ export default {
       this.getNode_request = true;
       this.send(sendObj);
     },
-    checkMasterStatus() {
-      const sendObj = { payload: "ping", type: "PING" };
-      this.ping_request = true;
-      this.send(sendObj);
-      setInterval(() => {
-        this.ping_request = true;
-        if (this.ping_delay == 0) {
-          this.master_status = "offline";
-        } else {
-          this.master_status = "online";
-          this.ping_delay -= 1;
-        }
-        this.send(sendObj);
-      }, 5000);
-    },
     checkNodeStatus() {
       const sendObj = { payload: "active", type: "ACTIVE_NODE" };
       setInterval(() => {
@@ -830,7 +844,7 @@ export default {
           this.activeNode_request = true;
           this.send(sendObj);
         }
-      }, 1000);
+      }, 10000);
     },
     syncSlave() {
       if (this.master_status !== "online") {
@@ -862,7 +876,15 @@ export default {
     },
   }
 }
+}
 </script>
 <style scoped>
 /* Add any component-specific styles here */
 </style>
+
+<!-- 
+
+- get gpio config
+- get relay config on get active payload
+
+-->

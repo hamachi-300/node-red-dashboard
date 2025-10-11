@@ -140,7 +140,6 @@ export default {
       pair_mac_addr: "",
       master_status: "offline",
       ping_delay: 0,
-      ping_request: false, // filter msg ping
       scan_request: false, // filter msg scan
       pair_request: false, // filter msg pair
       isLoading: false,
@@ -152,7 +151,6 @@ export default {
   },
   mounted() {
     // invoke logic function
-    this.checkStatus();
     this.scanNodes();
 
     // Load saved nodes from localStorage
@@ -222,12 +220,11 @@ export default {
         }
 
         // pong handler
-        if (newMsg && newMsg.pong && this.ping_request) {
+        if (newMsg && newMsg.pong) {
           this.master_status = "online"
           if (this.ping_delay < 2) {
             this.ping_delay += 2;
           }
-          this.ping_request = false; 
         }
 
         // pair handler and if have pair successed it will auto allow
@@ -363,26 +360,6 @@ export default {
 
       // Send message to Node-RED backend
       this.$emit('send', { payload: 'button_clicked' });
-    },
-    checkStatus() {
-      const sendObj = {
-        payload: "ping"
-      };
-      this.ping_request = true;
-      this.send(sendObj);
-
-      // send ping payload to master node 5 sec interval
-      setInterval(() => {
-        this.ping_request = true; 
-        // online & offline logic
-        if (this.ping_delay == 0) {
-          this.master_status = "offline";
-        } else {
-          this.master_status = "online";
-          this.ping_delay -= 1;
-        }
-        this.send(sendObj);
-      }, 5000); // 1000 ms = 1 second
     },
     scanNodes() {
       const sendObj = {
