@@ -192,7 +192,7 @@ export default {
     msg: {
       handler(newMsg) {
         // node scan res handler
-        if (newMsg && newMsg.scan && this.scan_request) {
+        if (newMsg && this.scan_request) {
           const payload = { ...newMsg.payload };
           payload.result.forEach(item => {
             const node = { 
@@ -215,7 +215,6 @@ export default {
 
         // pong handler
         if (newMsg && newMsg.pong) {
-          console.log(newMsg);
           this.master_status = "online"
           if (this.ping_delay < 2) {
             this.ping_delay += 1;
@@ -387,7 +386,6 @@ export default {
     },
     checkMasterStatus() {
       setInterval(() => {
-        console.log(this.ping_delay);
         if (this.ping_delay > 0) {
           this.ping_delay -= 1;
         } else {

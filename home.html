@@ -148,7 +148,11 @@
           {{ selectedNode.name || 'Mesh Node' }}
         </div>
         
-        <v-list v-if="selectedNode.node_type === 'sensor' && editableNodeConfig.state && editableNodeConfig.state.gpio">
+        <div v-if="selectedNode.node_type === 'sensor' && loadingNodeId === selectedNode.node_id" class="d-flex justify-center align-center pa-10" style="min-height: 150px;">
+          <v-progress-circular indeterminate color="primary"></v-progress-circular>
+        </div>
+        
+        <v-list v-else-if="selectedNode.node_type === 'sensor' && editableNodeConfig.state && editableNodeConfig.state.gpio">
           <v-list-item 
             v-for="(gpioConfig, gpioPin) in editableNodeConfig.state.gpio" 
             :key="gpioPin"
@@ -375,6 +379,7 @@ export default {
     this.checkNodeStatus(); 
     this.checkMasterStatus();
     this.immediatePing();
+
   },
   data() {
     return {
@@ -406,6 +411,7 @@ export default {
         node_id: "",
         mode: {}
       },
+      loadingNodeId: null, // To track loading state for sensor config dialog
       offline_buffer: false,
     };
   },
@@ -459,7 +465,28 @@ export default {
   },
   watch: {
     msg(newMsg) {
+      if (newMsg.type == "RELAY_AUTO_UPDATE") {
+        // auto update relay state
+        this.slave_nodes = this.slave_nodes.map(node => {
+          if (node.node_id === newMsg.payload.node_id && node.manual_mode == false) {
+            return {
+              ...node,
+              state: {
+                ...node.state,
+                ...newMsg.payload.state
+              }
+            };
+          }
+          return node;
+        });
+      }
       if (newMsg.type == "MONGO_DB" && this.getNode_request) {
+        if (newMsg.payload == "alive") {
+          this.slave_nodes = [];
+          this.getNode_request = false;
+          this.isLoading = false;
+          return;
+        }
         this.isLoading = false;
         this.slave_nodes = Object.values(newMsg.payload).map(node => ({
           ...node,
@@ -583,6 +610,10 @@ export default {
         );
         this.unpair_request = false;
         this.showNotification(`Unpair ${newMsg.payload.mac_address} succeeded`, "green");
+        // remove detected node paired
+        let data = JSON.parse(localStorage.getItem("nodes_detected")) || [];
+        data = data.filter(n => n.mac_address !== newMsg.payload.mac_address);
+        localStorage.setItem("nodes_detected", JSON.stringify(data));
       }
       if (newMsg.type == "UPDATE_GPIO_CONFIG" && this.gpioConfig_request) {
         this.gpioConfig_request = false;
@@ -599,6 +630,7 @@ export default {
         this.showNotification(`node_id : ${newMsg.payload.node_id} configuration removed successfully`, "green");
         this.saveActiveNode();
         this.activeNodeSave_request = true;
+        this.refreshPage();
       }
       if (newMsg.type == "REMOVE_CONFIG" && this.toManual_request) {
         this.toManual_request = false;
@@ -626,22 +658,7 @@ export default {
           return node;
         }); 
       }
-      if (newMsg.type == "RELAY_AUTO_UPDATE") {
-        // auto update relay state
-        this.slave_nodes = this.slave_nodes.map(node => {
-          if (node.node_id === newMsg.payload.node_id && node.manual_mode == false) {
-            return {
-              ...node,
-              state: {
-                ...node.state,
-                ...newMsg.payload.state
-              }
-            };
-          }
-          return node;
-        });
-      }
-      if (newMsg.type == "GPIO_TYPE" && this.get_gpio_type_request) {
+      if (newMsg.type == "GET_GPIO_TYPE" && this.get_gpio_type_request) {
         this.get_gpio_type_request = false;
         if (this.gpio_config && this.gpio_config.node_id === newMsg.payload.node_id) {
           this.gpio_config = {
@@ -649,6 +666,7 @@ export default {
             mode: newMsg.payload.mode || this.gpio_config.mode
           };
         }
+        this.loadingNodeId = null; // Stop loading
       }
     }
   },
@@ -662,32 +680,59 @@ export default {
       }
     },
     saveRelayConfig() {
-      // map editableNodeConfig r1_sensor to node_id
+      // Ensure there is a node configuration to save
       if (!this.editableNodeConfig) return;
-      const r1_sensor_node = this.slave_nodes.find(n => (n.name === this.editableNodeConfig.state.r1_sensor || n.mac_address === this.editableNodeConfig.state.r1_sensor));
-      const r2_sensor_node = this.slave_nodes.find(n => (n.name === this.editableNodeConfig.state.r2_sensor || n.mac_address === this.editableNodeConfig.state.r2_sensor));
+
+      // Find the corresponding sensor nodes for each relay
+      const r1_sensor_node = this.slave_nodes.find(n => 
+        n.name === this.editableNodeConfig.state.r1_sensor || n.mac_address === this.editableNodeConfig.state.r1_sensor
+      );
+      const r2_sensor_node = this.slave_nodes.find(n => 
+        n.name === this.editableNodeConfig.state.r2_sensor || n.mac_address === this.editableNodeConfig.state.r2_sensor
+      );
+
+      // Helper function to safely build the condition string
+      const buildCondition = (type, pin, value) => {
+        // Return null if any required part of the condition is missing
+        if (!type || !pin || value === undefined || value === null || value === '') {
+          return null;
+        }
+        // Format the condition string based on the sensor type
+        return type === "gpio" ? `${pin}|${value}` : `${pin}${value}`;
+      };
+
       const configObj = {
         payload: {
           [this.editableNodeConfig.node_id]: {
             r1: {
               node_id: r1_sensor_node ? r1_sensor_node.node_id : null,
-              condition: editableNodeConfig.state.r1_sensor_type == "gpio" ? `${this.editableNodeConfig.state.r1_sensor_pin}|${this.editableNodeConfig.state.r1_condition_name}` || null :
-               `${this.editableNodeConfig.state.r1_sensor_pin}${this.editableNodeConfig.state.r1_condition_name}` || null
+              condition: buildCondition(
+                this.editableNodeConfig.state.r1_sensor_type,
+                this.editableNodeConfig.state.r1_sensor_pin,
+                this.editableNodeConfig.state.r1_condition_name
+              )
             },
             r2: {
               node_id: r2_sensor_node ? r2_sensor_node.node_id : null,
-              condition: editableNodeConfig.state.r2_sensor_type == "gpio" ? `${this.editableNodeConfig.state.r2_sensor_pin}|${this.editableNodeConfig.state.r2_condition_name}` || null :
-               `${this.editableNodeConfig.state.r2_sensor_pin}${this.editableNodeConfig.state.r2_condition_name}` || null
+              condition: buildCondition(
+                this.editableNodeConfig.state.r2_sensor_type,
+                this.editableNodeConfig.state.r2_sensor_pin,
+                this.editableNodeConfig.state.r2_condition_name
+              )
             }
           }
         },
         type: "RELAY_CONFIG",
       };
+
       this.send(configObj);
       this.showNotification("Saving relay configuration...", "blue");
       this.relayConfig_request = true;
       this.closeDialog();
-      this.refreshPage();
+      
+      // SUGGESTION: Instead of a full refresh, consider re-fetching data 
+      // or updating the local state to provide a smoother user experience.
+      // this.refreshPage();
     },
     saveSensorConfig() {
       const updateObj = {
@@ -701,6 +746,7 @@ export default {
     },
     closeDialog() {
       this.dialog = false;
+      this.loadingNodeId = null; // Reset loading state on close
       this.gpio_config = {
         node_id: "",
         mode: {}
@@ -782,7 +828,13 @@ export default {
       this.send(commandObj);
     },
     showNodePopup(node) {
+      this.selectedNode = node;
+      this.editableNodeConfig = JSON.parse(JSON.stringify(node));
+      this.dialog = true;
+
       if (node.node_type == "sensor") {
+        this.loadingNodeId = node.node_id; // Start loading
+
         // set default gpio config mode to button
         let default_gpio = node.state.gpio || {};
         for (let key in default_gpio) {
@@ -800,9 +852,6 @@ export default {
         this.send(getObj);
         this.get_gpio_type_request = true;
       }
-      this.selectedNode = node;
-      this.editableNodeConfig = JSON.parse(JSON.stringify(node));
-      this.dialog = true;
     },
     startEditing(node) {
       this.editingNodeMac = node.mac_address;
@@ -906,12 +955,3 @@ export default {
 <style scoped>
 /* Add any component-specific styles here */
 </style>
-
-<!-- 
-
-- get gpio config mode
-- relay state auto update change state immediately
-
-
--->
-
