@@ -570,8 +570,8 @@ export default {
           this.send(updateObj);
         }
         setTimeout(() => {
-          // this.refreshPage();
-        }, 1500);
+          this.refreshPage();
+        }, 5000);
       }
       if (newMsg.type == "ALL_NODE" && this.allNode_request) {
         this.allNode_request = false;
@@ -624,6 +624,7 @@ export default {
         this.showNotification(`node_id : ${newMsg.payload.node_id} Relay configuration updated successfully`, "green");
         this.saveActiveNode();
         this.activeNodeSave_request = true;
+        this.refreshPage();
       }
       if (newMsg.type == "REMOVE_CONFIG" && this.removeConfig_request) {
         this.removeConfig_request = false;
@@ -724,15 +725,10 @@ export default {
         },
         type: "RELAY_CONFIG",
       };
-
       this.send(configObj);
       this.showNotification("Saving relay configuration...", "blue");
       this.relayConfig_request = true;
       this.closeDialog();
-      
-      // SUGGESTION: Instead of a full refresh, consider re-fetching data 
-      // or updating the local state to provide a smoother user experience.
-      // this.refreshPage();
     },
     saveSensorConfig() {
       const updateObj = {
